@@ -21,7 +21,7 @@ const months = [
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
   <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Weather</div>
   <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Zhangjiajie Weather & Climate</h1>
-  <p class="mt-6 text-lg text-stone-500 leading-relaxed">Zhangjiajie has a subtropical mountain climate: warm, humid summers and cool, relatively dry winters. The weather inside the park can differ from the city — it is typically 3-5C cooler at elevation, and mist forms in the valleys on most mornings regardless of forecast. <a href="https://www.travelchinaguide.com/climate/zhangjiajie.htm" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">Official climate data</a> gives averages; our notes below are from personal experience.</p>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">Everyone asks about the mist. It is real, it does make the pillars look like they are floating, and it shows up more often than the forecast suggests. The question is not whether it will rain but whether you will be in position when it clears. <a href="https://www.travelchinaguide.com/climate/zhangjiajie.htm" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">Official climate data</a> covers the averages; what follows is what the weather actually does to your day.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Weather</span></nav>
 
   
@@ -51,13 +51,69 @@ const months = [
     </div>
   </div>
 
-  <div class="mt-16 space-y-10">
+  <!-- Image -->
+  <div class="mt-16 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/hero.webp" type="image/webp" />
+      <img
+        src="/hero.jpg"
+        alt="Misty sandstone pillars of Zhangjiajie rising through clouds at sunrise"
+        class="w-full aspect-[16/9] object-cover"
+        width="1920"
+        height="1249"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+  </div>
+
+  <div class="mt-16 space-y-16">
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-1">Spring (Mar-May)</h2>
+      <span class="inline-block text-sm font-medium text-forest-600 bg-forest-50 rounded-full px-2.5 py-0.5 mt-1 mb-4">Mild and misty</span>
+      <p class="text-stone-500 leading-relaxed mb-4">Spring is the mist season. March mornings often start with visibility under 50 meters, creating the floating-peak effect that Zhangjiajie is famous for. By late morning the sun burns through and you get clear blue skies by early afternoon.</p>
+      <div class="rounded-xl border border-stone-100 bg-stone-50 p-4 text-sm text-stone-600 mb-4">
+        I arrived on an April morning expecting clear views and walked into a wall of fog. The cable car disappeared into white 20 meters ahead. By 10:30 the mist had lifted and I spent the rest of the day in perfect 22°C sunshine. The lesson: wait it out.
+      </div>
+      <p class="text-sm text-stone-500">Temperatures range from 8°C in March to 28°C in May. April is the sweet spot — mild, blooming wildflowers, and manageable crowds outside the May Day holiday. Pack a light jacket and a rain shell. See <a href="/best-time-to-visit" class="text-forest-600 hover:text-forest-700 underline">best time to visit</a> for month-by-month advice.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-1">Summer (Jun-Aug)</h2>
+      <span class="inline-block text-sm font-medium text-amber-600 bg-amber-50 rounded-full px-2.5 py-0.5 mt-1 mb-4">Hot, green, and crowded</span>
+      <p class="text-stone-500 leading-relaxed mb-4">Summer is hot (25-35°C) and humid. The forest is at its most vibrant green, but the viewpoints get crowded by 9:30 AM. Afternoon thunderstorms are a daily occurrence — they roll in around 2 PM, dump rain for 30 minutes, then leave as suddenly as they arrived.</p>
+      <div class="rounded-xl border border-stone-100 bg-stone-50 p-4 text-sm text-stone-600 mb-4">
+        I started at 6:30 AM in July and had Tianzi Mountain's eastern viewpoint to myself for about 45 minutes. By 8 AM the tour groups arrived. The afternoon storm caught me on Golden Whip Stream — I hid under a tree with a local guide who told me the rain would pass in 20 minutes. He was right.
+      </div>
+      <p class="text-sm text-stone-500">Book accommodation at least two weeks ahead in July and August. Start hikes before 7 AM to beat both the heat and the crowds. The Bailong Elevator queue hits 45+ minutes by 10 AM. <a href="/itinerary" class="text-forest-600 hover:text-forest-700 underline">Our one-day itinerary</a> shows how to navigate the park efficiently in peak season.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-1">Autumn (Sep-Nov)</h2>
+      <span class="inline-block text-sm font-medium text-orange-600 bg-orange-50 rounded-full px-2.5 py-0.5 mt-1 mb-4">Best all-round season</span>
+      <p class="text-stone-500 leading-relaxed mb-4">Autumn is the sweet spot: clear skies, comfortable temperatures (8-28°C), and the deciduous trees along the valleys turning bronze and gold against the grey sandstone. The light sits low in the sky all day, creating long shadows and warm tones that make every viewpoint photogenic.</p>
+      <div class="rounded-xl border border-stone-100 bg-stone-50 p-4 text-sm text-stone-600 mb-4">
+        I walked Golden Whip Stream in mid-November with the path to myself. The maple leaves had turned deep red along the water, and the afternoon light cut through the canopy at an angle I have never seen in summer. November is when this park is at its best.
+      </div>
+      <p class="text-sm text-stone-500">Avoid the first week of October (Golden Week) when domestic tourism peaks — the park hits capacity and queues stretch for hours. Late October through November is ideal. The <a href="/photography" class="text-forest-600 hover:text-forest-700 underline">photography guide</a> has specific tips for autumn light conditions.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-1">Winter (Dec-Feb)</h2>
+      <span class="inline-block text-sm font-medium text-blue-600 bg-blue-50 rounded-full px-2.5 py-0.5 mt-1 mb-4">Quiet and surreal</span>
+      <p class="text-stone-500 leading-relaxed mb-4">Winter is cold (0-10°C) but transforms the park. Snow dusts the upper pillars, the air is crisp and clear, and with half-price entry fees (CNY 115 instead of CNY 225) you get one of China's great national parks at a fraction of the usual cost and crowd level.</p>
+      <div class="rounded-xl border border-stone-100 bg-stone-50 p-4 text-sm text-stone-600 mb-4">
+        I visited in January and walked the entire Golden Whip Stream trail with maybe five other people in two hours. The snow on the quartz-sandstone pillars, the silence in the valley, the steam rising off the stream — it was a completely different park. Some upper trails were closed, but the core circuit was open and empty.
+      </div>
+      <p class="text-sm text-stone-500">Pack heavy: thermals, gloves, waterproof boots. The upper viewpoints (Tianzi Mountain at 1,200m) can feel 8-10°C colder with wind chill. Some high-altitude trails close after heavy snow, but the cable cars run year-round. <a href="/hiking-trails" class="text-forest-600 hover:text-forest-700 underline">Our hiking trails guide</a> notes which routes remain open in winter.</p>
+    </section>
+
     <section>
       <h2 class="text-2xl font-semibold text-stone-900 mb-4">How Weather Affects Your Visit</h2>
       <div class="space-y-4">
         <div class="rounded-xl border border-stone-200 bg-white p-5">
           <h3 class="font-semibold text-stone-800 text-lg mb-2">Mist & Visibility</h3>
-          <p class="text-sm text-stone-500">Morning mist is Zhangjiajie's signature — it creates the floating-peak effect. But in heavy fog (common Jun-Aug mornings), visibility drops to under 50 meters and viewpoints are blank. The mist typically burns off by 10-11 AM. If you wake up to thick fog, delay your cable car ride by an hour.</p>
+          <p class="text-sm text-stone-500">Morning mist is Zhangjiajie's signature — it creates the floating-peak effect. But in heavy fog (common June to August mornings), visibility drops to under 50 meters and viewpoints are blank. The mist typically burns off by 10-11 AM. If you wake up to thick fog, delay your cable car ride by an hour. The <a href="https://www.travelchinaguide.com/climate/zhangjiajie.htm" target="_blank" rel="noopener" class="text-forest-600 underline">official climate data</a> shows the region averages 1,400mm of rainfall annually — mist is part of the experience, not a problem to avoid.</p>
         </div>
         <div class="rounded-xl border border-stone-200 bg-white p-5">
           <h3 class="font-semibold text-stone-800 text-lg mb-2">Rain & Trail Closures</h3>
@@ -65,7 +121,7 @@ const months = [
         </div>
         <div class="rounded-xl border border-stone-200 bg-white p-5">
           <h3 class="font-semibold text-stone-800 text-lg mb-2">Temperature Inside the Park</h3>
-          <p class="text-sm text-stone-500">Expect 3-5C cooler at Tianzi Mountain summit (1,200m) than at the Wulingyuan gate (400m). The Golden Whip Stream valley stays cool and shaded even in July. In winter, the upper viewpoints can feel 8-10C colder with wind chill — dress for skiing conditions, not city winter.</p>
+          <p class="text-sm text-stone-500">Expect 3-5°C cooler at Tianzi Mountain summit (1,200m) than at the Wulingyuan gate (400m). The Golden Whip Stream valley stays cool and shaded even in July. In winter, the upper viewpoints can feel 8-10°C colder with wind chill — dress for skiing conditions, not city winter.</p>
         </div>
       </div>
     </section>

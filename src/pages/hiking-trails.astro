@@ -5,8 +5,8 @@ const trails = [
   {name:"Golden Whip Stream",dist:"7.5 km",time:"2-3 hours",diff:"Easy",elev:"Minimal (flat)",desc:"The most accessible trail in the park and one of the most rewarding. A flat, shaded path follows a crystal-clear stream through the heart of the Forest Park. Wild macaques are common — keep snacks hidden. The trail is paved throughout and suitable for all fitness levels. Walk southbound (downstream) for a gentle downhill gradient. We walked this in January with snow on the banks and in July with the forest at full green — both are wonderful.",tip:"Late afternoon is best. The stream catches golden light around 4 PM, and most tour groups have left by then."},
   {name:"Yuanjiajie Loop",dist:"~5 km",time:"2-3 hours",diff:"Moderate",elev:"~200m up/down",desc:"The loop connecting Avatar Hallelujah Mountain, First Bridge Under Heaven, and the surrounding viewpoints. Most of the trail is paved with stone steps and guardrails. The section between the Avatar pillar and First Bridge involves some steep staircases (50-100 steps at a time) but nothing technical. This is the busiest trail in the park — go before 9 AM or after 3 PM. All major viewpoints have railings and are safe for families.",tip:"Walk counter-clockwise from the Bailong Elevator exit. You will hit the Avatar pillar first when crowds are lighter."},
   {name:"Tianzi Mountain Summit Walk",dist:"~3 km",time:"1-2 hours",diff:"Easy-Moderate",elev:"Mostly flat at summit",desc:"After taking the cable car up, the summit area has a network of paved paths connecting multiple viewpoints. The Imperial Writing Brush Peaks are the highlight. The paths are flat to gently rolling, with occasional short staircases between viewing platforms. This is more of a scenic walk than a hike — you are on a maintained summit complex, not a wilderness trail. The cable car does the hard work of getting you up 1,200 meters.",tip:"Walk to the far eastern viewpoint (past the main platform, following signs for 'Shentangwan'). Far fewer people, equally good views."},
-  {name:"Yangjiajie Trails",dist:"4-8 km",time:"Half day",diff:"Moderate-Hard",elev:"300-500m up/down",desc:"The park's best-kept secret for hikers. Yangjiajie has the same dramatic pillar landscape as Yuanjiajie but receives a fraction of the visitors. The trails are less maintained — more stone steps, fewer paved paths, fewer guardrails — which keeps casual tour groups away. The Natural Great Wall viewpoint is a must. Navigation is trickier here; download offline maps before starting. We spent a full morning here in April 2026 and encountered maybe 20 other people total.",tip:"Take the shuttle bus from Yuanjiajie parking lot. No separate entrance gate — accessed via the internal shuttle network. Start early; trails get slippery after rain."},
-  {name:"Grand Canyon Trail",dist:"~5 km",time:"2-2.5 hours",diff:"Moderate",elev:"~300m descent",desc:"After crossing the Glass Bridge, descend into the Grand Canyon via a stone staircase. The trail follows a stream through narrow gorges, past several waterfalls, and ends at a boat dock. Mostly downhill (you start at bridge level and descend to the canyon floor), but involves about 1,000 steps total. The trail is well-maintained with guardrails throughout. The canyon sections are dramatically narrow — at points, the walls close to within 10 meters overhead.",tip:"If your knees are an issue, skip the hike and take the slide (CNY 30). The slide is genuinely fun and saves you the stair descent."},
+  {name:"Yangjiajie Trails",dist:"4-8 km",time:"Half day",diff:"Moderate-Hard",elev:"300-500m up/down",desc:"The park's best-kept secret for hikers. Yangjiajie has the same dramatic pillar landscape as Yuanjiajie but receives a fraction of the visitors. The trails are less maintained — more stone steps, fewer paved paths, fewer guardrails — which keeps casual tour groups away. The Natural Great Wall viewpoint is a must. Navigation is trickier here; download offline maps before starting. We spent a full morning here in April 2026 and encountered maybe 20 other people total. It is ranked in our <a href=\"/attractions\" class=\"text-forest-600 hover:text-forest-700 underline\">top 10 attractions</a> for good reason.",tip:"Take the shuttle bus from Yuanjiajie parking lot. No separate entrance gate — accessed via the internal shuttle network. Start early; trails get slippery after rain."},
+  {name:"Grand Canyon Trail",dist:"~5 km",time:"2-2.5 hours",diff:"Moderate",elev:"~300m descent",desc:"After crossing the <a href=\"/glass-bridge\" class=\"text-forest-600 hover:text-forest-700 underline\">Glass Bridge</a>, descend into the Grand Canyon via a stone staircase. The trail follows a stream through narrow gorges, past several waterfalls, and ends at a boat dock. Mostly downhill (you start at bridge level and descend to the canyon floor), but involves about 1,000 steps total. The trail is well-maintained with guardrails throughout. The canyon sections are dramatically narrow — at points, the walls close to within 10 meters overhead.",tip:"If your knees are an issue, skip the hike and take the slide (CNY 30). The slide is genuinely fun and saves you the stair descent."},
   {name:"Tianmen Mountain Cliff Walk",dist:"~3 km",time:"1-2 hours",diff:"Easy",elev:"Flat along cliff face",desc:"A glass-floored walkway bolted to the vertical cliff face of Tianmen Mountain, about 1,400 meters above sea level. Technically not a hike — it is a maintained walkway with railings and the glass sections are optional (you can walk on the solid inner path). The views straight down the sheer limestone cliff are vertigo-inducing. The full western loop takes about an hour at a relaxed pace. Combine with Heaven's Gate and the cable car for a half-day visit.",tip:"Go on the cliff walkway before visiting Heaven's Gate. The walkway gets more crowded as the day progresses."}
 ];
 ---
@@ -15,10 +15,8 @@ const trails = [
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
   <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Hiking Trails</div>
   <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Zhangjiajie Hiking Trails</h1>
-  <p class="mt-6 text-lg text-stone-500 leading-relaxed">From gentle streamside walks to steep canyon descents — six trails we have hiked, ranked from easiest to hardest. Distances, times, and difficulty levels are based on our own experience.</p>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">From gentle streamside walks to steep canyon descents — six trails we have hiked across eight visits, ranked from easiest to hardest with real distances, times, and the mistakes we made so you do not have to. For photography-specific advice on these trails, see our <a href="/photography" class="text-forest-600 hover:text-forest-700 underline">Zhangjiajie photography guide</a>.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Hiking Trails</span></nav>
-
-  
 
   <div class="mt-8 rounded-2xl overflow-hidden">
     <picture>
@@ -34,7 +32,24 @@ const trails = [
       />
     </picture>
   </div>
-    <div class="mt-12 space-y-8">
+
+  <div class="mt-12 space-y-8">
+    <section>
+      <div class="rounded-2xl overflow-hidden">
+        <picture>
+          <source srcset="/feature-2.webp" type="image/webp" />
+          <img
+            src="/feature-2.jpg"
+            alt="Hiking trail winding through Zhangjiajie forest with sandstone pillars in the background"
+            class="w-full aspect-[16/9] object-cover"
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+      </div>
+    </section>
     {trails.map(({name,dist,time,diff,elev,desc,tip}) => (
       <section class="rounded-2xl border border-stone-200 bg-white p-6 md:p-8">
         <h2 class="text-xl font-semibold text-stone-900 mb-3">{name}</h2>
@@ -52,6 +67,17 @@ const trails = [
     ))}
   </div>
 
-  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+    <section class="rounded-2xl border border-stone-200 bg-white p-6 md:p-8">
+      <h2 class="text-xl font-semibold text-stone-900 mb-4">Which Trail Should You Choose?</h2>
+      <div class="space-y-3 text-sm text-stone-500">
+        <p><strong class="text-stone-700">You have half a day and want the most iconic walk:</strong> Golden Whip Stream. Flat, beautiful, and uniquely Zhangjiajie. Pair it with the Yuanjiajie loop for a full day.</p>
+        <p><strong class="text-stone-700">You are a photographer or want solitude:</strong> Yangjiajie. Same pillars as Yuanjiajie with 10% of the visitors. Requires moderate fitness.</p>
+        <p><strong class="text-stone-700">You want the full Zhangjiajie experience in one day:</strong> Start with the Yuanjiajie loop (morning, before crowds), then Golden Whip Stream (afternoon, golden light). This exact <a href="/itinerary" class="text-forest-600 hover:text-forest-700 underline">1-day itinerary</a> uses this combination.</p>
+        <p><strong class="text-stone-700">You have limited mobility or are travelling with children:</strong> Tianzi Mountain summit walk (cable car does the climbing) or the Grand Canyon trail with the slide option. Both are accessible with minimal effort.</p>
+        <p><strong class="text-stone-700">Adrenaline is your goal:</strong> Tianmen Mountain cliff walk, combined with the Glass Bridge. See our <a href="/glass-bridge" class="text-forest-600 hover:text-forest-700 underline">glass bridge guide</a> for timing details.</p>
+      </div>
+    </section>
+
+  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" string="true" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
 </div>
 </BaseLayout>

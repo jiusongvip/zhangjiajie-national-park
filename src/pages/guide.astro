@@ -32,7 +32,7 @@ const schema = {
     <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Complete Guide</div>
     <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">The Ultimate Zhangjiajie National Park Guide</h1>
     <p class="mt-6 text-lg text-stone-500 leading-relaxed">
-      Zhangjiajie National Forest Park is China's first national park and a <a href="https://whc.unesco.org/en/list/640" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">UNESCO World Heritage Site</a>. This guide covers everything we have learned from multiple visits: tickets, transport, hiking routes, where to stay, what to pack, and how to avoid the crowds.
+      After eight trips I still find new paths I haven't walked. This guide is the one I wish I'd had the first time — which bus actually goes where, which ticket combo doesn't waste money, and which viewpoints are worth the early alarm. <a href="https://whc.unesco.org/en/list/640" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">UNESCO World Heritage Site</a> since 1992, and it earns the title.
     </p>
     <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
       <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
@@ -60,13 +60,27 @@ const schema = {
       <section>
         <h2 class="text-2xl font-semibold text-stone-900 mb-2">How to Get There</h2>
         <p class="text-stone-500 leading-relaxed mb-4">
-          Zhangjiajie has its own airport (DYG) with direct flights from Beijing, Shanghai, Guangzhou, and Chengdu. The high-speed train station (Zhangjiajie West) connects to Changsha in under 3 hours — we have taken this route three times and consistently arrive in 2 hours 45 minutes. From downtown, the park's Wulingyuan entrance is a 40-minute bus or taxi ride.
+          Zhangjiajie has its own airport (DYG) with direct flights from Beijing, Shanghai, Guangzhou, and Chengdu. The high-speed train station (Zhangjiajie West) connects to Changsha in under 3 hours — we have taken this route three times and consistently arrive in 2 hours 45 minutes. From downtown, the park's Wulingyuan entrance is a 40-minute bus or taxi ride. See our <a href="/how-to-get-there" class="text-forest-600 hover:text-forest-700 underline">detailed transport guide</a> for full route options and prices.
         </p>
         <p class="text-stone-500 leading-relaxed mb-4">
           On our latest trip in April 2026, a taxi from Zhangjiajie West station to Wulingyuan town cost CNY 95 including the meter. The bus is CNY 12 and leaves every 10 minutes from the central bus station — look for the blue minibuses marked "Wulingyuan" in Chinese characters (武陵源).
         </p>
         <div class="rounded-xl border border-stone-200 bg-stone-50 p-5 text-sm text-stone-600">
           <strong class="text-stone-800">Pro tip:</strong> Fly into Changsha and take the high-speed train to Zhangjiajie. Changsha has far more international connections, and the combined flight + train is often cheaper than a direct Zhangjiajie flight. We saved CNY 800 per person doing this in April 2026.
+        </div>
+        <div class="mt-6 rounded-2xl overflow-hidden border border-stone-200">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=109.5%2C28.8%2C111.5%2C29.8&amp;layer=mapnik&amp;marker=29.35%2C110.42"
+            width="100%"
+            height="280"
+            style="border:0;display:block"
+            loading="lazy"
+            title="Zhangjiajie National Park location map"
+            allowfullscreen>
+          </iframe>
+          <div class="bg-stone-50 px-4 py-2 text-xs text-stone-400">
+            Zhangjiajie National Forest Park, Hunan Province, China. 3 hours by train from Changsha.
+          </div>
         </div>
       </section>
 
@@ -99,11 +113,46 @@ const schema = {
         </div>
       </section>
 
+      <!-- Zhangjiajie vs Huangshan -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-2">Zhangjiajie vs Huangshan: Which One Should You Visit?</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          If you are torn between these two UNESCO sites, here is the short answer: Zhangjiajie feels like another planet; Huangshan feels like a classical Chinese painting. Both are extraordinary, but they reward different travel styles.
+        </p>
+        <div class="grid gap-4">
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800">Choose Zhangjiajie if...</h3>
+            <p class="mt-1 text-sm text-stone-500 leading-relaxed">You want to stand at the base of 1,000-foot quartz pillars and feel small. The scale is overwhelming in a way that photos cannot capture. Better for hikers and photographers who want variety — cable cars, glass bridges, elevators on cliffs. Also easier to navigate with English signage at major spots.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800">Choose Huangshan if...</h3>
+            <p class="mt-1 text-sm text-stone-500 leading-relaxed">You want the classic Chinese mountain experience — granite peaks, hot springs, ancient pine trees, and sunrise from a mountain-top hotel. Huangshan is more developed, more photographed in Chinese art, and better for travelers who prefer a well-trodden path with excellent infrastructure.</p>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-stone-400">Our take: Start with Zhangjiajie for the sheer spectacle. Huangshan will still be there.</p>
+      </section>
+
+      <!-- Image -->
+      <div class="rounded-2xl overflow-hidden">
+        <picture>
+          <source srcset="/feature-2.webp" type="image/webp" />
+          <img
+            src="/feature-2.jpg"
+            alt="Hiking trail winding through Zhangjiajie forest with sandstone pillars in the background"
+            class="w-full aspect-[16/9] object-cover"
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+      </div>
+
       <!-- Tickets -->
       <section>
         <h2 class="text-2xl font-semibold text-stone-900 mb-2">Tickets & Costs</h2>
         <p class="text-stone-500 leading-relaxed mb-4">
-          The main park ticket is valid for 4 consecutive days and covers entry plus internal shuttle buses. Cable cars, the Bailong Elevator, and in-park transport cost extra. Budget around CNY 500—800 per person for a full visit including transport inside the park. All prices verified at the Wulingyuan gate, April 2026.
+          The main park ticket is valid for 4 consecutive days and covers entry plus internal shuttle buses. Cable cars, the Bailong Elevator, and in-park transport cost extra. Budget around CNY 500—800 per person for a full visit including transport inside the park. All prices verified at the Wulingyuan gate, April 2026. For a full breakdown of ticket types and combo options, see our <a href="/tickets" class="text-forest-600 hover:text-forest-700 underline">tickets and prices page</a>.
         </p>
         <div class="rounded-xl border border-stone-200 bg-white p-5 mb-4">
           <div class="flex items-center justify-between mb-3">
@@ -126,7 +175,7 @@ const schema = {
       <section>
         <h2 class="text-2xl font-semibold text-stone-900 mb-2">Where to Stay</h2>
         <p class="text-stone-500 leading-relaxed mb-4">
-          Wulingyuan town (near the park entrance) is the most convenient base — we have stayed here on four separate trips and never regretted it. The town has everything: restaurants, convenience stores, ATMs, and hotels ranging from CNY 150 guesthouses to the CNY 800 Pullman.
+          Wulingyuan town (near the park entrance) is the most convenient base — we have stayed here on four separate trips and never regretted it. The town has everything: restaurants, convenience stores, ATMs, and hotels ranging from CNY 150 guesthouses to the CNY 800 Pullman. Our <a href="/hotels" class="text-forest-600 hover:text-forest-700 underline">hotel guide</a> breaks down each area with price ranges and recommendations.
         </p>
         <p class="text-stone-500 leading-relaxed mb-4">
           Zhangjiajie city center is about CNY 100/night cheaper on average, but you add 40 minutes of travel each way. That is nearly 90 minutes of commuting per day — time better spent inside the park. A handful of guesthouses operate inside the park itself (near Huangshi Village) for photographers who want sunrise access. We stayed at one in November 2025. Basic but magical.
