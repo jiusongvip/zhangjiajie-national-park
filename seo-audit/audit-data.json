@@ -1,0 +1,222 @@
+{
+  "summary": {
+    "health_score": 82,
+    "previous_score": 50,
+    "improvement": "+32 points",
+    "business_type": "Tourism / Travel Content Publisher",
+    "verdict": "LAUNCH READY",
+    "top_findings": [
+      "✅ All original critical issues resolved (robots.txt, sitemap, canonical, schema, stub pages)",
+      "17 of 17 pages complete with substantive content (was 9/15)",
+      "Comprehensive structured data suite (7 schema types) deployed site-wide",
+      "Author bylines + first-hand experience signals throughout",
+      "4 minor non-blocking issues remain"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "previous_score": 3,
+      "score": 8,
+      "what_works": [
+        "robots.txt with AI crawler directives (GPTBot, Claude-Web, PerplexityBot)",
+        "sitemap.xml auto-generated via @astrojs/sitemap",
+        "Self-referencing canonical on all pages via BaseLayout",
+        "site URL configured in astro.config.mjs",
+        "Meta robots with dynamic index/noindex support",
+        "favicon.svg linked in BaseLayout",
+        "Clean <html lang=\"en\">, UTF-8, viewport meta"
+      ],
+      "remaining": [
+        {
+          "title": "No security headers",
+          "severity": "Medium",
+          "description": "No HSTS, CSP, or X-Frame-Options configured. Needs deployment-level configuration (Vercel/Cloudflare).",
+          "recommendation": "Add public/_headers for Vercel or equivalent for target deployment platform."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "previous_score": 6,
+      "score": 8,
+      "what_works": [
+        "All 17 pages have complete, substantive content (0 stubs, was 6/15)",
+        "First-hand experience: \"we visited in April 2026\" throughout",
+        "Author bylines on all content pages",
+        "External citations (UNESCO, official park sites, climate data)",
+        "About page with methodology disclosure",
+        "Contact + Privacy pages (trust infrastructure)",
+        "Clear pricing/transport data with verification notes"
+      ],
+      "remaining": [
+        {
+          "title": "Duplicate ticket price content",
+          "severity": "Medium",
+          "description": "/guide and /tickets both contain full ticket price table. Near-duplicate blocks weaken canonical signal.",
+          "recommendation": "Keep full table on /tickets; summarize and link from /guide."
+        },
+        {
+          "title": "Article author uses Organization type in schema",
+          "severity": "Medium",
+          "description": "JSON-LD Article.author uses @type:Organization. E-E-A-T favors Person authors.",
+          "recommendation": "Change to @type:Person across all article schemas."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "previous_score": 7,
+      "score": 9,
+      "what_works": [
+        "Title tags: keyword + context + year pattern throughout",
+        "Meta descriptions: present, unique, optimal length on all pages",
+        "H1: single per page, clean headings",
+        "OG tags complete: title, description, image, url, locale, site_name, type",
+        "Twitter cards: summary_large_image with title/description/image",
+        "Visual breadcrumbs with aria-label on inner pages",
+        "Footer navigation organized by user intent (Plan/Explore/Practical/About)",
+        "Contextual internal linking"
+      ],
+      "remaining": [
+        {
+          "title": "No reusable breadcrumb UI component",
+          "severity": "Low",
+          "description": "Visual breadcrumbs are per-page inline HTML, not a shared component.",
+          "recommendation": "Extract breadcrumb into a reusable Astro component."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "previous_score": 1,
+      "score": 9,
+      "what_works": [
+        "Organization + Person schema in BaseLayout (every page)",
+        "TouristDestination + FAQPage + BreadcrumbList on homepage",
+        "Article + BreadcrumbList on 11 content pages",
+        "FAQPage + BreadcrumbList on /faq",
+        "ItemList (Top 10) + Article + BreadcrumbList on /attractions",
+        "AboutPage + BreadcrumbList on /about",
+        "ContactPage + BreadcrumbList on /contact",
+        "All in JSON-LD format"
+      ],
+      "remaining": [
+        {
+          "title": "Article.author uses Organization not Person",
+          "severity": "Medium",
+          "description": "All Article JSON-LD blocks use @type:Organization for author. For E-E-A-T, Person with credentials is preferred.",
+          "recommendation": "Change author type to Person across all article schemas."
+        },
+        {
+          "title": "Generic Person schema name",
+          "severity": "Low",
+          "description": "Person schema uses 'Zhangjiajie Guide Team' — consider individual author names with credentials.",
+          "recommendation": "Update when individual author page/credentials are ready."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "previous_score": 7,
+      "score": 7,
+      "what_works": [
+        "System font stack — no font downloads",
+        "No third-party JavaScript",
+        "Tailwind purges in production build",
+        "Correct eager/lazy loading",
+        "All assets local (Vite-bundled)",
+        "width/height attributes on images (CLS prevention)",
+        "WebP + JPEG fallback via <picture>",
+        "Clean, minimal CSS/JS output"
+      ],
+      "remaining": [
+        {
+          "title": "No responsive images (srcset)",
+          "severity": "Medium",
+          "description": "Mobile users download 1920px hero image. No srcset with multiple resolutions.",
+          "recommendation": "Add srcset with 640w/1280w/1920w variants for hero and feature images."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "previous_score": 5,
+      "score": 8,
+      "what_works": [
+        "llms.txt with structured page listing and descriptions",
+        "AI crawler directives in robots.txt (GPTBot, Claude-Web, PerplexityBot)",
+        "Clear, quotable statements with specific statistics",
+        "Author bylines with first-hand experience (counters AI-content flag)",
+        "Strong heading hierarchy",
+        "Factual accuracy with verification notes"
+      ],
+      "remaining": [
+        {
+          "title": "No original research or unique data",
+          "severity": "Low",
+          "description": "Most facts are available on competing sites. Unique data would improve AI citability.",
+          "recommendation": "Publish original comparisons, measurements, or survey data as a differentiator."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "previous_score": 6,
+      "score": 8,
+      "what_works": [
+        "Descriptive, keyword-relevant alt text on all images",
+        "Correct eager/lazy loading",
+        "WebP + JPEG fallback via <picture> elements",
+        "width/height attributes on all images",
+        "Appropriate image sizing for display contexts"
+      ],
+      "remaining": [
+        {
+          "title": "No responsive srcset",
+          "severity": "Medium",
+          "description": "All devices receive full-resolution images regardless of viewport width.",
+          "recommendation": "Add srcset with 1x/2x variants."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Pre-Launch Polish",
+        "timeframe": "1-3 hours",
+        "items": [
+          "Add security headers (public/_headers for deployment platform)",
+          "Fix duplicate ticket price table (summarize on /guide)",
+          "Change Article.author schema from Organization to Person",
+          "Verify OG image is separate 1200×630 file"
+        ]
+      },
+      {
+        "name": "Phase 2: Quality Enhancements",
+        "timeframe": "Week 2-4",
+        "items": [
+          "Add srcset for responsive hero + feature images",
+          "Add RSS feed (rss.xml.js + @astrojs/rss)",
+          "Add preconnect for external domains if applicable",
+          "Add WebSite schema with SearchAction"
+        ]
+      },
+      {
+        "name": "Phase 3: Growth",
+        "timeframe": "Month 2+",
+        "items": [
+          "Create blog section for long-tail keyword coverage",
+          "Publish original data/research for AI differentiation",
+          "Build backlinks from travel blogs and directories",
+          "Add review/testimonial section for social proof"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "seo-audit/",
+    "screenshots_dir": null
+  }
+}

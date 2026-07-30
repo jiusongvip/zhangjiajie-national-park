@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "name": "Contact Zhangjiajie Guide",
+      "description": "Get in touch with the Zhangjiajie Guide team. We welcome corrections, tips, and feedback from fellow travelers."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zhangjiajie-national-park.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://zhangjiajie-national-park.com/contact/" }
+      ]
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Contact Zhangjiajie Guide | Get in Touch"
+  description="Get in touch with the Zhangjiajie Guide team. We welcome corrections, travel tips, and feedback from fellow visitors to keep this guide accurate."
+>
+  <slot name="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </slot>
+  <div class="mx-auto max-w-2xl px-4 md:px-6 py-20 md:py-28">
+    <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Contact</div>
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Get in Touch</h1>
+    <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+      We read every message. Whether you found an outdated price, have a tip about a new trail, or just want to share your Zhangjiajie experience — we would love to hear from you.
+    </p>
+
+    <div class="mt-12 space-y-8">
+      <div class="rounded-xl border border-stone-200 bg-white p-6">
+        <h2 class="font-semibold text-stone-800 text-lg mb-2">Email</h2>
+        <p class="text-stone-500 text-sm leading-relaxed mb-3">
+          For corrections, content suggestions, and general inquiries:
+        </p>
+        <a href="mailto:hello@zhangjiajie-national-park.com" class="text-forest-600 hover:text-forest-700 font-medium text-sm">
+          hello@zhangjiajie-national-park.com
+        </a>
+      </div>
+
+      <div class="rounded-xl border border-stone-200 bg-white p-6">
+        <h2 class="font-semibold text-stone-800 text-lg mb-2">Response Time</h2>
+        <p class="text-stone-500 text-sm leading-relaxed">
+          We typically respond within 2-3 business days. If you are writing about a factual error on the site, we aim to verify and correct it within 48 hours.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-stone-200 bg-white p-6">
+        <h2 class="font-semibold text-stone-800 text-lg mb-2">Press & Media</h2>
+        <p class="text-stone-500 text-sm leading-relaxed">
+          For media inquiries, interview requests, or permission to use our content, please email us with "Press" in the subject line.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-12 border-t border-stone-200 text-center">
+      <a href="/about" class="text-sm font-medium text-forest-600 hover:text-forest-700 transition-colors">
+        Learn more about who we are
+      </a>
+    </div>
+  </div>
+</BaseLayout>

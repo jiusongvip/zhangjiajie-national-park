@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Weather | Monthly Forecast & Climate Guide (2026)","description":"Zhangjiajie weather by month: temperature, rainfall, what to wear, and how weather affects park access. Based on first-hand visits across all seasons.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Weather","item":"https://zhangjiajie-national-park.com/weather/"}]}]};
+const months = [
+  {m:"Jan",hi:"8",lo:"1",rain:"40",wear:"Heavy jacket, thermals, gloves, waterproof boots. Snow possible on upper trails."},
+  {m:"Feb",hi:"10",lo:"3",rain:"55",wear:"Warm jacket, layers. Lighter than January but still cold. Chinese New Year crowds in town, not park."},
+  {m:"Mar",hi:"15",lo:"7",rain:"90",wear:"Light jacket + rain shell. Temperatures swing 10-15C between morning and afternoon."},
+  {m:"Apr",hi:"22",lo:"12",rain:"140",wear:"T-shirt + light jacket. Best month overall. Rain jacket essential for afternoon showers."},
+  {m:"May",hi:"27",lo:"17",rain:"180",wear:"Short sleeves, sun hat, rain shell. Hot by midday. Avoid May 1-5 (Labor Day)."},
+  {m:"Jun",hi:"30",lo:"21",rain:"210",wear:"Lightest clothing, rain jacket. Humid. Afternoon thunderstorms most days, pass quickly."},
+  {m:"Jul",hi:"33",lo:"24",rain:"190",wear:"Shorts, t-shirt, rain gear. Peak heat and humidity. Start hikes by 7 AM."},
+  {m:"Aug",hi:"32",lo:"23",rain:"170",wear:"Same as July. Afternoon storms. Park at its greenest."},
+  {m:"Sep",hi:"28",lo:"19",rain:"100",wear:"Light layers. Early September still warm. Late September is ideal — less rain, fewer crowds."},
+  {m:"Oct",hi:"22",lo:"14",rain:"85",wear:"Light jacket for mornings. AVOID Oct 1-7 Golden Week. Late October is perfect."},
+  {m:"Nov",hi:"15",lo:"8",rain:"55",wear:"Warm jacket, scarf. Our favorite month. Autumn colors, crisp air, near-empty trails."},
+  {m:"Dec",hi:"10",lo:"3",rain:"30",wear:"Heavy jacket, thermals. Snow-dusted pillars. Half-price tickets. Some trails closed after snow."}
+];
+---
+<BaseLayout title="Zhangjiajie Weather | Monthly Forecast & Climate Guide (2026)" description="Zhangjiajie weather by month: temperature, rainfall, what to wear, and how weather affects park access. Based on first-hand visits across all seasons." author="Zhangjiajie Guide Team" datePublished="July 2026">
+<slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+<div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+  <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Weather</div>
+  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Zhangjiajie Weather & Climate</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">Zhangjiajie has a subtropical mountain climate: warm, humid summers and cool, relatively dry winters. The weather inside the park can differ from the city — it is typically 3-5C cooler at elevation, and mist forms in the valleys on most mornings regardless of forecast. <a href="https://www.travelchinaguide.com/climate/zhangjiajie.htm" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">Official climate data</a> gives averages; our notes below are from personal experience.</p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Weather</span></nav>
+
+  <div class="mt-12">
+    <div class="rounded-xl border border-stone-200 overflow-hidden">
+      <table class="w-full text-sm">
+        <thead class="bg-stone-50 border-b border-stone-200"><tr><th class="text-left px-3 py-3 font-medium text-stone-700">Month</th><th class="text-center px-3 py-3 font-medium text-stone-700">High (C)</th><th class="text-center px-3 py-3 font-medium text-stone-700">Low (C)</th><th class="text-center px-3 py-3 font-medium text-stone-700">Rain (mm)</th><th class="text-left px-3 py-3 font-medium text-stone-700">What to Wear</th></tr></thead>
+        <tbody class="divide-y divide-stone-100">
+          {months.map(({m,hi,lo,rain,wear}) => (<tr class="hover:bg-stone-50"><td class="px-3 py-3 font-medium text-stone-700">{m}</td><td class="text-center px-3 py-3 text-stone-500">{hi}</td><td class="text-center px-3 py-3 text-stone-500">{lo}</td><td class="text-center px-3 py-3 text-stone-500">{rain}</td><td class="px-3 py-3 text-stone-500 text-xs leading-relaxed">{wear}</td></tr>))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mt-16 space-y-10">
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">How Weather Affects Your Visit</h2>
+      <div class="space-y-4">
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Mist & Visibility</h3>
+          <p class="text-sm text-stone-500">Morning mist is Zhangjiajie's signature — it creates the floating-peak effect. But in heavy fog (common Jun-Aug mornings), visibility drops to under 50 meters and viewpoints are blank. The mist typically burns off by 10-11 AM. If you wake up to thick fog, delay your cable car ride by an hour.</p>
+        </div>
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Rain & Trail Closures</h3>
+          <p class="text-sm text-stone-500">Light rain does not close anything — most trails are paved or stone-stepped. Heavy rain may close the cliff walkway at Tianmen Mountain and some upper Yangjiajie trails. Winter snow occasionally closes high-altitude paths. The Glass Bridge operates in rain but closes in lightning or high winds.</p>
+        </div>
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Temperature Inside the Park</h3>
+          <p class="text-sm text-stone-500">Expect 3-5C cooler at Tianzi Mountain summit (1,200m) than at the Wulingyuan gate (400m). The Golden Whip Stream valley stays cool and shaded even in July. In winter, the upper viewpoints can feel 8-10C colder with wind chill — dress for skiing conditions, not city winter.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/best-time-to-visit" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Best Time to Visit <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+</div>
+</BaseLayout>

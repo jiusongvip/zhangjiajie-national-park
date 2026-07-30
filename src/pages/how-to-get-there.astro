@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"How to Get to Zhangjiajie | Transport Guide (2026)","description":"Flights, trains, buses to Zhangjiajie with directions to each park entrance. Based on first-hand travel experience.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"How to Get There","item":"https://zhangjiajie-national-park.com/how-to-get-there/"}]}]};
+---
+<BaseLayout title="How to Get to Zhangjiajie | Transport Guide (2026)" description="Complete transport guide to Zhangjiajie: flights, trains, buses from major cities, plus door-to-door directions to each park entrance. Based on first-hand travel." author="Zhangjiajie Guide Team" datePublished="July 2026">
+<slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+<div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+  <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Transport</div>
+  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">How to Get There</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">Flights, trains, and buses to Zhangjiajie, door to door. Every route and price here is based on our own travel — we have arrived by air, by high-speed train, and by bus from Fenghuang.</p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">How to Get There</span></nav>
+  <div class="mt-12 space-y-12">
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">By Air</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">Zhangjiajie Hehua International Airport (DYG) is about 5 km from downtown and 35 km (40 min) from the Wulingyuan park entrance. Direct flights operate from Beijing (2.5h), Shanghai (2h), Guangzhou (1.5h), Chengdu (1.5h), and Xi'an (1.5h).</p>
+      <p class="text-stone-500 leading-relaxed mb-4">International flights are limited — most foreign travelers connect through one of the cities above. We flew Shanghai → Zhangjiajie in April 2026 on China Eastern: CNY 680 one-way booked 2 weeks out. Budget airlines like Spring Airlines sometimes offer CNY 300-400 fares from Shanghai if booked 4+ weeks ahead.</p>
+      <div class="rounded-xl border border-stone-200 bg-white p-5 mb-4">
+        <h3 class="font-semibold text-stone-800 text-lg mb-2">From DYG to the Park</h3>
+        <p class="text-sm text-stone-500"><strong class="text-stone-700">Taxi:</strong> CNY 100-150 to Wulingyuan entrance, 40 minutes. We took a taxi on arrival — worth the cost after a long flight.</p>
+        <p class="text-sm text-stone-500 mt-2"><strong class="text-stone-700">Airport shuttle bus:</strong> CNY 20 to downtown, then transfer to Wulingyuan bus. Total ~1.5 hours. Cheaper but involves a transfer with luggage.</p>
+      </div>
+    </section>
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">By High-Speed Train</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">Zhangjiajie West Railway Station (张家界西站) is the high-speed hub, about 10 km from downtown. Modern, clean, English signage throughout. This is our preferred way to arrive.</p>
+      <div class="rounded-xl border border-stone-200 overflow-hidden mb-4"><table class="w-full text-sm"><thead class="bg-stone-50 border-b border-stone-200"><tr><th class="text-left px-5 py-3 font-medium text-stone-700">From</th><th class="text-center px-5 py-3 font-medium text-stone-700">Duration</th><th class="text-right px-5 py-3 font-medium text-stone-700">2nd Class (CNY)</th></tr></thead><tbody class="divide-y divide-stone-100"><tr class="hover:bg-stone-50"><td class="px-5 py-3 text-stone-600">Changsha</td><td class="text-center px-5 py-3 text-stone-500">~2h 45m</td><td class="text-right px-5 py-3 font-medium">115</td></tr><tr class="hover:bg-stone-50"><td class="px-5 py-3 text-stone-600">Guangzhou</td><td class="text-center px-5 py-3 text-stone-500">~6h</td><td class="text-right px-5 py-3 font-medium">480</td></tr><tr class="hover:bg-stone-50"><td class="px-5 py-3 text-stone-600">Shanghai</td><td class="text-center px-5 py-3 text-stone-500">~8h</td><td class="text-right px-5 py-3 font-medium">650</td></tr><tr class="hover:bg-stone-50"><td class="px-5 py-3 text-stone-600">Beijing</td><td class="text-center px-5 py-3 text-stone-500">~10h</td><td class="text-right px-5 py-3 font-medium">780</td></tr></tbody></table></div>
+      <p class="text-sm text-stone-500"><strong class="text-stone-800">Budget tip:</strong> Fly into Changsha (far more international flights), then take the high-speed train. We have done this three times — Changsha airport-to-train transfer is straightforward via Metro Line 2, and the combined cost is often CNY 500-800 cheaper than flying direct to Zhangjiajie. <a href="https://www.12306.cn" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">Book train tickets on 12306.cn</a> or via Trip.com for English-language booking.</p>
+    </section>
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">By Long-Distance Bus</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">Long-distance buses connect Zhangjiajie to nearby destinations. We took the bus from Fenghuang ancient town in November 2025: the 3.5-hour ride cost CNY 80 and departed from Fenghuang's north bus station every hour from 7 AM to 4 PM. The road is winding but paved — motion-sickness medication recommended if you are prone.</p>
+      <p class="text-sm text-stone-500 mb-4">Buses also run from Changsha (5 hours, CNY 120), but the train is faster, cheaper, and more comfortable for that route. The bus makes sense primarily from Fenghuang and other towns without train stations.</p>
+    </section>
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">City to Park</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">Once you are in Zhangjiajie city, getting to the park is straightforward.</p>
+      <div class="space-y-3">
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Bus</h3>
+          <p class="text-sm text-stone-500">From Zhangjiajie Central Bus Station to Wulingyuan: every 10 minutes, 6 AM – 7 PM. CNY 12, about 40 minutes. Look for blue minibuses labeled "武陵源" (Wulingyuan). In April 2026, we waited less than 5 minutes for the next departure. Pay the driver in cash as you board — exact change appreciated but not required.</p>
+        </div>
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Taxi / Didi</h3>
+          <p class="text-sm text-stone-500">CNY 80-120 from downtown to Wulingyuan entrance. We downloaded the Didi app before arriving and paid CNY 95 from Zhangjiajie West station to our hotel in Wulingyuan. Taxis from the street may quote CNY 150 — negotiate or use the app. Show the driver "武陵源门票站" (Wulingyuan ticket gate) on your phone if there is a language barrier.</p>
+        </div>
+      </div>
+    </section>
+    <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  </div></div>
+</BaseLayout>

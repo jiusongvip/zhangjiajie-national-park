@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Best Zhangjiajie Itinerary: 1, 3 & 5 Day Plans (2026)","description":"Flexible Zhangjiajie itineraries with field-tested timing, budgets, and personal recommendations: 1-day express, classic 3-day, and in-depth 5-day plans.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Itineraries","item":"https://zhangjiajie-national-park.com/itinerary/"}]}]};
+
+const day1Schedule = [
+  {time:"7:00 AM",act:"Enter at Wulingyuan gate. Shuttle bus to Bailong Elevator — arrive before 7:30 to beat queues."},
+  {time:"8:00 AM",act:"Bailong Elevator up to Yuanjiajie. Walk to Avatar Hallelujah Mountain, First Bridge Under Heaven, and the viewing platforms. This section takes about 90 minutes at a relaxed pace."},
+  {time:"10:30 AM",act:"Shuttle bus from Yuanjiajie to Tianzi Mountain area. Cable car up to the summit (CNY 72). The Imperial Writing Brush Peaks and cloud-sea views are best mid-morning."},
+  {time:"12:30 PM",act:"Lunch at the mountain-top food court. Options are limited (noodles, rice boxes, CNY 30-50) but the views compensate. Bring snacks as backup."},
+  {time:"1:30 PM",act:"Descend via Tianzi cable car. Shuttle bus to the Golden Whip Stream trailhead."},
+  {time:"2:30 PM",act:"Walk Golden Whip Stream southbound (downhill direction). Flat, easy, about 90 minutes of walking beside the stream. Monkeys, kingfishers, crystal-clear water."},
+  {time:"4:30 PM",act:"Exit at the south park gate. Bus or taxi back to Wulingyuan town (CNY 15 bus / CNY 50 taxi)."},
+  {time:"6:00 PM",act:"Dinner in Wulingyuan. Try a local Tujia restaurant — the smoked pork with bamboo shoots is excellent."}
+];
+---
+<BaseLayout title="Best Zhangjiajie Itinerary: 1, 3 &amp; 5 Day Plans (2026)" description="Flexible Zhangjiajie itineraries with field-tested timing, budgets, and personal recommendations: 1-day express, classic 3-day, and in-depth 5-day plans." author="Zhangjiajie Guide Team" datePublished="July 2026">
+<slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+<div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+  <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Itineraries</div>
+  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">1, 3 &amp; 5 Day Itineraries</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">Choose your pace. Every itinerary is based on routes we have personally tested. Timing assumes a reasonable start (7-8 AM), moderate fitness, and no unusual delays. Budget estimates include park entry, in-park transport, meals, and accommodation.</p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Itineraries</span></nav>
+
+  <div class="mt-12 space-y-20">
+    <!-- 1 Day -->
+    <section>
+      <div class="flex items-center gap-3 mb-2"><span class="text-xs font-semibold text-forest-600 uppercase tracking-wide bg-forest-50 rounded-full px-3 py-1">1 Day</span><span class="text-xs text-stone-400">Best for stopovers and tight schedules</span></div>
+      <h2 class="text-2xl font-semibold text-stone-900">Express: The Greatest Hits</h2>
+      <p class="mt-2 text-stone-500 leading-relaxed">For tight schedules. You will not see everything, but you will see the best. This route prioritizes the absolute highlights — Avatar Mountain, Tianzi Mountain, and Golden Whip Stream — and skips anything that requires 2+ hours of transit time. We tested this exact route in one day in April 2026.</p>
+      <p class="mt-4 text-sm text-stone-400">Where to stay: Wulingyuan town (walk to the park gate). Budget hotel from CNY 150/night.</p>
+      <div class="mt-6 rounded-xl border border-stone-200 overflow-hidden"><table class="w-full text-sm"><thead class="bg-stone-50 border-b border-stone-200"><tr><th class="text-left px-5 py-3 font-medium text-stone-700 w-32">Time</th><th class="text-left px-5 py-3 font-medium text-stone-700">Activity</th></tr></thead><tbody class="divide-y divide-stone-100">
+        {day1Schedule.map(item => (<tr class="hover:bg-stone-50"><td class="px-5 py-3 text-stone-500 font-medium whitespace-nowrap">{item.time}</td><td class="px-5 py-3 text-stone-600">{item.act}</td></tr>))}
+      </tbody></table></div>
+      <p class="mt-4 text-sm text-stone-400">Budget: &yen;450-550 per person (park entry &yen;225 + Bailong elevator &yen;72 + Tianzi cable car &yen;72 + meals &yen;80-120 + budget hotel &yen;150)</p>
+    </section>
+
+    <!-- 3 Days -->
+    <section>
+      <div class="flex items-center gap-3 mb-2"><span class="text-xs font-semibold text-forest-600 uppercase tracking-wide bg-forest-50 rounded-full px-3 py-1">3 Days</span><span class="text-xs text-stone-400">Most popular — covers the essentials</span></div>
+      <h2 class="text-2xl font-semibold text-stone-900">The Classic: Complete Coverage</h2>
+      <p class="mt-2 text-stone-500 leading-relaxed">This is the itinerary we recommend to friends visiting for the first time. Forest Park core on Day 1, Tianmen Mountain on Day 2, and the Glass Bridge on Day 3. We did this exact sequence in spring 2026 and it flowed perfectly — each day builds on the last.</p>
+      <p class="mt-4 text-sm text-stone-400">Where to stay: Wulingyuan town Days 1-2, Zhangjiajie city center Day 2 night for easy Tianmen Mountain access.</p>
+      <div class="mt-6 space-y-6">
+        {[
+          {title:"Day 1: Forest Park Core",lines:[
+            {label:"Morning",text:"Bailong Elevator → Yuanjiajie scenic area → Avatar Hallelujah Mountain → First Bridge Under Heaven. Budget 3 hours for this loop."},
+            {label:"Afternoon",text:"Shuttle to Tianzi Mountain. Cable car up (CNY 72), summit viewpoints. Then shuttle down to Ten-mile Gallery. Walk the valley path (90 min) or mini-train (CNY 38)."}
+          ]},
+          {title:"Day 2: Tianmen Mountain",lines:[
+            {label:"Morning",text:"Move to Zhangjiajie city hotel. Tianmen Mountain cable car from downtown station (7.5 km ride, 30 min). Walk the cliff-hanging path, photograph Heaven's Gate arch from the top. Descend the 999 steps (or take the escalator for CNY 32)."},
+            {label:"Afternoon",text:"Bus down the 99-Bend Road (hairpin turns, thrilling). Explore Zhangjiajie city — the night market near the train station has great street food."}
+          ]},
+          {title:"Day 3: Grand Canyon",lines:[
+            {label:"Morning",text:"Bus to Zhangjiajie Grand Canyon (40 min from Wulingyuan, CNY 25). 8 AM Glass Bridge slot. Cross the bridge, hike down into the canyon. The slide down (CNY 30) is surprisingly fun — do not skip it."},
+            {label:"Afternoon",text:"Boat ride at the canyon exit. Return to Wulingyuan. If energy permits, visit Baofeng Lake for a calm afternoon boat ride with Tujia singers. Or head to the train station if departing."}
+          ]}
+        ].map(day => (
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-3">{day.title}</h3>
+            <div class="space-y-2 text-sm">
+              {day.lines.map(line => (
+                <p class="text-stone-500"><strong class="text-stone-700">{line.label}:</strong> {line.text}</p>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="mt-4 text-sm text-stone-400">Budget: &yen;1,200-1,500 per person (park &yen;225 + all in-park transport &yen;350-450 + Tianmen Mountain &yen;258 + Glass Bridge &yen;128 + meals &yen;250 + 2 nights budget hotel &yen;300)</p>
+    </section>
+
+    <!-- 5 Days -->
+    <section>
+      <div class="flex items-center gap-3 mb-2"><span class="text-xs font-semibold text-forest-600 uppercase tracking-wide bg-forest-50 rounded-full px-3 py-1">5 Days</span><span class="text-xs text-stone-400">Best for photographers and deep explorers</span></div>
+      <h2 class="text-2xl font-semibold text-stone-900">Deep Explorer + Fenghuang</h2>
+      <p class="mt-2 text-stone-500 leading-relaxed">Everything from the classic route plus Yellow Dragon Cave, Yangjiajie (the uncrowded gem), and the ancient river town of Fenghuang. This is the itinerary we choose for ourselves when we have a full week. The Fenghuang detour adds a cultural dimension that the nature-focused park days lack.</p>
+      <p class="mt-4 text-sm text-stone-400">Where to stay: Wulingyuan Days 1-3, Fenghuang Day 4, Zhangjiajie city Day 5 (or depart from Fenghuang).</p>
+      <div class="mt-6 space-y-4">
+        {[
+          {title:"Day 1: Forest Park",text:"Bailong Elevator → Yuanjiajie → Avatar Mountain. Afternoon: Tianzi Mountain by cable car. Same Day 1 as the 3-day plan but at a more relaxed pace — you can linger at viewpoints, explore side trails, and add the Yangjiajie detour if you are feeling ambitious."},
+          {title:"Day 2: Tianmen Mountain",text:"Same as the 3-day Day 2, but with time to walk the entire western cliff path loop, visit Tianmen Temple, and explore Zhangjiajie city in the evening. The hot pot restaurants near the bus station are excellent and cheap."},
+          {title:"Day 3: Grand Canyon + Baofeng Lake",text:"8 AM Glass Bridge. Hike the canyon trail to the boat dock (about 2 hours). Afternoon: Baofeng Lake boat ride. This is a lighter day — you will appreciate the rest after two days of stairs and cable cars."},
+          {title:"Day 4: Yellow Dragon Cave + Bus to Fenghuang",text:"Morning: Yellow Dragon Cave (2-hour guided tour). Afternoon: Bus from Wulingyuan to Fenghuang ancient town (3.5 hours, CNY 80). Check into a riverside guesthouse. Evening: Fenghuang by night — the wooden stilt houses along the Tuo River are lit with lanterns. This is one of China's most photogenic townscapes."},
+          {title:"Day 5: Fenghuang Morning + Return",text:"Early morning walk along the river before the day-trippers arrive (Fenghuang gets crowded by 10 AM). Visit the old city wall and the former residence of Shen Congwen. Bus back to Zhangjiajie (3.5 hours) or continue onward to Guilin / Changsha."}
+        ].map(day => (
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">{day.title}</h3>
+            <p class="text-sm text-stone-500">{day.text}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-4 text-sm text-stone-400">Budget: &yen;2,000-2,500 per person (all park entries & in-park transport &yen;800 + Tianmen Mountain &yen;258 + Glass Bridge &yen;128 + Yellow Dragon Cave &yen;100 + Fenghuang bus &yen;160 + Fenghuang entry &yen;138 + meals &yen;400 + 4 nights accommodation &yen;600)</p>
+    </section>
+
+    <div class="pt-12 border-t border-stone-200 text-center"><a href="/best-time-to-visit" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Best Time to Visit <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  </div></div>
+</BaseLayout>

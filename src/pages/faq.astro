@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{q:"How much do tickets cost?",a:"Park entry is CNY 225 (Mar-Nov) or CNY 115 (Dec-Feb) for a 4-day pass. Cable cars and the Bailong Elevator cost extra. Budget CNY 500-800 per person."},{q:"When is the best time to visit?",a:"April to October for best weather. Avoid Golden Week and May Day. November brings autumn colors with fewer crowds."},{q:"How do I get there?",a:"Fly into Zhangjiajie Hehua Airport (DYG) or take a high-speed train to Zhangjiajie West. From downtown, the Wulingyuan entrance is a 40-minute bus ride."},{q:"Do I need a visa?",a:"Most foreign visitors need a Chinese tourist visa (L visa). The 144-hour transit visa is available through certain cities. Check your country's requirements."},{q:"Is English widely spoken?",a:"Limited English at major hotels and park entrances. Download an offline translation app. Most park signs are bilingual."},{q:"Can I visit as a day trip from Changsha?",a:"Yes, but it is a long day. High-speed train takes under 3 hours. Leave before 7 AM, return after 8 PM."},{q:"Can I stay inside the park?",a:"Yes, basic guesthouses near Huangshi Village let you experience the park after tourists leave and before they arrive."},{q:"Do I need to book tickets in advance?",a:"Not strictly required, but strongly recommended during peak season (Jul-Aug, Oct Golden Week). We book on Klook or Trip.com 1-2 days ahead. At the gate, queues can hit 30+ minutes by 9 AM. Online tickets have a dedicated fast-track window."},{q:"What should I pack?",a:"Comfortable walking shoes (you will climb thousands of steps), a rain jacket (mountain weather shifts fast), cash in small bills (CNY 500+), passport (required at every checkpoint), offline maps, and snacks. A power bank is useful — there are limited charging points inside the park."},{q:"Is Zhangjiajie suitable for children or elderly visitors?",a:"Yes, with planning. Cable cars, the Bailong Elevator, and shuttle buses cover most major viewpoints with minimal walking. The Golden Whip Stream trail is flat and shaded — suitable for all ages. Skip the 999-step Heaven's Gate staircase (take the escalator instead) and the Glass Bridge if heights are a concern."}].map(({q,a})=>({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}}))},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"FAQ","item":"https://zhangjiajie-national-park.com/faq/"}]}]};
+
+const sections = [
+  {
+    heading: "Tickets & Planning",
+    items: [
+      {q:"How much do tickets cost?",a:"Park entry is CNY 225 (Mar-Nov) or CNY 115 (Dec-Feb) for a 4-day pass. Cable cars and the Bailong Elevator cost extra. Budget CNY 500-800 per person."},
+      {q:"When is the best time to visit?",a:"April to October for best weather. Avoid Golden Week and May Day. November brings autumn colors with fewer crowds."},
+      {q:"Do I need to book tickets in advance?",a:"Not strictly required, but strongly recommended during peak season (Jul-Aug, Oct Golden Week). We book on Klook or Trip.com 1-2 days ahead. At the gate, queues can hit 30+ minutes by 9 AM. Online tickets have a dedicated fast-track window."}
+    ]
+  },
+  {
+    heading: "Getting There",
+    items: [
+      {q:"How do I get there?",a:"Fly into Zhangjiajie Hehua Airport (DYG) or take a high-speed train to Zhangjiajie West. From downtown, the Wulingyuan entrance is a 40-minute bus ride."},
+      {q:"Can I visit as a day trip from Changsha?",a:"Yes, but it is a long day. High-speed train takes under 3 hours. Leave before 7 AM, return after 8 PM."}
+    ]
+  },
+  {
+    heading: "Practical Info",
+    items: [
+      {q:"Do I need a visa?",a:"Most foreign visitors need a Chinese tourist visa (L visa). The 144-hour transit visa is available through certain cities. Check your country's requirements."},
+      {q:"Is English widely spoken?",a:"Limited English at major hotels and park entrances. Download an offline translation app. Most park signs are bilingual."},
+      {q:"What should I pack?",a:"Comfortable walking shoes (you will climb thousands of steps), a rain jacket (mountain weather shifts fast), cash in small bills (CNY 500+), passport (required at every checkpoint), offline maps, and snacks. A power bank is useful — there are limited charging points inside the park."},
+      {q:"Is Zhangjiajie suitable for children or elderly visitors?",a:"Yes, with planning. Cable cars, the Bailong Elevator, and shuttle buses cover most major viewpoints with minimal walking. The Golden Whip Stream trail is flat and shaded — suitable for all ages. Skip the 999-step Heaven's Gate staircase (take the escalator instead) and the Glass Bridge if heights are a concern."}
+    ]
+  },
+  {
+    heading: "Accommodation",
+    items: [
+      {q:"Can I stay inside the park?",a:"Yes, basic guesthouses near Huangshi Village let you experience the park after tourists leave and before they arrive."}
+    ]
+  }
+];
+---
+<BaseLayout title="Zhangjiajie FAQ | Common Questions (2026)" description="Answers to frequently asked questions about Zhangjiajie National Park tickets, transport, visas, packing tips, and practical advice for first-time visitors." author="Zhangjiajie Guide Team" datePublished="July 2026">
+  <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+  <div class="mx-auto max-w-2xl px-4 md:px-6 pb-20 md:pb-28">
+    <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">FAQ</div>
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Frequently Asked Questions</h1>
+    <p class="mt-6 text-lg text-stone-500 leading-relaxed">Quick answers to the questions every first-time visitor asks — plus a few things you would not think to ask until you are already there.</p>
+    <div class="mt-12 space-y-16">
+      {sections.map(({heading, items}) => (
+        <section>
+          <h2 class="text-2xl font-semibold text-stone-900 mb-6">{heading}</h2>
+          <div class="divide-y divide-stone-200">
+            {items.map(({q,a}) => (
+              <details class="group py-5">
+                <summary class="flex cursor-pointer items-center justify-between gap-4 list-none">
+                  <h3 class="font-medium text-stone-800 hover:text-forest-700 transition-colors">{q}</h3>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-400 group-open:rotate-45 transition-transform"><path d="M8 3v10M3 8h10"/></svg>
+                </summary>
+                <p class="mt-3 text-sm text-stone-500 leading-relaxed pr-8">{a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+    <div class="mt-16 pt-12 border-t border-stone-200 text-center">
+      <a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Read the Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a>
+    </div>
+  </div>
+</BaseLayout>

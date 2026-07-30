@@ -1,0 +1,307 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageDescription =
+  "Plan your Zhangjiajie trip: 2026 tickets, best times, trails & Avatar mountains guide. Everything you need before you go.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TouristDestination",
+      "name": "Zhangjiajie National Forest Park",
+      "description": "UNESCO World Heritage Site featuring over 3,000 quartz-sandstone pillars rising from subtropical forest. Home to the real-life Avatar Hallelujah Mountains, the world's tallest outdoor elevator, and the longest glass-bottom bridge.",
+      "touristType": ["Nature Lovers", "Hikers", "Photographers", "Adventure Travelers"],
+      "geo": { "@type": "GeoCoordinates", "latitude": 29.35, "longitude": 110.42 },
+      "address": { "@type": "PostalAddress", "addressLocality": "Zhangjiajie", "addressRegion": "Hunan", "addressCountry": "CN" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zhangjiajie-national-park.com/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How much do tickets cost?", "acceptedAnswer": { "@type": "Answer", "text": "Park entry is CNY 225 (Mar-Nov) or CNY 115 (Dec-Feb) for a 4-day pass. Cable cars and the Bailong Elevator cost extra. Budget around CNY 500-800 per person." } },
+        { "@type": "Question", "name": "When is the best time to visit?", "acceptedAnswer": { "@type": "Answer", "text": "April to October offers the best weather and full access. Avoid Golden Week (first week of October) and May Day holiday. November brings beautiful autumn colors with fewer visitors." } },
+        { "@type": "Question", "name": "How do I get to the park from Zhangjiajie city?", "acceptedAnswer": { "@type": "Answer", "text": "The park entrance at Wulingyuan is a 40-minute bus ride from Zhangjiajie downtown (CNY 12). Taxis cost about CNY 80-120. High-speed trains connect to Changsha (3h), Guangzhou, and Shanghai." } },
+        { "@type": "Question", "name": "Can I see the Avatar mountains without hiking?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cable cars, the Bailong Elevator, and shuttle buses cover most major viewpoints. You can experience the park's highlights with minimal walking." } },
+        { "@type": "Question", "name": "Is English widely spoken?", "acceptedAnswer": { "@type": "Answer", "text": "Limited English is spoken at major hotels and park entrances. Download an offline translation app. Most signs inside the park are bilingual." } }
+      ]
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Zhangjiajie National Park | Complete Travel Guide 2026"
+  description={pageDescription}
+>
+  <slot name="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </slot>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-forest-900 via-forest-800 to-forest-700">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-forest-950/30 via-transparent to-forest-950/60 z-10" />
+      <picture>
+        <source srcset="/hero.webp" type="image/webp" />
+        <img
+          src="/hero.jpg"
+          alt="Misty sandstone pillars of Zhangjiajie National Forest Park rising through clouds at sunrise"
+          class="h-full w-full object-cover"
+          width="1920"
+          height="1249"
+          loading="eager"
+          decoding="sync"
+          sizes="100vw"
+        />
+      </picture>
+    </div>
+    <div class="relative z-20 mx-auto max-w-7xl px-4 md:px-6 py-32 md:py-48">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-3 py-1 text-xs font-medium text-white/90 mb-6">
+          Updated for 2026
+        </div>
+        <h1 class="text-4xl md:text-6xl font-semibold tracking-tight text-white leading-tight">
+          Zhangjiajie<br />National Park
+        </h1>
+        <p class="mt-6 text-lg text-white/80 leading-relaxed max-w-xl">
+          The soaring sandstone pillars that inspired Avatar. Your independent guide to tickets, trails, seasons, and everything you need before you go.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="/guide"
+            class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98] shadow-lg shadow-forest-900/30"
+          >
+            Read the Full Guide
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5" /></svg>
+          </a>
+          <a
+            href="/itinerary"
+            class="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 backdrop-blur-sm px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-white/20 active:scale-[0.98]"
+          >
+            View Itineraries
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Nav Cards -->
+  <section class="mx-auto max-w-7xl px-4 md:px-6 py-20">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900">
+        Plan your visit
+      </h2>
+      <p class="mt-3 text-stone-500 max-w-lg mx-auto">
+        Everything you need to know, organized by what matters most.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {[
+        { href: "/guide", label: "Complete Guide", desc: "Park overview, maps, getting around, insider tips.", icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
+        { href: "/tickets", label: "Tickets & Prices", desc: "Entrance fees, combo passes, where to buy, money-saving advice.", icon: "M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+        { href: "/best-time-to-visit", label: "Best Time to Visit", desc: "Season-by-season breakdown, weather, crowd levels.", icon: "M12 2v8m0 0l-3-3m3 3l3-3M4.93 10.93A8 8 0 1112 20a8 8 0 01-7.07-9.07" },
+        { href: "/attractions", label: "Top Attractions", desc: "From Avatar mountains to the world's longest glass bridge.", icon: "M14.828 14.828a4 4 0 01-5.656 0M9.172 9.172a4 4 0 015.656 0M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" },
+        { href: "/itinerary", label: "Itineraries", desc: "1-day, 3-day, and 5-day plans with maps and timing.", icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" },
+        { href: "/how-to-get-there", label: "How to Get There", desc: "Flights, trains, buses from major cities, detailed directions.", icon: "M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0L6.343 16.657a8 8 0 1111.314 0zM15 11a2 2 0 100-4 2 2 0 000 4z" },
+      ].map(({ href, label, desc, icon }) => (
+        <a
+          href={href}
+          class="group relative rounded-2xl border border-stone-200 bg-white p-6 transition-all hover:border-forest-200 hover:shadow-lg hover:shadow-forest-100/50 hover:-translate-y-0.5 no-underline"
+        >
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-forest-50">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-forest-600"><path d={icon} /></svg>
+          </div>
+          <h3 class="font-semibold text-stone-800 text-lg mb-2 group-hover:text-forest-700 transition-colors">
+            {label}
+          </h3>
+          <p class="text-sm text-stone-500 leading-relaxed">{desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured Section -->
+  <section class="bg-stone-100 border-y border-stone-200">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">
+            Why visit
+          </div>
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900">
+            A landscape that rewires your sense of scale
+          </h2>
+          <p class="mt-6 text-stone-500 leading-relaxed max-w-xl">
+            Over 3,000 quartz-sandstone pillars rise from subtropical forest, wrapped in mist and laced with trails. This is the place that James Cameron used as the visual inspiration for Pandora's floating Hallelujah Mountains. But the real thing is better.
+          </p>
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { stat: "3,000+", label: "Sandstone pillars" },
+              { stat: "1,518m", label: "Highest peak" },
+              { stat: "4.9/5", label: "Visitor rating" },
+              { stat: "UNESCO", label: "World Heritage since 1992" },
+            ].map(({ stat, label }) => (
+              <div class="rounded-xl border border-stone-200 bg-white p-4">
+                <p class="text-2xl font-semibold text-forest-700 tracking-tight">{stat}</p>
+                <p class="mt-1 text-sm text-stone-500">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <picture>
+            <source srcset="/feature-1.webp" type="image/webp" />
+            <img
+              src="/feature-1.jpg"
+              alt="Sandstone pillars rising through morning mist"
+              class="rounded-2xl aspect-[3/4] object-cover w-full col-span-1 row-span-2"
+              width="800"
+              height="1067"
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </picture>
+          <picture>
+            <source srcset="/feature-2.webp" type="image/webp" />
+            <img
+              src="/feature-2.jpg"
+              alt="Hiking trail winding through Zhangjiajie forest"
+              class="rounded-2xl aspect-[4/3] object-cover w-full"
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </picture>
+          <picture>
+            <source srcset="/feature-3.webp" type="image/webp" />
+            <img
+              src="/feature-3.jpg"
+              alt="Zhangjiajie Glass Bridge spanning the canyon"
+              class="rounded-2xl aspect-[4/3] object-cover w-full"
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Itinerary Preview -->
+  <section class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900">
+          Suggested itineraries
+        </h2>
+        <p class="mt-3 text-stone-500 max-w-lg">
+          From a quick stopover to an immersive week, pick your pace.
+        </p>
+      </div>
+      <a href="/itinerary" class="text-sm font-medium text-forest-600 hover:text-forest-700 transition-colors flex items-center gap-1">
+        All itineraries
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5" /></svg>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        {
+          days: "1 Day",
+          title: "Express Hit",
+          desc: "Tianzi Mountain by cable car, Avatar Hallelujah Mountain, Golden Whip Stream walk. Perfect for a tight schedule.",
+          tags: ["Best for stopovers", "6-8 hours"],
+        },
+        {
+          days: "3 Days",
+          title: "The Classic",
+          desc: "Forest Park core, Tianmen Mountain with the Heaven's Gate staircase, and the Grand Canyon Glass Bridge.",
+          tags: ["Most popular", "Covers the essentials"],
+        },
+        {
+          days: "5 Days",
+          title: "Deep Explorer",
+          desc: "Everything from the classic route plus Yellow Dragon Cave, Baofeng Lake, and the ancient Fenghuang town.",
+          tags: ["Best for photographers", "Leisurely pace"],
+        },
+      ].map(({ days, title, desc, tags }) => (
+        <a
+          href="/itinerary"
+          class="group relative rounded-2xl border border-stone-200 bg-white p-6 transition-all hover:border-forest-200 hover:shadow-lg hover:shadow-forest-100/50 no-underline"
+        >
+          <span class="text-xs font-semibold text-forest-600 uppercase tracking-wide">{days}</span>
+          <h3 class="mt-2 font-semibold text-stone-800 text-xl group-hover:text-forest-700 transition-colors">{title}</h3>
+          <p class="mt-3 text-sm text-stone-500 leading-relaxed">{desc}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span class="inline-flex items-center rounded-full bg-stone-100 px-2.5 py-0.5 text-xs text-stone-600">{tag}</span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ Compact -->
+  <section class="bg-stone-100 border-y border-stone-200">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900 text-center">
+        Quick answers
+      </h2>
+      <p class="mt-3 text-stone-500 text-center mb-12">
+        The things every first-time visitor asks.
+      </p>
+      <div class="mx-auto max-w-2xl divide-y divide-stone-200">
+        {[
+          { q: "How much do tickets cost?", a: "Park entry is CNY 225 (Mar-Nov) or CNY 115 (Dec-Feb) for a 4-day pass. Cable cars and the Bailong Elevator cost extra. Budget around CNY 500-800 per person for a full visit." },
+          { q: "When is the best time to visit?", a: "April to October offers the best weather and full access. Avoid the first week of October (Golden Week) and May Day holiday unless you enjoy crowds. November brings beautiful autumn colors with fewer visitors." },
+          { q: "How do I get to the park from Zhangjiajie city?", a: "The park entrance at Wulingyuan is a 40-minute bus ride from Zhangjiajie downtown (CNY 12). Taxis cost about CNY 80-120. The Zhangjiajie West high-speed train station connects to Changsha (3h), Guangzhou, and Shanghai." },
+          { q: "Can I see the Avatar mountains without hiking?", a: "Yes. Cable cars, the Bailong Elevator (world's tallest outdoor lift), and shuttle buses cover most major viewpoints. You can experience the park's highlights with minimal walking, though some of the best views require a stroll." },
+          { q: "Is English widely spoken?", a: "Limited English is spoken at major hotels and park entrances. Download an offline translation app (Google Translate or Baidu Translate) and save key phrases. Most signs inside the park are bilingual." },
+        ].map(({ q, a }) => (
+          <details class="group py-5">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-medium text-stone-800 hover:text-forest-700 transition-colors list-none">
+              {q}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-400 group-open:rotate-45 transition-transform"><path d="M8 3v10M3 8h10" /></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone-500 leading-relaxed pr-8">{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28 text-center">
+    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900">
+      Ready to plan your trip?
+    </h2>
+    <p class="mt-4 text-stone-500 max-w-md mx-auto">
+      Start with our complete guide, or jump straight to what you need.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a
+        href="/guide"
+        class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98] shadow-lg shadow-forest-900/20"
+      >
+        Read the Guide
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5" /></svg>
+      </a>
+      <a
+        href="/tickets"
+        class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]"
+      >
+        Check Ticket Prices
+      </a>
+    </div>
+  </section>
+</BaseLayout>

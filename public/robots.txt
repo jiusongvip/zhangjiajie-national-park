@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zhangjiajie-national-park.com/sitemap-index.xml
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /

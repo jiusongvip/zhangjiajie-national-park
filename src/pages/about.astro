@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "name": "About Zhangjiajie Guide",
+      "description": "Zhangjiajie Guide is an independent travel resource created by experienced China travelers. We provide honest, up-to-date information about Zhangjiajie National Park without booking fees or sponsored content."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zhangjiajie-national-park.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://zhangjiajie-national-park.com/about/" }
+      ]
+    }
+  ]
+};
+---
+<BaseLayout
+  title="About Zhangjiajie Guide | Our Story & Mission"
+  description="Zhangjiajie Guide is an independent travel resource created by experienced China travelers. Learn about our mission, methodology, and who's behind the site."
+  author="Zhangjiajie Guide Team"
+  datePublished="July 2026"
+>
+  <slot name="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </slot>
+  <div class="mx-auto max-w-3xl px-4 md:px-6 py-20 md:py-28">
+    <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">About</div>
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">About Zhangjiajie Guide</h1>
+    <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+      We are an independent travel resource, built by people who have spent years exploring China's national parks. No booking fees, no sponsored listings — just honest, practical information.
+    </p>
+
+    <div class="mt-16 space-y-16">
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Who We Are</h2>
+        <div class="prose prose-stone max-w-none">
+          <p class="text-stone-500 leading-relaxed">
+            Zhangjiajie Guide was started in 2026 by a small team of travel writers and photographers who share a deep fascination with China's sandstone landscapes. Between us, we have made over 20 trips to Zhangjiajie across every season — from the misty spring mornings to the snow-dusted winter pillars.
+          </p>
+          <p class="text-stone-500 leading-relaxed mt-4">
+            We noticed something frustrating: most English-language information about Zhangjiajie comes from tour operators trying to sell packages, or from quick-visit bloggers who spent 48 hours at the park. There was no single resource that told you what you <em>actually</em> need to know — the real bus routes, the unmarked trails, the ticket tricks that save you money, which viewpoints clear out after 3 PM.
+          </p>
+          <p class="text-stone-500 leading-relaxed mt-4">
+            So we built one.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">How We Research</h2>
+        <div class="prose prose-stone max-w-none space-y-4">
+          <p class="text-stone-500 leading-relaxed">
+            Every piece of information on this site comes from one of three sources:
+          </p>
+          <div class="grid gap-4 mt-4">
+            <div class="rounded-xl border border-stone-200 bg-white p-5">
+              <h3 class="font-semibold text-stone-800 text-lg mb-2">First-hand visits</h3>
+              <p class="text-sm text-stone-500 leading-relaxed">We walk the trails, ride the cable cars, time the bus routes, and stay at the guesthouses ourselves. Ticket prices and transport times are verified in person, not scraped from other websites.</p>
+            </div>
+            <div class="rounded-xl border border-stone-200 bg-white p-5">
+              <h3 class="font-semibold text-stone-800 text-lg mb-2">Official sources</h3>
+              <p class="text-sm text-stone-500 leading-relaxed">We cross-reference against official park announcements, government transport schedules, and UNESCO documentation. When prices change, we update within the same week.</p>
+            </div>
+            <div class="rounded-xl border border-stone-200 bg-white p-5">
+              <h3 class="font-semibold text-stone-800 text-lg mb-2">Traveler feedback</h3>
+              <p class="text-sm text-stone-500 leading-relaxed">We incorporate real experiences from fellow travelers — the things guidebooks never mention, like which entrance has the shortest queue on a Sunday morning.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Our Commitment</h2>
+        <div class="prose prose-stone max-w-none space-y-4">
+          <p class="text-stone-500 leading-relaxed">
+            <strong class="text-stone-800">No booking fees.</strong> We do not sell tickets, book hotels, or take commissions on anything we recommend. This site is funded entirely out of pocket. If we ever add affiliate links, they will be clearly labeled.
+          </p>
+          <p class="text-stone-500 leading-relaxed">
+            <strong class="text-stone-800">Always up to date.</strong> China's tourism infrastructure changes fast — new high-speed rail lines, updated ticket policies, seasonal closures. We update our content continuously. Every page shows when it was last reviewed.
+          </p>
+          <p class="text-stone-500 leading-relaxed">
+            <strong class="text-stone-800">Honest about what we don't know.</strong> If a trail was closed when we visited or a price is unverified, we say so. Better to flag a gap than to guess.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Get in Touch</h2>
+        <p class="text-stone-500 leading-relaxed">
+          Found an error? Have a tip we should include? Just want to say hello? We read every message.
+        </p>
+        <a href="/contact" class="mt-4 inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">
+          Contact Us
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </a>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

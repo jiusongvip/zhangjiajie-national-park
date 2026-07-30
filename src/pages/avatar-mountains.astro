@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Avatar Hallelujah Mountain | Zhangjiajie Guide (2026)","description":"Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: location, viewpoints, how the film connection happened, photography tips, and how to avoid crowds.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Avatar Mountains","item":"https://zhangjiajie-national-park.com/avatar-mountains/"}]}]};
+---
+<BaseLayout title="Avatar Hallelujah Mountain | Zhangjiajie Guide (2026)" description="Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: location, viewpoints, how the film connection happened, photography tips, and how to avoid crowds." author="Zhangjiajie Guide Team" datePublished="July 2026">
+<slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+<div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+  <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Avatar Mountains</div>
+  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Avatar Hallelujah Mountain</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">The 1,080-meter quartz-sandstone pillar that inspired the floating Hallelujah Mountains in James Cameron's Avatar. This is the single most photographed rock formation in Zhangjiajie — and for good reason.</p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Avatar Mountains</span></nav>
+
+  <div class="mt-12 space-y-12">
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">The Film Connection</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">In 2008, James Cameron's production team visited Zhangjiajie while scouting visual references for Pandora's floating mountain landscapes. The sandstone pillars — particularly the "Southern Sky Column" in Yuanjiajie — became the direct inspiration for the Hallelujah Mountains in the 2009 film. After Avatar's release, the Chinese park administration officially renamed the Southern Sky Column to "Avatar Hallelujah Mountain" in January 2010.</p>
+      <p class="text-stone-500 leading-relaxed">The renaming was controversial among locals who preferred the original name, but it was undeniably effective: annual visitor numbers to Zhangjiajie tripled in the five years following the film's release. Today, you will find Avatar-themed signage, merchandise stalls, and even a life-sized model of a banshee (the flying creature from the film) at the Yuanjiajie viewing area. It is touristy, but the pillar itself is genuinely spectacular regardless of the branding.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">How to See It</h2>
+      <div class="space-y-4">
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Location</h3>
+          <p class="text-sm text-stone-500">Yuanjiajie Scenic Area, inside Zhangjiajie National Forest Park. Take the shuttle bus to Yuanjiajie station, then a 15-minute walk along a well-paved trail to the main viewing platform. The pillar is unmissable — it stands alone in a clearing, 1,080 meters tall.</p>
+        </div>
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Best Time to Visit</h3>
+          <p class="text-sm text-stone-500">Early morning (before 9 AM) or late afternoon (after 4 PM). The main platform gets dense crowds from 9:30 AM to 3:30 PM during peak season — we have seen queues to take a photo at the railing. Misty mornings (common in spring and autumn) create the best atmosphere: the pillar appears to float when clouds fill the valley below.</p>
+        </div>
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">The Secret Second Viewpoint</h3>
+          <p class="text-sm text-stone-500">Most visitors crowd the main railing, snap a photo, and leave. Walk 200 meters further along the trail (toward the First Bridge Under Heaven direction) and you will find a smaller, unmarked viewpoint with essentially the same angle and typically zero people. We have stood there for 20 minutes on a busy Saturday without a single other person stopping.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Photography Tips</h2>
+      <ul class="space-y-3 text-stone-500 text-sm">
+        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Mist is your friend.</strong> A clear-sky photo of the pillar is just a tall rock. Mist curling around the base creates the floating effect. Check the forecast for morning humidity.</li>
+        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Shoot vertical.</strong> The pillar is nearly 1.1 km tall. A landscape-orientation photo crops the top and bottom. Portrait orientation shows the full height.</li>
+        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Wait for the gap.</strong> Tour groups move in pulses — a new group arrives every 5-10 minutes, takes photos for 3 minutes, then moves on. If you wait 5 minutes, you will get a 2-minute window with an empty railing.</li>
+      </ul>
+    </section>
+  </div>
+  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/attractions" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">All Attractions <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+</div>
+</BaseLayout>

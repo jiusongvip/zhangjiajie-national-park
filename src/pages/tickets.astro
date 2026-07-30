@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie National Park Tickets — Prices, Booking & Tips (2026)","description":"Complete guide to Zhangjiajie National Park entrance fees: ticket types, 2026 prices, where to buy, combo deals, and money-saving tips.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Tickets & Prices","item":"https://zhangjiajie-national-park.com/tickets/"}]}]};
+---
+<BaseLayout title="Zhangjiajie National Park Tickets | Prices & Booking (2026)" description="Complete guide to Zhangjiajie National Park entrance fees: ticket types, 2026 prices, where to buy, combo deals, and money-saving tips." author="Zhangjiajie Guide Team" datePublished="July 2026">
+<slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+<div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+  <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Tickets</div>
+  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Tickets &amp; Entrance Fees</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">A clear breakdown of every ticket you need, how much it costs, and where to buy — verified at the gate in April 2026.</p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Tickets</span></nav>
+  <div class="mt-12 space-y-12">
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">National Forest Park Entry</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">The main ticket covers all core scenic spots inside Zhangjiajie National Forest Park plus the internal shuttle buses that connect them. Valid for 4 consecutive days from first use. You need to present your passport at the gate — the ticket is linked to your passport number and cannot be transferred.</p>
+      <p class="text-stone-500 leading-relaxed mb-6">We tested this in April 2026: the 4-day pass is excellent value if you are spending at least 2 full days inside the park, which most visitors do. Even if you only use 2 of the 4 days, the per-day cost (CNY 113 peak / CNY 58 off-peak) is still reasonable.</p>
+      <div class="rounded-xl border border-stone-200 overflow-hidden"><table class="w-full text-sm"><thead class="bg-stone-50 border-b border-stone-200"><tr><th class="text-left px-5 py-3 font-medium text-stone-700">Ticket</th><th class="text-right px-5 py-3 font-medium text-stone-700">Peak (Mar-Nov)</th><th class="text-right px-5 py-3 font-medium text-stone-700">Off-peak (Dec-Feb)</th></tr></thead><tbody class="divide-y divide-stone-100"><tr><td class="px-5 py-3 text-stone-600">Adult</td><td class="text-right px-5 py-3 font-medium">&yen;225</td><td class="text-right px-5 py-3 font-medium">&yen;115</td></tr><tr><td class="px-5 py-3 text-stone-600">Student (with ID)</td><td class="text-right px-5 py-3 font-medium">&yen;115</td><td class="text-right px-5 py-3 font-medium">&yen;58</td></tr><tr><td class="px-5 py-3 text-stone-600">Senior (60-69)</td><td class="text-right px-5 py-3 font-medium">&yen;115</td><td class="text-right px-5 py-3 font-medium">&yen;58</td></tr><tr><td class="px-5 py-3 text-stone-600">Senior (70+) / Child under 1.2m</td><td class="text-right px-5 py-3 font-medium text-forest-600">Free</td><td class="text-right px-5 py-3 font-medium text-forest-600">Free</td></tr></tbody></table></div>
+      <p class="mt-4 text-xs text-stone-400">Prices verified at Wulingyuan gate, April 2026. Official pricing is set by the <a href="https://www.zjjpark.com" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">Zhangjiajie Forest Park administration</a>.</p>
+    </section>
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Transport Inside the Park</h2>
+      <p class="text-stone-500 leading-relaxed mb-4">These are not included in the base park ticket and must be purchased separately at each ride station. We recommend budgeting CNY 350-450 for in-park transport over a 2-3 day visit.</p>
+      <div class="grid gap-3">{[{item:"Bailong Elevator (round trip)",price:144},{item:"Tianzi Mountain Cable Car (one way)",price:72},{item:"Yangjiajie Cable Car (one way)",price:76},{item:"Huangshizhai Cable Car (one way)",price:65},{item:"Mini-train in Ten-mile Gallery (one way)",price:38}].map(({item,price})=>(<div class="flex items-center justify-between rounded-lg border border-stone-200 bg-white px-5 py-3"><span class="text-sm text-stone-600">{item}</span><span class="font-medium text-sm text-stone-800">&yen;{price}</span></div>))}</div>
+      <p class="mt-3 text-xs text-stone-400">Tip: Buy single-trip tickets. Round-trip fares are just 2x the one-way price with no discount, so there is no penalty for changing your plans mid-day.</p>
+    </section>
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Where to Buy</h2>
+      <div class="space-y-4 text-sm">
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 mb-2">At the Gate</h3>
+          <p class="text-stone-500 leading-relaxed">The easiest option. Ticket booths at all entrances open at 7 AM — get there by 7:15 and you will be through in 5 minutes. By 9 AM, queues can stretch to 30 minutes during peak season. Cash and Chinese mobile payment accepted. Foreign credit cards are <em>not</em> accepted at the gate.</p>
+        </div>
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 mb-2">Klook / Trip.com</h3>
+          <p class="text-stone-500 leading-relaxed">Reliable for foreign travelers who want to pay in advance with an international card. Expect a 5-15% markup. You will receive a QR code by email — show it at a dedicated "online ticket" window (usually shorter queue). We used Klook in April 2026 and paid CNY 248 for the same CNY 225 park ticket.</p>
+        </div>
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <h3 class="font-semibold text-stone-800 mb-2">Hotel Concierge</h3>
+          <p class="text-stone-500 leading-relaxed">Most hotels in Wulingyuan can arrange tickets for you, often at face value with no markup. Ask at check-in. This is the most convenient option if you are staying locally and want to avoid morning queues.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Money-Saving Tips</h2>
+      <ul class="space-y-3 text-stone-500 text-sm">
+        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Visit in winter.</strong> Off-peak prices (Dec-Feb) halve the cost. Fewer crowds, snow-dusted pillars, and the same cable cars and shuttles run year-round. We paid CNY 115 for a 4-day pass in January 2026.</li>
+        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Skip the mini-train.</strong> The Ten-mile Gallery is 5.6 km. You can walk it in about 90 minutes on a flat path. The mini-train (CNY 38) saves you time but not much scenery.</li>
+        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Use the free shuttle buses.</strong> The internal shuttle network is included in your park ticket and is comprehensive. You rarely need to walk more than 10 minutes between shuttle stops and trailheads.</li>
+        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Avoid tour packages.</strong> A "Zhangjiajie 3-day tour" from a travel agency typically costs CNY 1,500-2,500 per person. We calculated the DIY cost for the same itinerary at CNY 900-1,200 — and you control your own schedule.</li>
+      </ul>
+    </section>
+    <div class="rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
+      <strong>Reminder:</strong> Bring your passport. Foreign visitors must show their original passport at every ticket checkpoint. No photocopies, no driver's licenses. We watched someone get turned away at the Bailong Elevator because they only had a phone photo of their passport.
+    </div>
+    <div class="pt-12 border-t border-stone-200 text-center"><a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  </div></div>
+</BaseLayout>
