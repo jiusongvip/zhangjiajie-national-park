@@ -1,0 +1,200 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Zhangjiajie Food Guide | Best Local Dishes & Restaurants (2026)",
+      "description": "What to eat in Zhangjiajie: Tujia smoked pork, sanxiaguo hot pot, wild mushroom dishes, street food, and the best restaurants in Wulingyuan and downtown.",
+      "datePublished": "2026-07-01",
+      "dateModified": "2026-07-31",
+      "author": { "@type": "Person", "name": "Zhangjiajie Guide Team" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zhangjiajie-national-park.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Food & Restaurants", "item": "https://zhangjiajie-national-park.com/food/" }
+      ]
+    }
+  ]
+};
+
+const dishes = [
+  {
+    name: "Sanxiaguo (三下锅)",
+    desc: "The signature dish of Zhangjiajie. A bubbling hot pot loaded with three main ingredients — typically pork belly, tofu, and seasonal vegetables — simmered in a spicy, numbing broth. It is served in a clay pot over a flame at your table. The name literally means 'three ingredients in one pot.' Most restaurants let you choose your three mains from a list that includes pork, beef, chicken, tripe, and various tofu varieties.",
+    where: "Every restaurant in Wulingyuan serves it. Xiaobuguo (小布锅) near the Wulingyuan bus station is our go-to — CNY 60-80 for two people.",
+    tip: "Ask for 'wei la' (微辣, mildly spicy) if you are not accustomed to Hunan-level heat. Even 'mild' here is hotter than most Western palates expect."
+  },
+  {
+    name: "Tujia Smoked Pork (土家腊肉)",
+    desc: "The Tujia ethnic minority's most famous contribution to Hunan cuisine. Pork belly is cured with salt, Sichuan pepper, and local spices, then smoked over cypress and pine branches for days or weeks. The result is intensely flavored, slightly chewy meat with a deep smoky aroma that permeates every dish it touches. Most often served stir-fried with garlic shoots, dried tofu, or bamboo shoots.",
+    where: "Look for it at any restaurant advertising 'Tujia cuisine' (土家菜). Tujia Renjia (土家人家) on Wulingyuan's main street is reliable — CNY 45-65 per dish.",
+    tip: "The smoked pork with bamboo shoots (腊肉炒笋) version is the best pairing. The bamboo absorbs the smoky oil and the textures contrast perfectly."
+  },
+  {
+    name: "Sour Fish Soup (酸汤鱼)",
+    desc: "A Miao and Tujia specialty: whole river fish poached in a tangy, sour broth made from pickled vegetables, tomatoes, and chili. The sourness comes from naturally fermented rice water and pickled mustard greens — not vinegar. It is bright, appetizing, and surprisingly refreshing after a long day of hiking. The fish is typically carp or grass carp, served whole in the pot.",
+    where: "Specialty restaurants near Baofeng Lake serve it fresh. For a reliable version in Wulingyuan, try Chuanmei Restaurant (川妹子) — CNY 78-98 for a pot serving 2-3.",
+    tip: "The broth is the star. Make sure to drink it — locals consider it restorative after physical exertion."
+  },
+  {
+    name: "Wild Mushroom Hot Pot (野生菌火锅)",
+    desc: "The mountains around Zhangjiajie produce dozens of edible wild mushroom varieties. In autumn (Sep-Oct), restaurants serve mushroom hot pots with 5-8 varieties of freshly foraged fungi — matsutake, morels, chicken-of-the-woods, and local varieties with no English names. The broth is light (chicken or vegetable base) so the mushroom flavors dominate. It is earthy, subtle, and completely different from the spicy dishes Hunan is famous for.",
+    where: "Mushroom specialty restaurants cluster near the east gate. Junziyuan (菌子园) is the best-known — CNY 120-180 for two, but worth it in mushroom season.",
+    tip: "Only eat wild mushrooms in autumn, and only at reputable restaurants. Foraged mushrooms outside their season are likely cultivated or frozen."
+  }
+];
+
+const streetFood = [
+  { name: "Sweet Potato Noodles (红薯粉)", desc: "Thick, chewy noodles made from sweet potato starch, served in a spicy broth with crushed peanuts, pickled vegetables, and chili oil. The signature street breakfast of Zhangjiajie. CNY 8-12." },
+  { name: "Glutinous Rice Cakes (糍粑)", desc: "Pounded sticky rice formed into cakes and grilled over charcoal, then dipped in brown sugar syrup and ground sesame. Crisp outside, chewy inside. CNY 5-8 for a skewer of three." },
+  { name: "Ginger Candy (姜糖)", desc: "A Fenghuang specialty that made its way to Zhangjiajie. Hot sugar and ginger juice are pulled and stretched by hand on street-side hooks until the mixture turns pale gold and fibrous. Sold in chunks. CNY 15-25 per bag." },
+  { name: "Tujia Bacon Wrapped Rice (腊肉粽)", desc: "Sticky rice dumplings wrapped in bamboo leaves with a piece of Tujia smoked pork in the center. Steamed until the pork fat melts into the rice. CNY 6-10 each." },
+  { name: "Grilled Tofu Skewers (烤豆腐)", desc: "Firm tofu cubes grilled over charcoal, brushed with chili oil, cumin, and Sichuan pepper. Smoky, spicy, and numbing. The street-side grill carts appear after 5 PM. CNY 3-5 per skewer." }
+];
+
+const areas = [
+  {
+    name: "Wulingyuan Town",
+    desc: "The most convenient dining base. The main street has dozens of restaurants catering to tourists, ranging from CNY 30 noodle shops to CNY 150/person hot pot places. Quality varies widely — avoid restaurants with picture menus and no Chinese customers. Look for places filled with local families. The side streets (one block back from the main drag) have better food at lower prices.",
+    recommendations: [
+      "Tujia Renjia (土家人家) — Reliable Tujia home cooking, CNY 50-80/person",
+      "Xiaobuguo (小布锅) — Best sanxiaguo in town, CNY 30-40/person",
+      "Night market stalls near the bus station — Open from 6 PM, grilled skewers and fried rice, CNY 20-40"
+    ]
+  },
+  {
+    name: "Inside the Park",
+    desc: "Food options inside the park are limited and overpriced. Each scenic area has a food court with rice boxes (CNY 30-50), instant noodles (CNY 15-20), and bottled drinks. The food is mediocre — edible but not enjoyable. We always pack our own snacks (nuts, dried fruit, energy bars) and eat a proper meal before entering or after exiting. The Tianzi Mountain summit food court is the largest and has the most variety, including surprisingly decent dumplings.",
+    recommendations: [
+      "Pack snacks — nuts, protein bars, fruit from Wulingyuan supermarkets",
+      "Tianzi Mountain summit food court — Dumplings are the best option (CNY 25)",
+      "Bottled water is available everywhere (CNY 5-8) but bring your own to save money"
+    ]
+  },
+  {
+    name: "Zhangjiajie City Center",
+    desc: "Better and cheaper restaurants than Wulingyuan, with more variety beyond tourist-oriented Hunan food. The area around the train station and the pedestrian street (步行街) has dozens of restaurants, hot pot chains, and street food. This is where locals eat. The night market near the train station opens at 6 PM and is excellent for a casual dinner.",
+    recommendations: [
+      "Haidilao (海底捞) — The famous hot pot chain, reliable quality, CNY 100-150/person",
+      "Night market near train station — Street food and small restaurants, CNY 30-60",
+      "Restaurants along Ziwu Road (子午路) — Local favorites, mostly Chinese-menu only"
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Zhangjiajie Food Guide | Best Local Dishes & Restaurants (2026)"
+  description="What to eat in Zhangjiajie: Tujia smoked pork, sanxiaguo hot pot, wild mushroom dishes, best street food, and where to find the best restaurants in Wulingyuan and downtown."
+  author="Zhangjiajie Guide Team"
+  datePublished="July 2026"
+>
+  <slot name="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </slot>
+
+  <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+    <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Food & Drink</div>
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">What to Eat in Zhangjiajie</h1>
+    <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+      Hunan food is famously spicy, but Zhangjiajie has its own distinct cuisine shaped by the Tujia and Miao ethnic minorities. Smoked meats, wild mushrooms, sour broths, and charcoal-grilled street food — here is what to eat and where to find it.
+    </p>
+    <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+      <span class="text-stone-600">Food &amp; Restaurants</span>
+    </nav>
+
+    <!-- Must-Try Dishes -->
+    
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-food.webp" type="image/webp" />
+      <img
+        src="/banner-food.jpg"
+        alt="Traditional Chinese hot pot cuisine with fresh ingredients"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-16">
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-6">Must-Try Dishes</h2>
+        <div class="space-y-6">
+          {dishes.map(({ name, desc, where, tip }) => (
+            <div class="rounded-xl border border-stone-200 bg-white p-5 md:p-6">
+              <h3 class="text-xl font-semibold text-stone-800 mb-2">{name}</h3>
+              <p class="text-sm text-stone-500 leading-relaxed mb-3">{desc}</p>
+              <div class="rounded-lg bg-stone-50 p-3 text-sm text-stone-600 mb-3">
+                <strong class="text-stone-700">Where to try:</strong> {where}
+              </div>
+              <div class="rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
+                <strong>Pro tip:</strong> {tip}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Street Food -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Street Food &amp; Snacks</h2>
+        <p class="text-stone-500 leading-relaxed mb-6">
+          Zhangjiajie's street food scene peaks after 5 PM when the grill carts and snack stalls appear. Wulingyuan's bus station area and the Zhangjiajie city night market are the two best zones.
+        </p>
+        <div class="grid gap-3">
+          {streetFood.map(({ name, desc }) => (
+            <div class="rounded-xl border border-stone-200 bg-white p-4">
+              <h3 class="font-semibold text-stone-800 mb-1">{name}</h3>
+              <p class="text-sm text-stone-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Where to Eat -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Where to Eat by Area</h2>
+        <div class="space-y-6">
+          {areas.map(({ name, desc, recommendations }) => (
+            <div class="rounded-xl border border-stone-200 bg-white p-5 md:p-6">
+              <h3 class="text-lg font-semibold text-stone-800 mb-2">{name}</h3>
+              <p class="text-sm text-stone-500 leading-relaxed mb-4">{desc}</p>
+              <ul class="space-y-1.5 text-sm text-stone-600">
+                {recommendations.map(rec => (
+                  <li class="flex gap-2"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> {rec}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Practical Tips -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Practical Tips</h2>
+        <ul class="space-y-3 text-stone-500 text-sm">
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Spice levels.</strong> 'Wei la' (微辣, mild) is the safest order if you are not used to Hunan heat. 'Bu la' (不辣, not spicy) may be ignored by some cooks who cannot fathom eating without chili. Point at the words on your phone if needed: 微辣 (mild), 中辣 (medium), 特辣 (extra hot — do not do this).</li>
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Cash is king.</strong> Smaller restaurants and street stalls do not accept foreign credit cards. Some take WeChat Pay / Alipay only. Carry CNY 200-300 in small bills for food.</li>
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Follow the locals.</strong> The best indicator of restaurant quality in Zhangjiajie is the number of Chinese families eating inside. A restaurant with picture menus and no local customers is almost always overpriced and mediocre.</li>
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Bottled water only.</strong> Do not drink tap water anywhere in Zhangjiajie. Bottled water is CNY 2-3 at supermarkets, CNY 5-8 inside the park.</li>
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Vegetarian survival.</strong> Hunan cuisine is meat-heavy. Vegetarian options exist but you will need to be proactive. Learn the phrase 'Wo chi su' (我吃素, I eat vegetarian). Buddhist temple restaurants (inside Tianmen Mountain, near Baofeng Lake) are reliably vegetarian. Tofu dishes, stir-fried seasonal greens, and eggplant are your staples.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="mt-16 pt-12 border-t border-stone-200 text-center flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="/hotels" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Where to Stay <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a>
+      <a href="/guide" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]">Back to Full Guide</a>
+    </div>
+  </div>
+</BaseLayout>

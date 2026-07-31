@@ -1,15 +1,31 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie National Park Tickets — Prices, Booking & Tips (2026)","description":"Complete guide to Zhangjiajie National Park entrance fees: ticket types, 2026 prices, where to buy, combo deals, and money-saving tips.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Tickets & Prices","item":"https://zhangjiajie-national-park.com/tickets/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie National Park Tickets — Prices, Booking & Tips (2026)","description":"Complete guide to Zhangjiajie National Park entrance fees: ticket types, 2026 prices, where to buy, combo deals, and money-saving tips.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Tickets & Prices","item":"https://zhangjiajie-national-park.com/tickets/"}]}]};
 ---
-<BaseLayout title="Zhangjiajie National Park Tickets | Prices & Booking (2026)" description="Complete guide to Zhangjiajie National Park entrance fees: ticket types, 2026 prices, where to buy, combo deals, and money-saving tips." author="Zhangjiajie Guide Team" datePublished="July 2026">
+<BaseLayout title="Zhangjiajie National Park Tickets | Prices & Booking (2026)" description="Complete guide to Zhangjiajie National Park entrance fees: ticket types, 2026 prices verified April 2026, where to buy, combo deals, student discounts, and money-saving tips." author="Zhangjiajie Guide Team" datePublished="July 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
   <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Tickets</div>
   <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Tickets &amp; Entrance Fees</h1>
-  <p class="mt-6 text-lg text-stone-500 leading-relaxed">A clear breakdown of every ticket you need, how much it costs, and where to buy — verified at the gate in April 2026.</p>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">A clear breakdown of every ticket you need, how much it costs, and where to buy — <strong class="text-stone-600">verified at the gate in April 2026</strong>.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Tickets</span></nav>
-  <div class="mt-12 space-y-12">
+  
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-tickets.webp" type="image/webp" />
+      <img
+        src="/banner-tickets.jpg"
+        alt="Aerial view of Zhangjiajie National Park entrance area"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-12">
     <section>
       <h2 class="text-2xl font-semibold text-stone-900 mb-4">National Forest Park Entry</h2>
       <p class="text-stone-500 leading-relaxed mb-4">The main ticket covers all core scenic spots inside Zhangjiajie National Forest Park plus the internal shuttle buses that connect them. Valid for 4 consecutive days from first use. You need to present your passport at the gate — the ticket is linked to your passport number and cannot be transferred.</p>

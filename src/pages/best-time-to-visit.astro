@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Best Time to Visit Zhangjiajie (2026)","description":"Month-by-month guide to Zhangjiajie weather, crowds, and prices. Includes seasonal first-hand experiences and a monthly comparison table.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Best Time to Visit","item":"https://zhangjiajie-national-park.com/best-time-to-visit/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Best Time to Visit Zhangjiajie (2026)","description":"Month-by-month guide to Zhangjiajie weather, crowds, and prices. Includes seasonal first-hand experiences and a monthly comparison table.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Best Time to Visit","item":"https://zhangjiajie-national-park.com/best-time-to-visit/"}]}]};
 ---
 <BaseLayout title="Best Time to Visit Zhangjiajie (2026)" description="Month-by-month guide to Zhangjiajie weather, crowds, and prices. Based on first-hand visits across all four seasons." author="Zhangjiajie Guide Team" datePublished="July 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
@@ -10,7 +10,23 @@ const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","he
   <p class="mt-6 text-lg text-stone-500 leading-relaxed">Zhangjiajie is a year-round destination, but each season paints the pillars in a different light. We have visited in all four seasons. Here is what we found — and when we would go back.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Best Time to Visit</span></nav>
 
-  <div class="mt-12">
+  
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-besttime.webp" type="image/webp" />
+      <img
+        src="/banner-besttime.jpg"
+        alt="Lush green rocky mountain landscape in Zhangjiajie"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12">
     <div class="rounded-xl border border-stone-200 overflow-hidden mb-12">
       <table class="w-full text-sm">
         <thead class="bg-stone-50 border-b border-stone-200"><tr><th class="text-left px-4 py-3 font-medium text-stone-700">Month</th><th class="text-center px-4 py-3 font-medium text-stone-700">Temp</th><th class="text-center px-4 py-3 font-medium text-stone-700">Crowds</th><th class="text-center px-4 py-3 font-medium text-stone-700">Price</th><th class="text-left px-4 py-3 font-medium text-stone-700">Verdict</th></tr></thead>
@@ -43,6 +59,9 @@ const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","he
       <p class="mt-4 text-stone-500 leading-relaxed">Cold (0-10C) but uncrowded — and entrance fees are halved. We visited in January 2026: snow dusted the upper pillars, and we walked Golden Whip Stream with maybe 5 other people in 2 hours. The cable cars run year-round, but a few high-altitude trails close after heavy snow. Pack thermals and expect some facilities (snack stalls, smaller restrooms) to be closed. If you do not mind the cold, winter is the park's best-kept secret. CNY 115 for a 4-day pass instead of CNY 225.</p>
     </section>
   </div>
-  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/itinerary" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">View Itineraries <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  <div class="mt-16 pt-12 border-t border-stone-200 text-center">
+    <p class="text-sm text-stone-400 mb-4">Check the <a href="/weather" class="text-forest-600 hover:text-forest-700 underline">month-by-month weather guide</a> for temperature and rainfall details, or see our <a href="/itinerary" class="text-forest-600 hover:text-forest-700 underline">recommended itineraries</a> for each season.</p>
+    <a href="/itinerary" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">View Itineraries <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a>
+  </div>
 </div>
 </BaseLayout>

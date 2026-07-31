@@ -1,15 +1,31 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Top 10 Zhangjiajie Attractions (2026)","description":"From Avatar Hallelujah Mountain to the world's longest glass bridge - the top 10 must-see spots inside Zhangjiajie National Park, ranked with first-hand tips.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"ItemList","itemListElement":[{n:1,name:"Avatar Hallelujah Mountain"},{n:2,name:"Bailong Elevator"},{n:3,name:"Golden Whip Stream"},{n:4,name:"Tianzi Mountain"},{n:5,name:"Zhangjiajie Glass Bridge"},{n:6,name:"Heaven's Gate"},{n:7,name:"Ten-mile Gallery"},{n:8,name:"Yellow Dragon Cave"},{n:9,name:"Yangjiajie Scenic Area"},{n:10,name:"Baofeng Lake"}].map(({n,name})=>({"@type":"ListItem","position":n,"name":name}))},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://zhangjiajie-national-park.com/attractions/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Top 10 Zhangjiajie Attractions (2026)","description":"From Avatar Hallelujah Mountain to the world's longest glass bridge - the top 10 must-see spots inside Zhangjiajie National Park, ranked with first-hand tips.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"ItemList","itemListElement":[{n:1,name:"Avatar Hallelujah Mountain"},{n:2,name:"Bailong Elevator"},{n:3,name:"Golden Whip Stream"},{n:4,name:"Tianzi Mountain"},{n:5,name:"Zhangjiajie Glass Bridge"},{n:6,name:"Heaven's Gate"},{n:7,name:"Ten-mile Gallery"},{n:8,name:"Yellow Dragon Cave"},{n:9,name:"Yangjiajie Scenic Area"},{n:10,name:"Baofeng Lake"}].map(({n,name})=>({"@type":"ListItem","position":n,"name":name}))},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://zhangjiajie-national-park.com/attractions/"}]}]};
 ---
 <BaseLayout title="Top 10 Zhangjiajie Attractions (2026)" description="From Avatar Hallelujah Mountain to the world's longest glass bridge - the top 10 must-see spots inside Zhangjiajie National Park, ranked with first-hand tips." author="Zhangjiajie Guide Team" datePublished="July 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
   <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Attractions</div>
   <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Top 10 Attractions</h1>
-  <p class="mt-6 text-lg text-stone-500 leading-relaxed">The unmissable spots inside the park, ranked by our experience across multiple visits. Every one is worth your time — but we tell you which ones are worth getting up early for, and which ones you can skip if your schedule is tight.</p>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">The unmissable spots inside the park, ranked by our experience across multiple visits. Every one is worth your time — but we tell you which ones are worth getting up early for, and which ones you can skip if your schedule is tight. <span class="text-xs text-stone-400">Prices and tips verified April 2026.</span></p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Attractions</span></nav>
-  <div class="mt-12 space-y-12">
+  
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-attractions.webp" type="image/webp" />
+      <img
+        src="/banner-attractions.jpg"
+        alt="Green valley surrounded by majestic Zhangjiajie mountains"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-12">
     <h2 class="text-2xl font-semibold text-stone-900">Must-See Attractions</h2>
     {[
       {n:1,name:"Avatar Hallelujah Mountain",where:"Yuanjiajie",time:"1h",score:"10/10",desc:"The pillar that inspired Pandora's floating mountains in James Cameron's Avatar. Originally named Southern Sky Column, it was officially renamed in 2010 after the film's success. Best viewed when mist curls around the base — early morning (before 9 AM) or after 4 PM when tour groups thin out. We have photographed this pillar in April mist and November sun, and the mist version is dramatically better. There is a dedicated viewing platform with guardrails, plus a second, less-crowded viewpoint 200m further along the trail that most people walk past.",tip:"Skip the crowds at the main platform and walk 3 minutes further along the trail for the second viewpoint — same pillar, zero people."},
@@ -42,6 +58,9 @@ const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","he
         </div>
       </section>
     ))}
-    <div class="pt-12 border-t border-stone-200 text-center"><a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+    <div class="pt-12 border-t border-stone-200 text-center">
+      <p class="text-sm text-stone-400 mb-4">Also worth your time: <a href="/tianmen-mountain" class="text-forest-600 hover:text-forest-700 underline">Tianmen Mountain &amp; Heaven's Gate</a> — a separate mountain with the world's longest cable car and cliff-hanging glass skywalks, starting directly from downtown Zhangjiajie.</p>
+      <a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a>
+    </div>
   </div></div>
 </BaseLayout>

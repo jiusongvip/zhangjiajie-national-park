@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Glass Bridge | Grand Canyon Guide (2026)","description":"Complete guide to Zhangjiajie Glass Bridge: tickets, opening hours, how to get there, what to expect, and how to book the best time slot.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Glass Bridge","item":"https://zhangjiajie-national-park.com/glass-bridge/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Glass Bridge | Grand Canyon Guide (2026)","description":"Complete guide to Zhangjiajie Glass Bridge: tickets, opening hours, how to get there, what to expect, and how to book the best time slot.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Glass Bridge","item":"https://zhangjiajie-national-park.com/glass-bridge/"}]}]};
 ---
 <BaseLayout title="Zhangjiajie Glass Bridge | Grand Canyon Guide (2026)" description="Complete guide to Zhangjiajie Glass Bridge: tickets, opening hours, how to get there, what to expect, and how to book the best time slot." author="Zhangjiajie Guide Team" datePublished="July 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
@@ -10,7 +10,23 @@ const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","he
   <p class="mt-6 text-lg text-stone-500 leading-relaxed">The world's longest and highest glass-bottom bridge: 430 meters across, suspended 300 meters above the Zhangjiajie Grand Canyon. Walking onto transparent glass with nothing but air beneath your feet is more unnerving than you expect.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Glass Bridge</span></nav>
 
-  <div class="mt-12 space-y-12">
+  
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-glassbridge.webp" type="image/webp" />
+      <img
+        src="/banner-glassbridge.jpg"
+        alt="Zhangjiajie Glass Bridge suspended above Grand Canyon"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-12">
     <section>
       <h2 class="text-2xl font-semibold text-stone-900 mb-4">Practical Information</h2>
       <div class="rounded-xl border border-stone-200 overflow-hidden"><table class="w-full text-sm"><tbody class="divide-y divide-stone-100"><tr><td class="px-5 py-3 text-stone-600 font-medium w-32">Location</td><td class="px-5 py-3 text-stone-600">Zhangjiajie Grand Canyon, about 60 km from Wulingyuan</td></tr><tr><td class="px-5 py-3 text-stone-600 font-medium">Ticket Price</td><td class="px-5 py-3 text-stone-600">CNY 128 (bridge only). Combo with canyon hike + boat: CNY 219</td></tr><tr><td class="px-5 py-3 text-stone-600 font-medium">Hours</td><td class="px-5 py-3 text-stone-600">8:00 AM – 5:00 PM (last entry 4:00 PM)</td></tr><tr><td class="px-5 py-3 text-stone-600 font-medium">Time Slots</td><td class="px-5 py-3 text-stone-600">8:00, 9:00, 10:00, 11:00, 12:30, 13:30, 14:30 — book online at least a day ahead</td></tr><tr><td class="px-5 py-3 text-stone-600 font-medium">Restrictions</td><td class="px-5 py-3 text-stone-600">No selfie sticks, no drones, no large bags (free lockers available), no high heels</td></tr></tbody></table></div>

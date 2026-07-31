@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Best Zhangjiajie Itinerary: 1, 3 & 5 Day Plans (2026)","description":"Flexible Zhangjiajie itineraries with field-tested timing, budgets, and personal recommendations: 1-day express, classic 3-day, and in-depth 5-day plans.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Itineraries","item":"https://zhangjiajie-national-park.com/itinerary/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Best Zhangjiajie Itinerary: 1, 3 & 5 Day Plans (2026)","description":"Flexible Zhangjiajie itineraries with field-tested timing, budgets, and personal recommendations: 1-day express, classic 3-day, and in-depth 5-day plans.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Itineraries","item":"https://zhangjiajie-national-park.com/itinerary/"}]}]};
 
 const day1Schedule = [
   {time:"7:00 AM",act:"Enter at Wulingyuan gate. Shuttle bus to Bailong Elevator — arrive before 7:30 to beat queues."},
@@ -21,7 +21,23 @@ const day1Schedule = [
   <p class="mt-6 text-lg text-stone-500 leading-relaxed">Choose your pace. Every itinerary is based on routes we have personally tested. Timing assumes a reasonable start (7-8 AM), moderate fitness, and no unusual delays. Budget estimates include park entry, in-park transport, meals, and accommodation.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Itineraries</span></nav>
 
-  <div class="mt-12 space-y-20">
+  
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-itinerary.webp" type="image/webp" />
+      <img
+        src="/banner-itinerary.jpg"
+        alt="Aerial panorama of Zhangjiajie for trip planning"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-20">
     <!-- 1 Day -->
     <section>
       <div class="flex items-center gap-3 mb-2"><span class="text-xs font-semibold text-forest-600 uppercase tracking-wide bg-forest-50 rounded-full px-3 py-1">1 Day</span><span class="text-xs text-stone-400">Best for stopovers and tight schedules</span></div>
@@ -47,7 +63,7 @@ const day1Schedule = [
             {label:"Afternoon",text:"Shuttle to Tianzi Mountain. Cable car up (CNY 72), summit viewpoints. Then shuttle down to Ten-mile Gallery. Walk the valley path (90 min) or mini-train (CNY 38)."}
           ]},
           {title:"Day 2: Tianmen Mountain",lines:[
-            {label:"Morning",text:"Move to Zhangjiajie city hotel. Tianmen Mountain cable car from downtown station (7.5 km ride, 30 min). Walk the cliff-hanging path, photograph Heaven's Gate arch from the top. Descend the 999 steps (or take the escalator for CNY 32)."},
+            {label:"Morning",text:"Move to Zhangjiajie city hotel. <a href='/tianmen-mountain' class='text-forest-600 hover:text-forest-700 underline'>Tianmen Mountain cable car</a> from downtown station (7.5 km ride, 30 min). Walk the cliff-hanging path, photograph Heaven's Gate arch from the top. Descend the 999 steps (or take the escalator for CNY 32)."},
             {label:"Afternoon",text:"Bus down the 99-Bend Road (hairpin turns, thrilling). Explore Zhangjiajie city — the night market near the train station has great street food."}
           ]},
           {title:"Day 3: Grand Canyon",lines:[
@@ -79,7 +95,7 @@ const day1Schedule = [
           {title:"Day 1: Forest Park",text:"Bailong Elevator → Yuanjiajie → Avatar Mountain. Afternoon: Tianzi Mountain by cable car. Same Day 1 as the 3-day plan but at a more relaxed pace — you can linger at viewpoints, explore side trails, and add the Yangjiajie detour if you are feeling ambitious."},
           {title:"Day 2: Tianmen Mountain",text:"Same as the 3-day Day 2, but with time to walk the entire western cliff path loop, visit Tianmen Temple, and explore Zhangjiajie city in the evening. The hot pot restaurants near the bus station are excellent and cheap."},
           {title:"Day 3: Grand Canyon + Baofeng Lake",text:"8 AM Glass Bridge. Hike the canyon trail to the boat dock (about 2 hours). Afternoon: Baofeng Lake boat ride. This is a lighter day — you will appreciate the rest after two days of stairs and cable cars."},
-          {title:"Day 4: Yellow Dragon Cave + Bus to Fenghuang",text:"Morning: Yellow Dragon Cave (2-hour guided tour). Afternoon: Bus from Wulingyuan to Fenghuang ancient town (3.5 hours, CNY 80). Check into a riverside guesthouse. Evening: Fenghuang by night — the wooden stilt houses along the Tuo River are lit with lanterns. This is one of China's most photogenic townscapes."},
+          {title:"Day 4: Yellow Dragon Cave + Bus to Fenghuang",text:"Morning: Yellow Dragon Cave (2-hour guided tour). Afternoon: Bus from Wulingyuan to <a href='/fenghuang-ancient-town' class='text-forest-600 hover:text-forest-700 underline'>Fenghuang ancient town</a> (3.5 hours, CNY 80). Check into a riverside guesthouse. Evening: Fenghuang by night — the wooden stilt houses along the Tuo River are lit with lanterns. This is one of China's most photogenic townscapes."},
           {title:"Day 5: Fenghuang Morning + Return",text:"Early morning walk along the river before the day-trippers arrive (Fenghuang gets crowded by 10 AM). Visit the old city wall and the former residence of Shen Congwen. Bus back to Zhangjiajie (3.5 hours) or continue onward to Guilin / Changsha."}
         ].map(day => (
           <div class="rounded-xl border border-stone-200 bg-white p-5">

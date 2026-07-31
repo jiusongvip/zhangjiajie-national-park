@@ -1,0 +1,205 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Fenghuang Ancient Town | Complete Guide from Zhangjiajie (2026)",
+      "description": "Complete guide to Fenghuang Ancient Town: how to get there from Zhangjiajie, what to see, where to stay, best photo spots, and whether it is worth the detour.",
+      "datePublished": "2026-07-01",
+      "dateModified": "2026-07-31",
+      "author": { "@type": "Person", "name": "Zhangjiajie Guide Team" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I get from Zhangjiajie to Fenghuang Ancient Town?", "acceptedAnswer": { "@type": "Answer", "text": "Direct buses run from Zhangjiajie Central Bus Station to Fenghuang North Bus Station, departing every hour from 7 AM to 4 PM. The journey takes about 3.5 hours and costs CNY 80. Alternatively, a private car transfer costs CNY 500-600 and takes 3 hours. Fenghuang has no train station — the bus is the only public transport option." } },
+        { "@type": "Question", "name": "Is Fenghuang Ancient Town worth visiting from Zhangjiajie?", "acceptedAnswer": { "@type": "Answer", "text": "Fenghuang is worth adding to your Zhangjiajie trip if you have 5+ days. It offers a cultural contrast to the park's nature focus — ancient wooden stilt houses along a river, lantern-lit evenings, and a completely different pace. If you only have 3-4 days in Zhangjiajie, skip Fenghuang and spend that time inside the parks instead." } },
+        { "@type": "Question", "name": "Do I need a ticket for Fenghuang Ancient Town?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Entry to the old town core costs CNY 138 and is valid for 3 days. The ticket covers access to the main streets, the city wall, and several historic buildings. Walking the riverside paths outside the ticket zone is free. The fee is sometimes waived during off-peak winter months — check at the gate." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zhangjiajie-national-park.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Fenghuang Ancient Town", "item": "https://zhangjiajie-national-park.com/fenghuang-ancient-town/" }
+      ]
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Fenghuang Ancient Town | Day Trip from Zhangjiajie (2026)"
+  description="How to visit Fenghuang Ancient Town from Zhangjiajie: bus schedules, ticket prices, best photo spots, where to stay, and whether the detour is worth it."
+  author="Zhangjiajie Guide Team"
+  datePublished="July 2026"
+>
+  <slot name="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </slot>
+
+  <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+    <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Day Trip</div>
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Fenghuang Ancient Town</h1>
+    <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+      The 300-year-old river town of wooden stilt houses, stone bridges, and lantern-lit evenings — about 3.5 hours from Zhangjiajie. It is the most photogenic ancient town in China and the perfect cultural counterpoint to the nature-focused park days.
+    </p>
+    <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+      <span class="text-stone-600">Fenghuang Ancient Town</span>
+    </nav>
+
+    <!-- Is It Worth It -->
+    
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-fenghuang.webp" type="image/webp" />
+      <img
+        src="/banner-fenghuang.jpg"
+        alt="Fenghuang Ancient Town riverside at night"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-16">
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Is Fenghuang Worth the Detour?</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Our honest answer: Fenghuang is spectacular, but it depends on how much time you have.
+        </p>
+        <div class="space-y-3">
+          <div class="rounded-xl border border-forest-200 bg-forest-50/50 p-5">
+            <h3 class="font-semibold text-forest-800 mb-2">✅ Go to Fenghuang if you have 5+ days in Zhangjiajie.</h3>
+            <p class="text-sm text-forest-700">The 3.5-hour bus ride each way means Fenghuang consumes nearly a full day of travel. With a 5-day itinerary, this works — the cultural contrast resets your appreciation for the natural scenery when you return. Our <a href="/itinerary" class="text-forest-600 hover:text-forest-700 underline">5-day itinerary</a> includes Fenghuang on Days 4-5.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 mb-2">❌ Skip Fenghuang if you have 3-4 days.</h3>
+            <p class="text-sm text-stone-500">The parks deserve your full attention. Tianmen Mountain, the Glass Bridge, and the Forest Park core will fill 3-4 days comfortably. Fenghuang is not going anywhere — save it for your next China trip or combine it with a Guilin/Yangshuo route instead.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Getting There -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">How to Get There from Zhangjiajie</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Fenghuang has no train station and no airport. The bus is the only public transport option from Zhangjiajie.
+        </p>
+        <div class="rounded-xl border border-stone-200 overflow-hidden">
+          <table class="w-full text-sm">
+            <tbody class="divide-y divide-stone-100">
+              <tr>
+                <td class="px-5 py-3 text-stone-600 font-medium w-36">Bus</td>
+                <td class="px-5 py-3 text-stone-600">Zhangjiajie Central Bus Station → Fenghuang North Bus Station. Departs hourly 7 AM – 4 PM. 3.5 hours. CNY 80. We took this bus in November 2025: the road is winding but paved, and the bus was clean and air-conditioned. Motion sickness medication recommended.</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 text-stone-600 font-medium">Private Car</td>
+                <td class="px-5 py-3 text-stone-600">CNY 500-600 one-way. 3 hours. Can be arranged through your hotel or Didi. Worth considering for groups of 3+ — split four ways, a private car costs about the same as bus tickets and saves an hour plus the bus station hassle.</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 text-stone-600 font-medium">From the North Bus Station</td>
+                <td class="px-5 py-3 text-stone-600">Fenghuang North Bus Station is about 3 km from the old town. A taxi costs CNY 10-15 (5 minutes). The local bus #1 also runs to the old town entrance (CNY 2, 15 minutes).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Ticket -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Tickets &amp; Entry</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Entry to the old town core costs <strong class="text-stone-700">CNY 138</strong> and is valid for 3 consecutive days. The ticket covers: the main riverside streets, the old city wall, the Former Residence of Shen Congwen (famous Chinese writer), and several minor museums and ancestral halls. <span class="text-xs text-stone-400">Price verified November 2025.</span>
+        </p>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          You can walk the riverside paths and photograph the stilt houses from outside the ticketed zone for free. If you are only spending one night and primarily interested in the evening atmosphere and photos, you could skip the ticket — but you will miss the old town interior and all the historic buildings. We bought the ticket and found it worthwhile for the riverside sections of the old town, less so for the museums.
+        </p>
+      </section>
+
+      <!-- What to See -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">What to See &amp; Do</h2>
+        <div class="space-y-5">
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">The Stilt Houses (Diaojiaolou)</h3>
+            <p class="text-sm text-stone-500">The iconic wooden houses built on stilts along the Tuo River are Fenghuang's defining image. The best views are from the Hong Bridge (Hongqiao) looking upstream, or from the opposite riverbank near the North Gate. At night, the houses are illuminated with warm lanterns — this is the shot that appears on every postcard. We photographed from the riverbank near the North Gate around 7 PM in November, just after the lights came on.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Early Morning Walk</h3>
+            <p class="text-sm text-stone-500">Fenghuang transforms after 10 AM when day-trippers from tour buses arrive. Before 8 AM, the riverside is nearly empty — just locals washing vegetables in the river and the occasional photographer with a tripod. Walk the full length of the river from the Wind Bridge to the South Hua Gate. It takes about 45 minutes and is the best hour you will spend in Fenghuang.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Night River Cruise</h3>
+            <p class="text-sm text-stone-500">Small wooden boats take visitors up and down the Tuo River after dark. The cruise costs CNY 80 per person and lasts about 20 minutes. It is touristy, but the view of the illuminated stilt houses from water level is genuinely magical. We did this at 8 PM in November and would do it again. Bring a jacket — it gets cold on the water even in mild weather.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Former Residence of Shen Congwen</h3>
+            <p class="text-sm text-stone-500">Shen Congwen is Fenghuang's most famous son — a celebrated Chinese writer whose novel "Border Town" (边城) immortalized the region. His former residence is a modest courtyard house with personal artifacts and manuscripts. Worth 30 minutes if you have the ticket (it is included). Skip it if you are not interested in Chinese literature.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Where to Stay -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Where to Stay</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Stay in a riverside guesthouse. This is non-negotiable — the whole point of Fenghuang is the river atmosphere, and a balcony overlooking the Tuo River at night is the experience you came for.
+        </p>
+        <div class="space-y-3">
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Riverside Guesthouses (Recommended)</h3>
+            <p class="text-sm text-stone-500">CNY 200-500/night. Book one with a river-view balcony — ideally on the quieter upstream section (north of Hong Bridge). The downstream section near the bar street is louder at night. We stayed at a guesthouse near the North Gate (CNY 280, November 2025) with a balcony directly over the water. Worth every yuan.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Budget: Inland Guesthouses</h3>
+            <p class="text-sm text-stone-500">CNY 80-150/night. Located in the alleys behind the riverside — a 2-5 minute walk to the water. Quieter than the riverside and significantly cheaper. A good option if you are on a tight budget and plan to spend your waking hours outside anyway.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Practical Tips -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Practical Tips</h2>
+        <ul class="space-y-3 text-stone-500 text-sm">
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Go before 8 AM or stay overnight.</strong> Day-trippers arrive by 10 AM and the old town becomes shoulder-to-shoulder crowded. An overnight stay lets you experience Fenghuang's two best hours: sunrise and lantern-lit evening.</li>
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Bring cash.</strong> Smaller guesthouses and street food stalls may not accept foreign cards or international WeChat Pay.</li>
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Skip the bars.</strong> The bar street on the downstream riverbank plays loud music until midnight and feels like a college town. Not the Fenghuang experience you came for.</li>
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Pack light.</strong> The old town streets are cobblestone and narrow. Rolling luggage is miserable. A backpack is ideal.</li>
+          <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Eat the ginger candy.</strong> Fenghuang's streetside ginger candy makers — pulling and stretching hot sugar — are a local specialty. It tastes better than it looks. Buy a small bag near the Hong Bridge.</li>
+        </ul>
+      </section>
+
+      <!-- Next Steps -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Continuing Your Trip</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Fenghuang is well-connected to other destinations beyond Zhangjiajie. From Fenghuang North Bus Station, you can take buses to:
+        </p>
+        <div class="grid gap-3">
+          <div class="rounded-xl border border-stone-200 bg-white p-4">
+            <p class="text-sm"><strong class="text-stone-700">Back to Zhangjiajie</strong> — Buses depart hourly, 3.5 hours, CNY 80. Last bus around 4 PM.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-4">
+            <p class="text-sm"><strong class="text-stone-700">Guilin / Yangshuo</strong> — Via bus to Huaihua (1 hour, CNY 30) then high-speed train to Guilin (2 hours, CNY 150). A popular combo route: Zhangjiajie → Fenghuang → Guilin.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-4">
+            <p class="text-sm"><strong class="text-stone-700">Changsha</strong> — Bus to Huaihua South station, then high-speed train to Changsha (1.5 hours, CNY 150). Total journey about 4 hours.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="mt-16 pt-12 border-t border-stone-200 text-center flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="/itinerary" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">View Full Itineraries <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a>
+      <a href="/guide" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]">Back to Full Guide</a>
+    </div>
+  </div>
+</BaseLayout>

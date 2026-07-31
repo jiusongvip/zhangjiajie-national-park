@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Weather | Monthly Forecast & Climate Guide (2026)","description":"Zhangjiajie weather by month: temperature, rainfall, what to wear, and how weather affects park access. Based on first-hand visits across all seasons.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Weather","item":"https://zhangjiajie-national-park.com/weather/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Weather | Monthly Forecast & Climate Guide (2026)","description":"Zhangjiajie weather by month: temperature, rainfall, what to wear, and how weather affects park access. Based on first-hand visits across all seasons.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Weather","item":"https://zhangjiajie-national-park.com/weather/"}]}]};
 const months = [
   {m:"Jan",hi:"8",lo:"1",rain:"40",wear:"Heavy jacket, thermals, gloves, waterproof boots. Snow possible on upper trails."},
   {m:"Feb",hi:"10",lo:"3",rain:"55",wear:"Warm jacket, layers. Lighter than January but still cold. Chinese New Year crowds in town, not park."},
@@ -24,7 +24,23 @@ const months = [
   <p class="mt-6 text-lg text-stone-500 leading-relaxed">Zhangjiajie has a subtropical mountain climate: warm, humid summers and cool, relatively dry winters. The weather inside the park can differ from the city — it is typically 3-5C cooler at elevation, and mist forms in the valleys on most mornings regardless of forecast. <a href="https://www.travelchinaguide.com/climate/zhangjiajie.htm" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">Official climate data</a> gives averages; our notes below are from personal experience.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Weather</span></nav>
 
-  <div class="mt-12">
+  
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-weather.webp" type="image/webp" />
+      <img
+        src="/banner-weather.jpg"
+        alt="Misty clouds wrapping around Zhangjiajie mountain peaks"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12">
     <div class="rounded-xl border border-stone-200 overflow-hidden">
       <table class="w-full text-sm">
         <thead class="bg-stone-50 border-b border-stone-200"><tr><th class="text-left px-3 py-3 font-medium text-stone-700">Month</th><th class="text-center px-3 py-3 font-medium text-stone-700">High (C)</th><th class="text-center px-3 py-3 font-medium text-stone-700">Low (C)</th><th class="text-center px-3 py-3 font-medium text-stone-700">Rain (mm)</th><th class="text-left px-3 py-3 font-medium text-stone-700">What to Wear</th></tr></thead>

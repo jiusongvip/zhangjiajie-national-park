@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Avatar Hallelujah Mountain | Zhangjiajie Guide (2026)","description":"Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: location, viewpoints, how the film connection happened, photography tips, and how to avoid crowds.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Avatar Mountains","item":"https://zhangjiajie-national-park.com/avatar-mountains/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Avatar Hallelujah Mountain | Zhangjiajie Guide (2026)","description":"Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: location, viewpoints, how the film connection happened, photography tips, and how to avoid crowds.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Avatar Mountains","item":"https://zhangjiajie-national-park.com/avatar-mountains/"}]}]};
 ---
 <BaseLayout title="Avatar Hallelujah Mountain | Zhangjiajie Guide (2026)" description="Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: location, viewpoints, how the film connection happened, photography tips, and how to avoid crowds." author="Zhangjiajie Guide Team" datePublished="July 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
@@ -10,7 +10,23 @@ const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","he
   <p class="mt-6 text-lg text-stone-500 leading-relaxed">The 1,080-meter quartz-sandstone pillar that inspired the floating Hallelujah Mountains in James Cameron's Avatar. This is the single most photographed rock formation in Zhangjiajie — and for good reason.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Avatar Mountains</span></nav>
 
-  <div class="mt-12 space-y-12">
+  
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-avatar.webp" type="image/webp" />
+      <img
+        src="/banner-avatar.jpg"
+        alt="Avatar Hallelujah Mountain sandstone pillar rising above forest"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-12">
     <section>
       <h2 class="text-2xl font-semibold text-stone-900 mb-4">The Film Connection</h2>
       <p class="text-stone-500 leading-relaxed mb-4">In 2008, James Cameron's production team visited Zhangjiajie while scouting visual references for Pandora's floating mountain landscapes. The sandstone pillars — particularly the "Southern Sky Column" in Yuanjiajie — became the direct inspiration for the Hallelujah Mountains in the 2009 film. After Avatar's release, the Chinese park administration officially renamed the Southern Sky Column to "Avatar Hallelujah Mountain" in January 2010.</p>

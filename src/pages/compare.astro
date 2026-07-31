@@ -1,0 +1,210 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Zhangjiajie vs Huangshan vs Guilin | Which One Should You Visit?",
+      "description": "Honest comparison of China's three most famous mountain landscapes: Zhangjiajie sandstone pillars, Huangshan granite peaks, and Guilin karst hills. Which one fits your travel style?",
+      "datePublished": "2026-07-01",
+      "dateModified": "2026-07-31",
+      "author": { "@type": "Person", "name": "Zhangjiajie Guide Team" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zhangjiajie-national-park.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://zhangjiajie-national-park.com/compare/" }
+      ]
+    }
+  ]
+};
+
+const comparison = [
+  { feature: "Landscape", zjj: "3,000+ quartz-sandstone pillars rising vertically from subtropical forest. Mist-wrapped, otherworldly. The Avatar mountains.", hs: "Granite peaks, twisted pine trees, and a sea of clouds. Classical Chinese ink-painting scenery. Sunrise above the clouds is the iconic shot.", gl: "Limestone karst hills along the Li River. Rolling, rounded peaks reflected in calm water. Rice paddies and bamboo groves between the hills." },
+  { feature: "Best Photo", zjj: "Tianzi Mountain at sunrise with pillars emerging from a cloud sea. Vertical/portrait orientation.", hs: "Dawn at Bright Summit Peak with twisted pines silhouetted against a golden sky. Landscape orientation.", gl: "Sunset at Xianggong Hill overlooking the Li River bend. The classic Guilin postcard shot." },
+  { feature: "Entry Cost (2026)", zjj: "CNY 225 for a 4-day park pass. Cable cars and elevator extra. Budget CNY 500-800 per person.", hs: "CNY 230 for a 3-day pass. Cable cars extra (CNY 80-100 each). Budget CNY 400-600 per person.", gl: "No single park ticket. Li River cruise CNY 300-400. Yangshuo countryside is free to explore. Budget CNY 400-600 for 2-3 days." },
+  { feature: "Best Time", zjj: "April-May and October-November. Mist is the magic — you want some clouds. Avoid Golden Week (Oct 1-7) and May Day.", hs: "April-May and September-October. Spring flowers and autumn colors. Winter snow scenes are spectacular but trails may be icy.", gl: "April-October. Summer is hot but the river is refreshing. Winter is mild but grey skies are common." },
+  { feature: "Physical Demand", zjj: "Moderate. Cable cars and the Bailong Elevator do the climbing. You can see highlights with minimal hiking. Golden Whip Stream is flat.", hs: "High. Thousands of stone steps. The Western Steps alone are 2+ hours of climbing. Cable cars help but the summit walks still involve significant stair climbing.", gl: "Low to moderate. Most activities are flat: biking through rice paddies, bamboo rafting, river cruises. The karst hill climbs are optional short hikes." },
+  { feature: "Infrastructure", zjj: "Well-developed. Cable cars, glass elevators, shuttle buses. English signage throughout. Hotels from CNY 150-800 in Wulingyuan.", hs: "Well-developed. Cable cars, hotels on the mountain (pricey but worth it for sunrise). English signage is decent. Accommodation on the summit is limited and expensive.", gl: "The most developed. Yangshuo has Western restaurants, English-speaking staff, bike rentals. The Li River cruise is highly commercialized but well-organized." },
+  { feature: "Crowds", zjj: "Heavy in summer and holidays. Manageable in spring/autumn. Near-empty in winter. The park is large enough to find quiet trails even in peak season.", hs: "Extremely crowded on weekends and holidays. The summit paths are narrow bottlenecks. Weekdays in shoulder season are manageable. Winter is quiet.", gl: "Yangshuo can feel over-touristed. West Street is essentially a tourist shopping strip. The countryside beyond Yangshuo (15+ km out) is peaceful and authentic." },
+  { feature: "Time Needed", zjj: "2-4 days. 2 days for the Forest Park core, 1 day for Tianmen Mountain, 1 day for Grand Canyon + Glass Bridge.", hs: "2-3 days. One day up the mountain (stay overnight on summit), one day down via the Western Steps, half day for surrounding hot springs or villages.", gl: "2-4 days. One day for the Li River cruise, 2-3 days exploring Yangshuo by bike/scooter, half day for Longji Rice Terraces (2 hours away)." }
+];
+
+const verdicts = [
+  {
+    who: "Visit Zhangjiajie if...",
+    points: [
+      "You want something that looks like nowhere else on Earth",
+      "You are a photographer chasing unique, dramatic landscapes",
+      "You enjoy a mix of hiking and cable-car-assisted sightseeing",
+      "The Avatar / Pandora aesthetic appeals to you",
+      "You have 3-5 days and want to see one place deeply"
+    ]
+  },
+  {
+    who: "Visit Huangshan if...",
+    points: [
+      "You want the classical Chinese mountain experience — the one from ancient paintings",
+      "You are physically fit and enjoy serious stair climbing",
+      "Sunrise above a sea of clouds is on your photography bucket list",
+      "You have 2-3 days and can handle steep terrain"
+    ]
+  },
+  {
+    who: "Visit Guilin / Yangshuo if...",
+    points: [
+      "You want a relaxed trip with biking, boating, and gentle exploration",
+      "You are traveling with family or less active companions",
+      "You prefer boutique hotels and Western food options alongside local cuisine",
+      "You have 3-4 days and want a mix of nature and comfort"
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Zhangjiajie vs Huangshan vs Guilin | Which Should You Visit?"
+  description="Honest comparison of China's three iconic mountain landscapes: Zhangjiajie pillars, Huangshan granite peaks, and Guilin karst hills. Scenery, cost, difficulty, and which one fits you."
+  author="Zhangjiajie Guide Team"
+  datePublished="July 2026"
+>
+  <slot name="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </slot>
+
+  <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+    <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Comparison</div>
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Zhangjiajie vs Huangshan vs Guilin</h1>
+    <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+      China's three most famous mountain landscapes — and they could not be more different. We have visited all three. Here is an honest, side-by-side comparison to help you decide which one deserves your limited vacation days.
+    </p>
+    <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+      <span class="text-stone-600">Compare</span>
+    </nav>
+
+    <!-- Quick Summary -->
+    
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-compare.webp" type="image/webp" />
+      <img
+        src="/banner-compare.jpg"
+        alt="Dramatic Zhangjiajie landscape for destination comparison"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-16">
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">The One-Sentence Summary</h2>
+        <div class="grid gap-4">
+          <div class="rounded-xl border border-forest-200 bg-forest-50/50 p-5">
+            <h3 class="font-semibold text-forest-800 text-lg mb-1">Zhangjiajie</h3>
+            <p class="text-sm text-forest-700">Surreal, otherworldly sandstone pillars that look like an alien planet. The Avatar mountains are real, and they are in Hunan.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-1">Huangshan (Yellow Mountain)</h3>
+            <p class="text-sm text-stone-500">Classical Chinese beauty: granite peaks, twisted pines, and a sea of clouds. This is the mountain from every Chinese ink painting you have ever seen.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-1">Guilin / Yangshuo</h3>
+            <p class="text-sm text-stone-500">Gentle karst hills mirrored in winding rivers. The most accessible and relaxing of the three. Bicycle through rice paddies with limestone peaks as your backdrop.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed Comparison Table -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Detailed Comparison</h2>
+        <div class="rounded-xl border border-stone-200 overflow-x-auto">
+          <table class="w-full text-sm min-w-[600px]">
+            <thead class="bg-stone-50 border-b border-stone-200">
+              <tr>
+                <th class="text-left px-4 py-3 font-medium text-stone-700 w-32"></th>
+                <th class="text-left px-4 py-3 font-medium text-stone-700">Zhangjiajie</th>
+                <th class="text-left px-4 py-3 font-medium text-stone-700">Huangshan</th>
+                <th class="text-left px-4 py-3 font-medium text-stone-700">Guilin</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100">
+              {comparison.map(({ feature, zjj, hs, gl }) => (
+                <tr>
+                  <td class="px-4 py-3 text-stone-600 font-medium">{feature}</td>
+                  <td class="px-4 py-3 text-stone-500 text-xs leading-relaxed">{zjj}</td>
+                  <td class="px-4 py-3 text-stone-500 text-xs leading-relaxed">{hs}</td>
+                  <td class="px-4 py-3 text-stone-500 text-xs leading-relaxed">{gl}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Who Should Go Where -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Which One Is Right for You?</h2>
+        <div class="space-y-5">
+          {verdicts.map(({ who, points }) => (
+            <div class="rounded-xl border border-stone-200 bg-white p-5 md:p-6">
+              <h3 class="text-lg font-semibold text-stone-800 mb-3">{who}</h3>
+              <ul class="space-y-2 text-sm text-stone-500">
+                {points.map(p => (
+                  <li class="flex gap-2"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> {p}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Can You Combine Them? -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Can You Visit More Than One?</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Yes, but they are far apart. Here is the reality:
+        </p>
+        <div class="space-y-3">
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Zhangjiajie + Guilin/Yangshuo</h3>
+            <p class="text-sm text-stone-500">Via Fenghuang Ancient Town. Bus Zhangjiajie → Fenghuang (3.5h), then bus → Huaihua (1h), then high-speed train → Guilin (2h). Total one-way: about 7 hours. A popular 7-10 day route. See our <a href="/fenghuang-ancient-town" class="text-forest-600 hover:text-forest-700 underline">Fenghuang guide</a> for the connection details.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Zhangjiajie + Huangshan</h3>
+            <p class="text-sm text-stone-500">Difficult. No direct flights or trains. Requires a connection through Changsha or Wuhan. Total travel time: a full day minimum. Only worth it if you have 10+ days and are specifically chasing China's mountain landscapes.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Guilin + Huangshan</h3>
+            <p class="text-sm text-stone-500">High-speed train via Guangzhou or Changsha. About 6-7 hours. Doable as a two-stop trip with 8+ days.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Pick -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Our Honest Pick</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          If you can only visit one — and you are reading this on a Zhangjiajie guide website, so you know our bias — we would still say:
+        </p>
+        <div class="rounded-xl border border-forest-200 bg-forest-50 p-6">
+          <p class="text-forest-800 leading-relaxed">
+            <strong>Zhangjiajie</strong> offers the most unique visual experience of the three. There is literally nowhere else on Earth that looks like it. Huangshan is the most classically beautiful (and the most physically demanding). Guilin is the most pleasant and relaxing (and the most developed for tourism). If you want your jaw to drop, go to Zhangjiajie. If you want to feel like you have stepped into a Tang Dynasty scroll painting, go to Huangshan. If you want a charming, low-stress, bike-and-boat holiday with gorgeous scenery, go to Guilin.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="mt-16 pt-12 border-t border-stone-200 text-center flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Read the Zhangjiajie Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a>
+      <a href="/best-time-to-visit" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]">Best Time to Visit</a>
+    </div>
+  </div>
+</BaseLayout>

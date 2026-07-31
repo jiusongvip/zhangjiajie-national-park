@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"How to Get to Zhangjiajie | Transport Guide (2026)","description":"Flights, trains, buses to Zhangjiajie with directions to each park entrance. Based on first-hand travel experience.","datePublished":"2026-07-01","dateModified":"2026-07-30","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"How to Get There","item":"https://zhangjiajie-national-park.com/how-to-get-there/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"How to Get to Zhangjiajie | Transport Guide (2026)","description":"Flights, trains, buses to Zhangjiajie with directions to each park entrance. Based on first-hand travel experience.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"How to Get There","item":"https://zhangjiajie-national-park.com/how-to-get-there/"}]}]};
 ---
 <BaseLayout title="How to Get to Zhangjiajie | Transport Guide (2026)" description="Complete transport guide to Zhangjiajie: flights, trains, buses from major cities, plus door-to-door directions to each park entrance. Based on first-hand travel." author="Zhangjiajie Guide Team" datePublished="July 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
@@ -9,7 +9,23 @@ const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","he
   <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">How to Get There</h1>
   <p class="mt-6 text-lg text-stone-500 leading-relaxed">Flights, trains, and buses to Zhangjiajie, door to door. Every route and price here is based on our own travel — we have arrived by air, by high-speed train, and by bus from Fenghuang.</p>
   <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">How to Get There</span></nav>
-  <div class="mt-12 space-y-12">
+  
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-transport.webp" type="image/webp" />
+      <img
+        src="/banner-transport.jpg"
+        alt="Cable car gliding over Zhangjiajie mountain range"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 space-y-12">
     <section>
       <h2 class="text-2xl font-semibold text-stone-900 mb-4">By Air</h2>
       <p class="text-stone-500 leading-relaxed mb-4">Zhangjiajie Hehua International Airport (DYG) is about 5 km from downtown and 35 km (40 min) from the Wulingyuan park entrance. Direct flights operate from Beijing (2.5h), Shanghai (2h), Guangzhou (1.5h), Chengdu (1.5h), and Xi'an (1.5h).</p>
@@ -45,6 +61,9 @@ const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","he
         </div>
       </div>
     </section>
-    <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+    <div class="mt-16 pt-12 border-t border-stone-200 text-center">
+      <p class="text-sm text-stone-400 mb-4">Staying downtown? <a href="/tianmen-mountain" class="text-forest-600 hover:text-forest-700 underline">Tianmen Mountain's cable car</a> departs from the city center — an easy add-on on arrival or departure day.</p>
+      <a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a>
+    </div>
   </div></div>
 </BaseLayout>

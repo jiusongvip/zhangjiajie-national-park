@@ -1,0 +1,244 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Tianmen Mountain Zhangjiajie | Heaven's Gate Guide (2026)",
+      "description": "Complete guide to Tianmen Mountain: the world's longest cable car, Heaven's Gate arch, glass skywalks, 99-Bend Road, and how to plan your visit. Prices verified April 2026.",
+      "datePublished": "2026-07-01",
+      "dateModified": "2026-07-31",
+      "author": { "@type": "Person", "name": "Zhangjiajie Guide Team" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How much does Tianmen Mountain cost?", "acceptedAnswer": { "@type": "Answer", "text": "Tianmen Mountain entry is CNY 258 (includes the cable car ride up). The escalator inside the mountain to bypass the 999 steps costs CNY 32 extra. The glass skywalk shoe covers are CNY 5. Budget CNY 300-350 per person for a complete visit. Prices verified at the downtown ticket office, April 2026." } },
+        { "@type": "Question", "name": "How long does the Tianmen Mountain cable car take?", "acceptedAnswer": { "@type": "Answer", "text": "The cable car ride takes about 28-30 minutes from downtown Zhangjiajie to the summit, covering 7.5 km. It is the longest passenger cable car in the world. The ride glides over rooftops, farmland, and finally sheer cliff faces — the last 10 minutes are genuinely thrilling." } },
+        { "@type": "Question", "name": "How many steps are there at Heaven's Gate?", "acceptedAnswer": { "@type": "Answer", "text": "There are 999 steps from the base of Heaven's Gate arch to the top. You can skip them by taking the escalator built inside the mountain (CNY 32, about 7 minutes). The steps are steep and uneven — we recommend the escalator up and walking down if you want the experience without the quad burn." } },
+        { "@type": "Question", "name": "Is Tianmen Mountain worth visiting if I have already seen the Forest Park?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tianmen Mountain offers a completely different experience from the Forest Park: a single dramatic mountain with a natural arch, cliff-hanging walkways, and the world's longest cable car ride. The Forest Park is about pillars rising from the ground; Tianmen Mountain is about standing on top of one and looking down." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zhangjiajie-national-park.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tianmen Mountain", "item": "https://zhangjiajie-national-park.com/tianmen-mountain/" }
+      ]
+    }
+  ]
+};
+
+const highlights = [
+  { icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5", title: "World's Longest Cable Car", desc: "7.5 km from downtown to summit in 28 minutes. Glides over city rooftops, terraced farmland, and cliff faces. Worth the entry fee alone." },
+  { icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z", title: "Heaven's Gate Arch", desc: "A natural 131-meter stone arch cut through the mountain. Visible from downtown on clear days. Climb the 999 steps or take the in-mountain escalator." },
+  { icon: "M14.828 14.828a4 4 0 01-5.656 0M9.172 9.172a4 4 0 015.656 0M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z", title: "Glass Skywalks", desc: "Three glass-floored paths bolted to vertical cliff faces at 1,400m. The Coiling Dragon Cliff walkway is the most dramatic — 100 meters of glass with nothing but air below." },
+  { icon: "M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0L6.343 16.657a8 8 0 1111.314 0zM15 11a2 2 0 100-4 2 2 0 000 4z", title: "99-Bend Road", desc: "A serpentine road with 99 hairpin turns climbing the mountain. Take the bus down after descending Heaven's Gate — the switchbacks are an attraction themselves." }
+];
+---
+<BaseLayout
+  title="Tianmen Mountain Zhangjiajie | Heaven's Gate Guide (2026)"
+  description="Complete guide to Tianmen Mountain: world's longest cable car, Heaven's Gate arch, glass skywalks, 99-Bend Road. Ticket prices, routes, timing, and tips — verified April 2026."
+  author="Zhangjiajie Guide Team"
+  datePublished="July 2026"
+>
+  <slot name="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </slot>
+
+  <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+    <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Tianmen Mountain</div>
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Tianmen Mountain &amp; Heaven's Gate</h1>
+    <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+      A single massive mountain with a natural 131-meter stone arch, vertigo-inducing glass walkways bolted to cliff faces, and the world's longest passenger cable car. Tianmen Mountain is a completely different experience from the Forest Park — and it starts right from downtown Zhangjiajie.
+    </p>
+    <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+      <span class="text-stone-600">Tianmen Mountain</span>
+    </nav>
+
+    <!-- Highlights Grid -->
+    
+
+  <div class="mt-8 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/banner-tianmen.webp" type="image/webp" />
+      <img
+        src="/banner-tianmen.jpg"
+        alt="Tianmen Mountain with Heavens Gate natural stone arch"
+        class="w-full aspect-[21/9] object-cover"
+        width="1200"
+        height="514"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </div>
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {highlights.map(({ icon, title, desc }) => (
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-forest-50">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-forest-600"><path d={icon} /></svg>
+          </div>
+          <h2 class="font-semibold text-stone-800 mb-1">{title}</h2>
+          <p class="text-sm text-stone-500 leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Practical Info -->
+    <div class="mt-16 space-y-16">
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-6">Practical Information</h2>
+        <div class="rounded-xl border border-stone-200 overflow-hidden">
+          <table class="w-full text-sm">
+            <tbody class="divide-y divide-stone-100">
+              <tr>
+                <td class="px-5 py-3 text-stone-600 font-medium w-36">Location</td>
+                <td class="px-5 py-3 text-stone-600">Downtown Zhangjiajie — the cable car station is a 10-minute walk from the train station</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 text-stone-600 font-medium">Ticket Price</td>
+                <td class="px-5 py-3 text-stone-600">CNY 258 (includes cable car). Escalator inside mountain: CNY 32. Glass skywalk shoe covers: CNY 5. <span class="text-xs text-stone-400">Prices verified April 2026.</span></td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 text-stone-600 font-medium">Hours</td>
+                <td class="px-5 py-3 text-stone-600">8:00 AM – 5:30 PM (last cable car down at 5:30 PM, do not miss it)</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 text-stone-600 font-medium">Time Needed</td>
+                <td class="px-5 py-3 text-stone-600">Half day (4-5 hours) for the cable car, skywalks, Heaven's Gate, and 99-Bend Road descent</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 text-stone-600 font-medium">Routes</td>
+                <td class="px-5 py-3 text-stone-600">Route A: Cable car up → cable car down (CNY 258). Route B: Bus up 99-Bend Road → cable car down (same price, reverse direction). Route C: Bus up → bus down (cheaper but less scenic). We recommend Route A.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Cable Car -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">The Cable Car: 7.5 km of Pure Spectacle</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          The Tianmen Mountain cable car is listed as the world's longest passenger cableway. It departs from a station in downtown Zhangjiajie — you can walk there from the train station in 10 minutes — and climbs 7.5 km over 28 minutes. The ride starts over city rooftops and busy streets, transitions to terraced farmland and small villages, and then, for the final 10 minutes, climbs sheer limestone cliffs at a steep angle. The views straight down are genuinely thrilling.
+        </p>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          We rode it in April 2026: the morning queue at 8:30 AM was about 20 minutes. By 10 AM, we saw the line stretching past 90 minutes. Go early. The cable car cabins hold 8 people and are not air-conditioned — in summer, it can get warm inside. The glass is often tinted or slightly scratched, so photographs through the windows come out hazy. Enjoy the ride with your eyes; save the photography for the summit.
+        </p>
+        <div class="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+          <strong>Route A vs B:</strong> Route A (cable car up, bus down) is what 90% of visitors choose — and for good reason. The ascent through the cliffs is the experience. Route B reverses it (bus up the 99-Bend Road, cable car down). Route B typically has shorter morning queues because most tour groups take Route A. If you arrive at 9:30 AM and the Route A line looks brutal, ask at the ticket counter about Route B — same price, same views, just in reverse order.
+        </div>
+      </section>
+
+      <!-- Heaven's Gate -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Heaven's Gate: The 131-Meter Arch</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Heaven's Gate (Tianmen Cave) is a natural stone arch 131 meters tall and 57 meters wide, cut through the mountain by centuries of erosion. It is visible from downtown Zhangjiajie on clear days — a dark oval near the summit. To reach it, you walk down from the cable car top station along a cliff-edge path (about 20 minutes), then face the famous 999-step staircase.
+        </p>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          The steps are uneven, steep, and can be slippery after rain. We climbed them in November 2025: it took about 20 minutes going up, with several rest stops. The calf burn is real. Alternatively, an escalator built inside the mountain (CNY 32, about 7 minutes) bypasses the staircase entirely and deposits you inside the arch. We used the escalator up and walked down — this gave us the view from the top (looking down through the arch at the staircase and winding road below) without the quad-destroying climb. Walking down took about 10 minutes and was much easier.
+        </p>
+        <p class="text-sm text-stone-500">
+          <strong class="text-stone-700">Photography:</strong> The best angle is from the top looking down through the arch. A person standing on the staircase below provides scale. The afternoon light (3-5 PM) illuminates the arch face. In winter, clouds sometimes spill through the arch — a surreal shot if you get lucky. Drones are strictly prohibited on Tianmen Mountain.
+        </p>
+      </section>
+
+      <!-- Glass Skywalks -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Glass Skywalks: Walking on Air</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Tianmen Mountain has three glass-floored skywalks bolted to the vertical cliff faces at about 1,400 meters above sea level. The most famous is the Coiling Dragon Cliff skywalk on the western side — 100 meters of transparent glass floor with nothing but 1,400 meters of air beneath your feet.
+        </p>
+        <div class="space-y-4">
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Coiling Dragon Cliff (West Line)</h3>
+            <p class="text-sm text-stone-500">The longest and most dramatic of the three. 100 meters of glass flooring bolted to a vertical cliff. The views straight down the limestone face are genuinely vertigo-inducing — even if you are not afraid of heights, the first few steps are unsettling. Shoe covers (CNY 5) are required. You can walk on the solid inner path and step onto the glass sections only when you want — there is no requirement to walk the entire glass length.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">East Line Skywalk</h3>
+            <p class="text-sm text-stone-500">Shorter and less crowded than the west line. Same concept: glass floor, cliff face, 1,400-meter drop. If the west line skywalk has a long queue, this is a good alternative with essentially the same experience. The views face east, so morning light is better here.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">Ghost Valley Plank Road</h3>
+            <p class="text-sm text-stone-500">The original cliff path — a narrow walkway carved into the rock face with sections of glass floor added later. Less crowded than the others and has a more adventurous feel. The solid sections offer occasional leaning-out viewpoints that the glass skywalks do not.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 99-Bend Road -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">The 99-Bend Road</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          The Tongtian Avenue — literally "Road to Heaven" — is a serpentine road with 99 hairpin turns climbing from the base of the mountain to Heaven's Gate. It is 11 km long and climbs over 1,000 meters in elevation. The road was built as a tourist attraction, and it succeeds: the bus ride down is a thrill in its own right.
+        </p>
+        <p class="text-stone-500 leading-relaxed">
+          With Route A, you take the bus down the 99-Bend Road after visiting Heaven's Gate. The bus drivers navigate the hairpins at a confident (read: alarming) pace. Sit on the right side for the best views. The ride takes about 20 minutes. If you are prone to motion sickness, take medication beforehand — the combination of hairpin turns and steep grades has undone stronger stomachs than yours.
+        </p>
+      </section>
+
+      <!-- Temple & Summit -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">The Summit Temple (Skip or Visit?)</h2>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Tianmen Temple sits at the summit and dates back to the Tang Dynasty, though the current buildings are reconstructions. It is a functioning Buddhist temple with vegetarian food stalls and prayer halls.
+        </p>
+        <p class="text-stone-500 leading-relaxed mb-4">
+          Our honest take: if you are on a tight schedule, skip the temple. The architecture is unremarkable compared to the natural features, and the walk from the cable car top station to the temple and back adds 45-60 minutes. Use that time for the skywalks and Heaven's Gate instead. If you have a full leisurely day, or if you specifically enjoy temple architecture, it is a pleasant enough walk through a high-altitude forest.
+        </p>
+      </section>
+
+      <!-- How to Fit It In -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">How to Fit Tianmen Mountain Into Your Trip</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">As a Half-Day Add-on</h3>
+            <p class="text-sm text-stone-500">Tianmen Mountain is the only major Zhangjiajie attraction that starts from downtown — not Wulingyuan. This makes it perfect for arrival day or departure day. Land at Zhangjiajie airport at noon, check into your city hotel, walk to the cable car station, and spend the afternoon on the mountain. Or visit in the morning and catch an afternoon train out.</p>
+          </div>
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <h3 class="font-semibold text-stone-800 text-lg mb-2">In a Multi-Day Itinerary</h3>
+            <p class="text-sm text-stone-500">In our <a href="/itinerary" class="text-forest-600 hover:text-forest-700 underline">recommended 3-day itinerary</a>, Tianmen Mountain is Day 2 — after the Forest Park core and before the Glass Bridge. This sequence works because Tianmen Mountain starts from downtown, giving you a natural transition between Wulingyuan and the city. See the <a href="/itinerary" class="text-forest-600 hover:text-forest-700 underline">full itinerary page</a> for detailed timing.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison -->
+      <section>
+        <h2 class="text-2xl font-semibold text-stone-900 mb-4">Tianmen Mountain vs Zhangjiajie Forest Park</h2>
+        <p class="text-stone-500 leading-relaxed mb-6">
+          These are not the same place, and they offer different experiences. Here is how they compare:
+        </p>
+        <div class="rounded-xl border border-stone-200 overflow-hidden">
+          <table class="w-full text-sm">
+            <thead class="bg-stone-50 border-b border-stone-200">
+              <tr>
+                <th class="text-left px-4 py-3 font-medium text-stone-700 w-32"></th>
+                <th class="text-left px-4 py-3 font-medium text-stone-700">Tianmen Mountain</th>
+                <th class="text-left px-4 py-3 font-medium text-stone-700">Forest Park</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100">
+              <tr><td class="px-4 py-3 text-stone-600 font-medium">Location</td><td class="px-4 py-3 text-stone-500">Downtown Zhangjiajie</td><td class="px-4 py-3 text-stone-500">Wulingyuan (40 min from city)</td></tr>
+              <tr><td class="px-4 py-3 text-stone-600 font-medium">Experience</td><td class="px-4 py-3 text-stone-500">Single mountain, view from above</td><td class="px-4 py-3 text-stone-500">Thousands of pillars, view from within</td></tr>
+              <tr><td class="px-4 py-3 text-stone-600 font-medium">Icon</td><td class="px-4 py-3 text-stone-500">Heaven's Gate arch, glass skywalks</td><td class="px-4 py-3 text-stone-500">Avatar Hallelujah Mountain, pillar forests</td></tr>
+              <tr><td class="px-4 py-3 text-stone-600 font-medium">Ticket</td><td class="px-4 py-3 text-stone-500">CNY 258 (1 day)</td><td class="px-4 py-3 text-stone-500">CNY 225 (4-day pass)</td></tr>
+              <tr><td class="px-4 py-3 text-stone-600 font-medium">Time Needed</td><td class="px-4 py-3 text-stone-500">Half day (4-5 hours)</td><td class="px-4 py-3 text-stone-500">1-3 days</td></tr>
+              <tr><td class="px-4 py-3 text-stone-600 font-medium">Best For</td><td class="px-4 py-3 text-stone-500">Thrill-seekers, short visits, arrival day</td><td class="px-4 py-3 text-stone-500">Hikers, photographers, nature lovers</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div class="mt-16 pt-12 border-t border-stone-200 text-center flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="/attractions" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">All Attractions <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a>
+      <a href="/guide" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]">Full Park Guide</a>
+    </div>
+  </div>
+</BaseLayout>
