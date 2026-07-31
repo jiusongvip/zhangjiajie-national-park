@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TripPlanner from "../components/TripPlanner.astro";
 
 const pageDescription =
   "Plan your Zhangjiajie trip: 2026 tickets, best times, trails & Avatar mountains guide. Everything you need before you go.";
@@ -35,7 +36,7 @@ const schema = {
 };
 ---
 <BaseLayout
-  title="Zhangjiajie National Park | Complete Travel Guide 2026"
+  title="Zhangjiajie National Forest Park Guide | Tickets, Trails & Tips (2026)"
   description={pageDescription}
 >
   <slot name="head">
@@ -59,68 +60,154 @@ const schema = {
         />
       </picture>
     </div>
-    <div class="relative z-20 mx-auto max-w-7xl px-4 md:px-6 py-32 md:py-48">
+    <div class="relative z-20 mx-auto max-w-7xl px-4 md:px-6 py-24 md:py-40">
       <div class="max-w-2xl">
         <div class="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-3 py-1 text-xs font-medium text-white/90 mb-6">
-          Updated for 2026
+          Independent guide · No booking fees · Updated July 2026
         </div>
         <h1 class="text-4xl md:text-6xl font-semibold tracking-tight text-white leading-tight">
-          Zhangjiajie<br />National Park
+          Zhangjiajie National<br />Forest Park Guide
         </h1>
         <p class="mt-6 text-lg text-white/80 leading-relaxed max-w-xl">
-          The soaring sandstone pillars that inspired Avatar. Your independent guide to tickets, trails, seasons, and everything you need before you go.
+          Honest, practical advice from people who have visited 20+ times. Tickets, trails, seasons, food, photography — everything you actually need, nothing you don't.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a
             href="/guide"
             class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98] shadow-lg shadow-forest-900/30"
           >
-            Read the Full Guide
+            Start Planning
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5" /></svg>
           </a>
           <a
-            href="/itinerary"
+            href="#journey"
             class="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 backdrop-blur-sm px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-white/20 active:scale-[0.98]"
           >
-            View Itineraries
+            I need help with...
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M3 8h10" /></svg>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Quick Nav Cards -->
-  <section class="mx-auto max-w-7xl px-4 md:px-6 py-20">
-    <div class="text-center mb-12">
+  <!-- Quick Facts (AI Overview / Featured Snippet optimized) -->
+  <section class="bg-stone-900 text-white">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+        {[
+          { label: "Location", value: "Hunan, China", sub: "Central China" },
+          { label: "UNESCO", value: "World Heritage", sub: "Since 1992" },
+          { label: "Elevation", value: "1,518m", sub: "Highest peak" },
+          { label: "Pillars", value: "3,000+", sub: "Quartz-sandstone" },
+          { label: "Nearest Airport", value: "DYG", sub: "40 min to park" },
+          { label: "Recommended", value: "3-4 days", sub: "For full experience" },
+        ].map(({ label, value, sub }) => (
+          <div class="text-center">
+            <p class="text-xs font-medium text-stone-400 uppercase tracking-wider mb-1">{label}</p>
+            <p class="text-xl md:text-2xl font-semibold text-white">{value}</p>
+            <p class="text-xs text-stone-500 mt-0.5">{sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan Your Trip in 30 Seconds -->
+  <section class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28">
+    <TripPlanner />
+  </section>
+
+  <!-- User Journey: Before → During → After -->
+  <section id="journey" class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28">
+    <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900">
-        Plan your visit
+        Where are you in your journey?
       </h2>
       <p class="mt-3 text-stone-500 max-w-lg mx-auto">
-        Everything you need to know, organized by what matters most.
+        Pick your stage. We have built this guide around how people actually travel — not how tourism boards want you to.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {[
-        { href: "/guide", label: "Complete Guide", desc: "Park overview, maps, getting around, insider tips.", icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
-        { href: "/tickets", label: "Tickets & Prices", desc: "Entrance fees, combo passes, where to buy, money-saving advice.", icon: "M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
-        { href: "/best-time-to-visit", label: "Best Time to Visit", desc: "Season-by-season breakdown, weather, crowd levels.", icon: "M12 2v8m0 0l-3-3m3 3l3-3M4.93 10.93A8 8 0 1112 20a8 8 0 01-7.07-9.07" },
-        { href: "/attractions", label: "Top Attractions", desc: "From Avatar mountains to the world's longest glass bridge.", icon: "M14.828 14.828a4 4 0 01-5.656 0M9.172 9.172a4 4 0 015.656 0M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" },
-        { href: "/itinerary", label: "Itineraries", desc: "1-day, 3-day, and 5-day plans with maps and timing.", icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" },
-        { href: "/how-to-get-there", label: "How to Get There", desc: "Flights, trains, buses from major cities, detailed directions.", icon: "M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0L6.343 16.657a8 8 0 1111.314 0zM15 11a2 2 0 100-4 2 2 0 000 4z" },
-      ].map(({ href, label, desc, icon }) => (
-        <a
-          href={href}
-          class="group relative rounded-2xl border border-stone-200 bg-white p-6 transition-all hover:border-forest-200 hover:shadow-lg hover:shadow-forest-100/50 hover:-translate-y-0.5 no-underline"
-        >
-          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-forest-50">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-forest-600"><path d={icon} /></svg>
-          </div>
-          <h3 class="font-semibold text-stone-800 text-lg mb-2 group-hover:text-forest-700 transition-colors">
-            {label}
-          </h3>
-          <p class="text-sm text-stone-500 leading-relaxed">{desc}</p>
-        </a>
-      ))}
+
+    <!-- Stage 1: Before You Go -->
+    <div class="mb-20">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-600 text-white font-bold text-sm">1</span>
+        <div>
+          <h3 class="text-xl font-semibold text-stone-900">Before You Go</h3>
+          <p class="text-sm text-stone-400">Planning & preparation</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { href: "/best-time-to-visit", title: "When should I go?", desc: "Month-by-month weather, crowds, and prices. Avoid Golden Week.", icon: "M12 2v8m0 0l-3-3m3 3l3-3M4.93 10.93A8 8 0 1112 20a8 8 0 01-7.07-9.07" },
+          { href: "/tickets", title: "How much will it cost?", desc: "Park entry, cable cars, elevator. Budget CNY 500-800/person.", icon: "M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+          { href: "/how-to-get-there", title: "How do I get there?", desc: "Flights, high-speed trains, buses. Door-to-door directions.", icon: "M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0L6.343 16.657a8 8 0 1111.314 0zM15 11a2 2 0 100-4 2 2 0 000 4z" },
+          { href: "/faq", title: "What do I need to prepare?", desc: "Visa, cash, apps, packing list, Chinese phrases.", icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z" },
+        ].map(({ href, title, desc, icon }) => (
+          <a href={href} class="group rounded-2xl border border-stone-200 bg-white p-5 transition-all hover:border-forest-200 hover:shadow-md hover:-translate-y-0.5 no-underline">
+            <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-forest-50">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-forest-600"><path d={icon} /></svg>
+            </div>
+            <h4 class="font-semibold text-stone-800 mb-1 group-hover:text-forest-700 transition-colors">{title}</h4>
+            <p class="text-sm text-stone-500 leading-relaxed">{desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Stage 2: While You're There -->
+    <div class="mb-20">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-600 text-white font-bold text-sm">2</span>
+        <div>
+          <h3 class="text-xl font-semibold text-stone-900">While You're There</h3>
+          <p class="text-sm text-stone-400">On the ground, at the park</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { href: "/guide", title: "Park zones & navigation", desc: "Understand Yuanjiajie, Tianzi, Yangjiajie — what each zone offers.", icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" },
+          { href: "/attractions", title: "What should I see today?", desc: "Top 10 attractions ranked, with timing tips and secret viewpoints.", icon: "M14.828 14.828a4 4 0 01-5.656 0M9.172 9.172a4 4 0 015.656 0M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" },
+          { href: "/weather", title: "What's the weather?", desc: "Current conditions, monthly averages, how weather affects your day.", icon: "M12 2v8m0 0l-3-3m3 3l3-3M4.93 10.93A8 8 0 1112 20a8 8 0 01-7.07-9.07" },
+          { href: "/food", title: "Where should I eat?", desc: "Tujia cuisine, sanxiaguo hot pot, street food, restaurant picks.", icon: "M18 6C18 4.9 17.1 4 16 4H8C6.9 4 6 4.9 6 6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6zm-2 0v12H8V6h8zM4 8H2v10c0 1.1.9 2 2 2h2v-2H4V8zm16 0h2v10c0 1.1-.9 2-2 2h-2v-2h2V8z" },
+        ].map(({ href, title, desc, icon }) => (
+          <a href={href} class="group rounded-2xl border border-amber-200 bg-amber-50/30 p-5 transition-all hover:border-amber-300 hover:shadow-md hover:-translate-y-0.5 no-underline">
+            <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-amber-100">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-amber-600"><path d={icon} /></svg>
+            </div>
+            <h4 class="font-semibold text-stone-800 mb-1 group-hover:text-amber-700 transition-colors">{title}</h4>
+            <p class="text-sm text-stone-500 leading-relaxed">{desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Stage 3: After Your Visit -->
+    <div>
+      <div class="flex items-center gap-3 mb-8">
+        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-600 text-white font-bold text-sm">3</span>
+        <div>
+          <h3 class="text-xl font-semibold text-stone-900">After Your Visit</h3>
+          <p class="text-sm text-stone-400">What's next?</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { href: "/compare", title: "Where to next?", desc: "Compare Zhangjiajie with Huangshan, Guilin. Plan your next China stop.", icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
+          { href: "/fenghuang-ancient-town", title: "Fenghuang Ancient Town", desc: "3.5 hours away — stilt houses, lantern-lit riverside, perfect add-on.", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { href: "/photography", title: "Your best photos", desc: "Check our photography guide — see if you captured the same magic.", icon: "M14.828 14.828a4 4 0 01-5.656 0M9.172 9.172a4 4 0 015.656 0M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" },
+          { href: "/contact", title: "Share your experience", desc: "Found an update? Have a tip? We read every message.", icon: "M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" },
+        ].map(({ href, title, desc, icon }) => (
+          <a href={href} class="group rounded-2xl border border-stone-200 bg-white p-5 transition-all hover:border-forest-200 hover:shadow-md hover:-translate-y-0.5 no-underline">
+            <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-stone-100">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-500"><path d={icon} /></svg>
+            </div>
+            <h4 class="font-semibold text-stone-800 mb-1 group-hover:text-forest-700 transition-colors">{title}</h4>
+            <p class="text-sm text-stone-500 leading-relaxed">{desc}</p>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -279,6 +366,32 @@ const schema = {
     </div>
   </section>
 
+  <!-- Travel Tips -->
+  <section class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900">
+        Travel Tips
+      </h2>
+      <p class="mt-3 text-stone-500 max-w-lg mx-auto">
+        Practical advice for a smooth trip — from payments to packing.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      {[
+        { q: "Cash or card?", href: "/faq" },
+        { q: "Alipay / WeChat?", href: "/faq" },
+        { q: "Need a VPN?", href: "/faq" },
+        { q: "What to pack?", href: "/faq" },
+        { q: "Avoid crowds?", href: "/best-time-to-visit" },
+        { q: "Food & water?", href: "/food" },
+      ].map(({ q, href }) => (
+        <a href={href} class="rounded-xl border border-stone-200 bg-white p-4 text-center text-sm font-medium text-stone-600 transition-all hover:border-forest-200 hover:text-forest-700 hover:shadow-sm no-underline">
+          {q}
+        </a>
+      ))}
+    </div>
+  </section>
+
   <!-- FAQ Compact -->
   <section class="bg-stone-100 border-y border-stone-200">
     <div class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28">
@@ -305,6 +418,35 @@ const schema = {
           </details>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- Recently Updated -->
+  <section class="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-28">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900">
+          Recently Updated
+        </h2>
+        <p class="mt-3 text-stone-500">Our freshest guides, kept current with verified prices and firsthand experience.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {[
+        { href: "/tickets", label: "Ticket Guide", desc: "2026 prices verified April — entry fees, cable cars, discounts", badge: "Prices updated" },
+        { href: "/tianmen-mountain", label: "Tianmen Mountain", desc: "Cable car routes, Heaven's Gate, glass skywalks", badge: "New page" },
+        { href: "/food", label: "Food Guide", desc: "Tujia cuisine, sanxiaguo, street food, restaurant picks", badge: "New page" },
+        { href: "/compare", label: "Destination Compare", desc: "Zhangjiajie vs Huangshan vs Guilin — which one?", badge: "New page" },
+      ].map(({ href, label, desc, badge }) => (
+        <a href={href} class="group rounded-2xl border border-stone-200 bg-white p-5 transition-all hover:border-forest-200 hover:shadow-md no-underline">
+          <div class="flex items-center justify-between mb-2">
+            <span class="inline-flex items-center rounded-full bg-forest-50 px-2.5 py-0.5 text-xs font-medium text-forest-700">{badge}</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" class="text-stone-300 group-hover:text-forest-500 transition-colors"><path d="M6 3l5 5-5 5"/></svg>
+          </div>
+          <h4 class="font-semibold text-stone-800 group-hover:text-forest-700 transition-colors">{label}</h4>
+          <p class="mt-1 text-sm text-stone-500 leading-relaxed">{desc}</p>
+        </a>
+      ))}
     </div>
   </section>
 
