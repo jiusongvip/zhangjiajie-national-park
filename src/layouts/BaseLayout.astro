@@ -75,6 +75,14 @@ const personSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)}></script>
 
+    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+    {import.meta.env.PROD && import.meta.env.GA_MEASUREMENT_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.GA_MEASUREMENT_ID}`}></script>
+        <script set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${import.meta.env.GA_MEASUREMENT_ID}');`}></script>
+      </>
+    )}
+
     <slot name="head" />
   </head>
   <body class="min-h-[100dvh] bg-stone-50 text-stone-800 font-sans antialiased">
