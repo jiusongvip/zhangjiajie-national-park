@@ -1,87 +1,205 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Avatar Hallelujah Mountain | Zhangjiajie Guide (2026)","description":"Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: location, viewpoints, how the film connection happened, photography tips, and how to avoid crowds.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Avatar Mountains","item":"https://zhangjiajie-national-park.com/avatar-mountains/"}]}]};
+import SectionHeader from "../components/SectionHeader.astro";
+
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Avatar Hallelujah Mountain | Complete Yuanjiajie Guide (2026)","description":"Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: the film connection, viewpoints, photography tips, how to avoid crowds, and the full Yuanjiajie experience.","datePublished":"2026-07-01","dateModified":"2026-08-05","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Avatar Mountains","item":"https://zhangjiajie-national-park.com/avatar-mountains/"}]}]};
+
+const yuanjiajieSpots = [
+  { name: "Avatar Hallelujah Mountain", note: "The main event. 1,080m pillar. Main platform + secret viewpoint 200m further.", highlight: true },
+  { name: "First Bridge Under Heaven", note: "A natural rock bridge connecting two peaks. 5m wide, 50m long, with railings on both sides.", highlight: true },
+  { name: "Bailong Elevator", note: "326m glass elevator built into the cliff face. The 2-minute ride is an attraction in itself.", highlight: true },
+  { name: "Enchanting Terrace", note: "A quieter viewing platform with panoramic pillar views. Good for photos without crowds.", highlight: false },
+  { name: "Back Garden", note: "A forested area with smaller rock formations. Peaceful and often empty — good for a break from crowds.", highlight: false },
+];
+
+const photographyTips = [
+  { title: "Shoot vertical (portrait orientation)", body: "The pillar is nearly 1.1 km tall. Landscape orientation crops the top and bottom. Portrait orientation shows the full height. We shoot all pillar photos in portrait after learning this the hard way on our first visit." },
+  { title: "Mist is your creative partner", body: "A clear-sky photo of the pillar is just a tall rock. Mist curling around the base creates the floating effect. Check humidity (>70%) in the weather forecast and go on mornings after overnight rain for the best chance." },
+  { title: "Wait for the tour group gap", body: "Groups move in pulses — a new one arrives every 5-10 minutes, shoots for 3 minutes, then moves on. If you wait briefly, you get a 2-minute window with an empty railing. Works at both the main and secret viewpoints." },
+  { title: "Use a polarizing filter", body: "The pillar is quartz-sandstone and reflective in direct sunlight. A polarizer cuts glare, brings out natural rock color, and deepens the sky — a dramatic difference especially against subtropical greenery." },
+  { title: "Include a person for scale", body: "Without a reference point, the pillar's 1,080m height is impossible to convey in a photo. A person on the viewing platform instantly communicates the scale. The platform railing also works as a scale reference." },
+];
+
+const faqs = [
+  { q: "Did James Cameron actually visit Zhangjiajie?", a: "Cameron himself did not visit during pre-production, but his location-scouting team spent time in Zhangjiajie in 2008 while researching visual references for Pandora. The production designer confirmed that the sandstone pillars directly inspired the floating Hallelujah Mountains in the 2009 film." },
+  { q: "Is the Avatar pillar the tallest in the park?", a: "No. At 1,080 meters above sea level, it is impressive but not the tallest. Several surrounding pillars exceed 1,200m. The Avatar pillar is famous for its isolated, freestanding shape — not its absolute height." },
+  { q: "Is the Avatar branding too touristy?", a: "Honestly, yes — there are Avatar-themed signs, a life-sized banshee model, and merchandise stalls at the viewing area. But the pillar itself is genuinely spectacular. The mist rolling in around the base on a spring morning makes the branding feel irrelevant. Go for the geology, not the gimmick." },
+  { q: "Can you climb the Avatar pillar?", a: "No. Climbing any of the pillars is strictly prohibited and would be extremely dangerous — the quartz-sandstone is brittle and unstable. All viewing is from maintained platforms and walkways." },
+  { q: "How long should I spend at Yuanjiajie?", a: "Plan 2-3 hours for the full loop: Avatar pillar (30 min), First Bridge Under Heaven (20 min), Enchanting Terrace (15 min), plus walking between them. Add 30 minutes if you want unhurried photography time at the secret viewpoint." },
+];
 ---
-<BaseLayout title="Avatar Hallelujah Mountain | Zhangjiajie Guide (2026)" description="Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: location, viewpoints, how the film connection happened, photography tips, and how to avoid crowds." author="Zhangjiajie Guide Team" datePublished="July 2026">
+
+<BaseLayout title="Avatar Hallelujah Mountain | Complete Yuanjiajie Guide (2026)" description="Complete guide to Avatar Hallelujah Mountain in Zhangjiajie: the film connection, viewpoints, photography tips, how to avoid crowds, and the full Yuanjiajie experience." author="Zhangjiajie Guide Team" datePublished="July 2026" dateModified="August 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+
+  <!-- Header -->
   <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Avatar Mountains</div>
-  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Avatar Hallelujah Mountain</h1>
-  <p class="mt-6 text-lg text-stone-500 leading-relaxed">The pillar that made it into Avatar draws a crowd, and the crowd is part of the experience now. But there is a window — early morning, before the tour buses arrive — when you can stand at the viewpoint and see what James Cameron's team saw. It is 1,080 meters of quartz-sandstone, and with mist around the base it genuinely looks like it belongs on another planet.</p>
-  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Avatar Mountains</span></nav>
+  <h1 class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Avatar Hallelujah Mountain</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+    James Cameron's team came here in 2008 looking for Pandora. They found it in a 1,080-meter quartz-sandstone pillar in Yuanjiajie. The crowds followed — but the early-morning mist still makes it float.
+  </p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
+    <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+    <span class="text-stone-600">Avatar Mountains</span>
+  </nav>
 
-  
-
+  <!-- Banner -->
   <div class="mt-8 rounded-2xl overflow-hidden">
     <picture>
       <source srcset="/banner-avatar.webp" type="image/webp" />
-      <img
-        src="/banner-avatar.jpg"
-        alt="Avatar Hallelujah Mountain sandstone pillar rising above forest"
-        class="w-full aspect-[21/9] object-cover"
-        width="1200"
-        height="514"
-        loading="eager"
-        decoding="async"
-      />
+      <img src="/banner-avatar.jpg" alt="Avatar Hallelujah Mountain sandstone pillar rising above forest" class="w-full aspect-[21/9] object-cover" width="1200" height="514" loading="eager" decoding="async" />
     </picture>
   </div>
-    <div class="mt-12 space-y-12">
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">The Film Connection</h2>
-      <p class="text-stone-500 leading-relaxed mb-4">In 2008, James Cameron's production team visited Zhangjiajie while scouting visual references for Pandora's floating mountain landscapes. The sandstone pillars — particularly the "Southern Sky Column" in Yuanjiajie — became the direct inspiration for the Hallelujah Mountains in the 2009 film. After Avatar's release, the Chinese park administration officially renamed the Southern Sky Column to "Avatar Hallelujah Mountain" in January 2010. <a href="https://www.bbc.com/travel/article/20200113-how-avatar-changed-a-chinese-mountain" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-700 underline">BBC Travel covered this story in detail</a>.</p>
-      <p class="text-stone-500 leading-relaxed mb-4">The renaming was controversial among locals who preferred the original name, but it was undeniably effective: annual visitor numbers to Zhangjiajie tripled in the five years following the film's release. Today, you will find Avatar-themed signage, merchandise stalls, and a life-sized banshee model at the Yuanjiajie viewing area. It is touristy, but the pillar itself is genuinely spectacular regardless of the branding. On our first visit in 2022, we stood there feeling slightly cynical about the whole Avatar gimmick — and then the mist rolled in and the pillar started to float, and we understood exactly why Cameron picked this place.</p>
-    </section>
 
-    <section>
-      <div class="rounded-2xl overflow-hidden">
-        <picture>
-          <source srcset="/feature-1.webp" type="image/webp" />
-          <img
-            src="/feature-1.jpg"
-            alt="Sandstone pillars of Zhangjiajie rising through morning mist, similar to the Avatar Hallelujah Mountain formation"
-            class="w-full aspect-[16/9] object-cover"
-            width="800"
-            height="600"
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
-      </div>
-    </section>
+  <!-- 1. The Film Connection -->
+  <section class="mt-14">
+    <SectionHeader eyebrow="The Story" title="How a Chinese Mountain Became a Hollywood Icon" subtitle="The unlikely chain of events that turned a local landmark into one of the most recognizable mountain formations on Earth." />
 
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Where to Find It</h2>
-      <p class="text-stone-500 leading-relaxed mb-4">The Avatar Hallelujah Mountain is inside Yuanjiajie Scenic Area, which is part of the Zhangjiajie National Forest Park core zone. From the park's Wulingyuan entrance, take the free internal shuttle bus to the Yuanjiajie stop — about 15 minutes. From there, it is a well-paved 15-minute walk to the main viewing platform. The pillar stands alone in a clearing, unmistakable at 1,080 meters, with a dedicated platform for photos.</p>
-      <p class="text-stone-500 leading-relaxed">The easiest way to reach Yuanjiajie is via the <a href="/guide#park-zones" class="text-forest-600 hover:text-forest-700 underline">Bailong Elevator</a> — the world's tallest outdoor lift at 326 meters. Take it up from the Wulingyuan side, and the Yuanjiajie trailhead is a 5-minute walk from the exit. The elevator costs CNY 72 one-way and the ride takes under 2 minutes, but the view as you emerge from the cliff face into open sky is worth every yuan. Our full <a href="/guide" class="text-forest-600 hover:text-forest-700 underline">guide page</a> has the complete park layout with shuttle routes and elevator details.</p>
-    </section>
+    <div class="mt-6 space-y-4 text-sm text-stone-600 leading-relaxed">
+      <p>In 2008, James Cameron's pre-production team was scouting locations worldwide for visual references for Pandora — the fictional moon in <em>Avatar</em>. They needed landscapes that looked alien but were real enough to ground the CGI in believable geology. Zhangjiajie's quartz-sandstone pillars — formed by 380 million years of ice-wedge erosion — were exactly what they were looking for.</p>
+      <p>The production designer, <strong>Dylan Cole</strong>, later confirmed in interviews that the sandstone pillars of Zhangjiajie, along with the karst formations of Guilin and Huangshan's granite peaks, were the three primary inspirations for Pandora's floating Hallelujah Mountains. But it was Zhangjiajie's vertical, isolated pillars that most closely matched Cameron's vision of mountains that appeared to defy gravity.</p>
+      <p>After the film's release in December 2009 and its subsequent global success, the Zhangjiajie park administration saw an opportunity. In January 2010, they officially <strong>renamed the "Southern Sky Column"</strong> (南天一柱) — a 1,080-meter pillar in the Yuanjiajie scenic area — to "Avatar Hallelujah Mountain" (阿凡达-哈利路亚山).</p>
+      <p>The decision was controversial. Local residents and some Chinese tourism officials argued that renaming a natural landmark after a Hollywood film was culturally disrespectful. A local newspaper ran the headline: "Pandora Does Not Exist — Zhangjiajie Does." But the tourism numbers spoke louder than the criticism.</p>
+    </div>
+  </section>
 
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">When to Go</h2>
-      <p class="text-stone-500 leading-relaxed mb-4">Early morning (before 9 AM) or late afternoon (after 4 PM). The main platform gets dense crowds from 9:30 AM to 3:30 PM during peak season — we have seen queues of 30+ people waiting to take a photo at the railing. In April 2026, we arrived at 7:30 AM and had the platform to ourselves for about 20 minutes before the first tour groups arrived.</p>
-      <p class="text-stone-500 leading-relaxed mb-4">Misty mornings create the best atmosphere: when clouds fill the valley below, the pillar appears to float. Spring (March-May) and autumn (September-November) offer the best mist conditions — check our <a href="/best-time-to-visit" class="text-forest-600 hover:text-forest-700 underline">best time to visit guide</a> for month-by-month weather breakdowns.</p>
-      <div class="rounded-xl border border-stone-200 bg-stone-50 p-5 text-sm text-stone-600">
-        <strong class="text-stone-800">Personal note:</strong> On our November 2025 visit, we arrived at 7 AM in heavy fog and could barely see 20 meters ahead. By 7:30, the sun burned through and the mist settled at the pillar's base — it was the perfect floating effect. That 30-minute window produced our favorite photos from three trips.
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">The Secret Viewpoint</h2>
-      <p class="text-stone-500 leading-relaxed mb-4">Most visitors crowd the main railing, snap a photo, and leave. Walk 200 meters further along the trail (toward the First Bridge Under Heaven direction) and you will find a smaller, unmarked viewpoint with essentially the same angle and typically zero people.</p>
-      <p class="text-stone-500 leading-relaxed">We found this spot on our second visit by accident — we were trying to escape the crowd at main platform and just kept walking. On a busy Saturday in April 2026, we stood there for 20 minutes without a single other person stopping. The trail is well-paved and easy to find: just follow the main path past the Avatar pillar toward the First Bridge Under Heaven sign. The opening appears on your right about two minutes past the last tour-group selfie spot.</p>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Photography Tips</h2>
-      <p class="text-stone-500 text-sm leading-relaxed mb-4">For more detailed gear recommendations, see our <a href="/photography" class="text-forest-600 hover:text-forest-700 underline">full photography guide</a>. Here are the specific settings that worked for us on the Avatar pillar:</p>
-      <ul class="space-y-3 text-stone-500 text-sm">
-        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Mist is your friend.</strong> A clear-sky photo of the pillar is just a tall rock. Mist curling around the base creates the floating effect. Check the weather forecast for morning humidity and go on days with >70% humidity for the best chance.</li>
-        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Shoot vertical.</strong> The pillar is nearly 1.1 km tall. Landscape orientation crops the top and bottom. Portrait orientation shows the full height — we shoot all our pillar photos in portrait now after learning this the hard way.</li>
-        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Wait for the gap.</strong> Tour groups move in pulses — a new group arrives every 5-10 minutes, takes photos for 3 minutes, then moves on. If you wait 5 minutes, you get a 2-minute window with an empty railing. This works at both the main and secret viewpoints.</li>
-        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Use a polarizing filter.</strong> The pillar is quartz-sandstone and highly reflective in direct sunlight. A polarizer cuts the glare and brings out the natural color of the rock — it makes a dramatic difference, especially with the subtropical greenery behind it.</li>
-      </ul>
-    </section>
+  <!-- Image break -->
+  <div class="mt-10 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/feature-1.webp" type="image/webp" />
+      <img src="/feature-1.jpg" alt="Sandstone pillars of Zhangjiajie rising through morning mist, similar to Avatar Hallelujah Mountain" class="w-full aspect-[16/9] object-cover" width="800" height="600" loading="lazy" decoding="async" />
+    </picture>
   </div>
-  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/attractions" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">All Attractions <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+
+  <!-- 2. The Avatar Effect on Tourism -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="The Impact" title="What Avatar Did to Zhangjiajie" />
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <p class="text-2xl font-bold text-forest-600 font-display">3×</p>
+        <p class="text-xs text-stone-500 mt-1">Visitor numbers tripled in the 5 years after Avatar's release</p>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <p class="text-2xl font-bold text-forest-600 font-display">¥30B+</p>
+        <p class="text-xs text-stone-500 mt-1">Estimated tourism revenue generated since the renaming in 2010</p>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <p class="text-2xl font-bold text-forest-600 font-display">2010</p>
+        <p class="text-xs text-stone-500 mt-1">Year the Southern Sky Column was officially renamed Avatar Hallelujah Mountain</p>
+      </div>
+    </div>
+    <p class="mt-4 text-sm text-stone-500 leading-relaxed">Today, the Avatar connection is impossible to miss — themed signage, a life-sized banshee model, and merchandise stalls line the Yuanjiajie viewing area. It is undeniably touristy. But the pillar itself has not changed: 1,080 meters of quartz-sandstone rising from a sea of mist, and when the morning fog curls around its base on a spring morning, it genuinely looks like it belongs on another planet. The branding fades; the geology does not.</p>
+  </section>
+
+  <!-- 3. Location & Getting There -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="Getting There" title="Where to Find It & How to Get There" />
+
+    <div class="mt-6 space-y-4">
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Location</h3>
+        <p class="text-sm text-stone-500 leading-relaxed">Yuanjiajie Scenic Area, inside Zhangjiajie National Forest Park. The pillar stands in a clearing about 15 minutes' walk from the Yuanjiajie shuttle bus stop. It is unmistakable — a lone, vertical pillar with a dedicated viewing platform and, yes, Avatar signage everywhere.</p>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Best Route (from Wulingyuan)</h3>
+        <ol class="space-y-2 text-sm text-stone-500">
+          <li class="flex gap-2"><span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest-100 text-[10px] font-bold text-forest-700">1</span> Enter via Wulingyuan gate · Take internal shuttle bus to Bailong Elevator (15 min)</li>
+          <li class="flex gap-2"><span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest-100 text-[10px] font-bold text-forest-700">2</span> Ride Bailong Elevator up (¥72, 2 min) · Yuanjiajie trailhead is 5 min walk from the exit</li>
+          <li class="flex gap-2"><span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest-100 text-[10px] font-bold text-forest-700">3</span> Follow paved path to Avatar pillar (15 min walk) · Main viewing platform appears on your right</li>
+          <li class="flex gap-2"><span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest-100 text-[10px] font-bold text-forest-700">4</span> Secret viewpoint: continue 200m past main platform toward First Bridge Under Heaven</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. What Else is in Yuanjiajie -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="Yuanjiajie" title="Beyond the Avatar Pillar" subtitle="Yuanjiajie has more than one famous rock. Here is everything worth seeing on the loop." />
+
+    <div class="mt-6 space-y-2">
+      {yuanjiajieSpots.map((s) => (
+        <div class={`flex items-start gap-3 rounded-lg border px-4 py-3 ${s.highlight ? 'border-forest-200 bg-forest-50/40' : 'border-stone-200 bg-white'}`}>
+          <span class={`mt-0.5 ${s.highlight ? 'text-forest-500' : 'text-stone-300'}`}>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8l2 2 4-4"/></svg>
+          </span>
+          <div>
+            <span class="text-sm font-semibold text-stone-700">{s.name}</span>
+            <span class="text-xs text-stone-400 ml-2">{s.note}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 5. When to Go -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="Timing" title="When to Visit the Avatar Pillar" />
+
+    <div class="mt-6 space-y-4">
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Best Window: 7:30-9:00 AM</h3>
+        <p class="text-sm text-stone-500 leading-relaxed">The main platform gets dense crowds from 9:30 AM to 3:30 PM during peak season. We have seen queues of 30+ people waiting to take a photo at the railing. In April 2026, we arrived at 7:30 AM and had the platform to ourselves for 20 minutes before the first tour groups arrived.</p>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Secondary Window: After 4:00 PM</h3>
+        <p class="text-sm text-stone-500 leading-relaxed">Most day-trippers have left by 4 PM. The late afternoon light catches the pillar face at a warm angle, and the crowds thin significantly. The downside: mist is less common in the afternoon than morning.</p>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Best Seasons: Spring & Autumn</h3>
+        <p class="text-sm text-stone-500 leading-relaxed">Spring (March-May) has the most reliable morning mist for the floating-pillar effect. Autumn (October-November) has the best light and clearer skies. Check our <a href="/#when-to-go" class="text-forest-600 hover:text-forest-700 underline">season-by-season guide</a> for month-by-month breakdowns.</p>
+      </div>
+    </div>
+
+    <div class="mt-4 rounded-xl border border-stone-200 bg-stone-50 p-5 text-sm text-stone-600">
+      <strong class="text-stone-800">Personal note:</strong> On our November 2025 visit, we arrived at 7 AM in heavy fog and could barely see 20 meters ahead. By 7:30, the sun burned through and the mist settled at the pillar's base — the perfect floating effect. That 30-minute window produced our favorite photos from three trips.
+    </div>
+  </section>
+
+  <!-- 6. Photography -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="Photography" title="How to Shoot the Avatar Pillar" subtitle="For full gear recommendations and more locations, see our <a href='/photography' class='text-forest-600 hover:text-forest-700 underline'>complete photography guide</a>." />
+
+    <div class="mt-6 space-y-3">
+      {photographyTips.map((t) => (
+        <div class="rounded-xl border border-stone-200 bg-white p-4">
+          <h3 class="font-semibold text-stone-800 text-sm mb-1">{t.title}</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">{t.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="FAQ" title="Common Questions About the Avatar Mountain" />
+
+    <div class="mt-6 divide-y divide-stone-200 border border-stone-200 rounded-xl overflow-hidden">
+      {faqs.map((f) => (
+        <div class="p-5 bg-white">
+          <h3 class="font-semibold text-stone-800 text-sm mb-1">{f.q}</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="mt-16 pt-12 border-t border-stone-200 text-center">
+    <p class="text-stone-500 text-sm mb-6">The Avatar pillar is one of four unmissable attractions around Zhangjiajie.</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="/tianmen-mountain" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98] shadow-lg shadow-forest-900/20">
+        Next: Tianmen Mountain
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+      </a>
+      <a href="/#beyond-park" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]">
+        All Attractions
+      </a>
+    </div>
+  </div>
+
 </div>
 </BaseLayout>

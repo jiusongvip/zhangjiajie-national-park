@@ -1,6 +1,8 @@
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap');
+
   @import "tailwindcss";
   @source "../";
-  
+
   @theme {
   --color-forest-50: #f2f6f0;
   --color-forest-100: #e0ead8;
@@ -13,6 +15,7 @@
   --color-forest-800: #334326;
   --color-forest-900: #2c3821;
   --color-forest-950: #151f10;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
 }
 
 @layer base {
@@ -26,4 +29,36 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Hero Ken Burns zoom */
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+.hero-zoom {
+  animation: heroZoom 8s ease-out forwards;
 }

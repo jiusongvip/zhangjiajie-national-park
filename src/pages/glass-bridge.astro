@@ -1,90 +1,244 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Glass Bridge | Grand Canyon Guide (2026)","description":"Complete guide to Zhangjiajie Glass Bridge: tickets, opening hours, how to get there, what to expect, and how to book the best time slot.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Glass Bridge","item":"https://zhangjiajie-national-park.com/glass-bridge/"}]}]};
+import SectionHeader from "../components/SectionHeader.astro";
+
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Glass Bridge | Grand Canyon Complete Guide (2026)","description":"Complete guide to Zhangjiajie Glass Bridge: tickets, time slots, how to get there, bungee jump, zipline, canyon hike, and whether it is worth the price. Verified April 2026.","datePublished":"2026-07-01","dateModified":"2026-08-05","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Glass Bridge","item":"https://zhangjiajie-national-park.com/glass-bridge/"}]}]};
+
+const records = [
+  { stat: "430m", label: "Total bridge length — world's longest glass-bottom bridge at opening" },
+  { stat: "6m", label: "Bridge deck width — room for two-way pedestrian traffic" },
+  { stat: "300m", label: "Height above the canyon floor — equivalent to a 75-story building" },
+  { stat: "6cm", label: "Glass panel thickness — three laminated layers, each 2cm thick" },
+  { stat: "800", label: "Maximum visitor capacity at any one time" },
+];
+
+const canyonOptions = [
+  {
+    title: "Option A: Full Canyon Hike (2–2.5 hours)",
+    desc: "After crossing the bridge, descend into the Grand Canyon via a stone staircase embedded in the cliff face. The trail follows a stream through narrow gorges, past several waterfalls, and ends at a boat dock deep in the valley. About 1,000 steps total — almost entirely downhill. Your knees will feel it the next day. At the end, a short boat ride (included in the CNY 219 combo) takes you across a lake to the exit.",
+    best: "Best for: hikers, photographers, anyone who wants to see the canyon from the bottom looking up",
+  },
+  {
+    title: "Option B: Canyon Slide + Boat (1 hour)",
+    desc: "A 600-meter transparent tube slide (CNY 30 extra) spirals down from the bridge exit to the canyon floor. Genuinely fun and surprisingly fast — you control your speed with your feet. From the slide exit, a 10-minute walk leads to the same boat dock. Less scenic but much easier on the knees. We did the slide in April 2026 and would choose it again unless you specifically want the canyon walk.",
+    best: "Best for: families, anyone with knee issues, visitors short on time",
+  },
+];
+
+const adrenaline = [
+  { name: "Bungee Jump", price: "¥2,998", desc: "285-meter drop from the bridge center — one of the world's highest commercial bungee jumps. Book on-site at the bridge. Weight limit: 35-100 kg. Not for the faint of heart: you free-fall toward the canyon floor before the cord catches.", available: "Year-round, weather permitting" },
+  { name: "Zipline", price: "¥168", desc: "300-meter zipline across a section of the canyon near the bridge. Less terrifying than the bungee but still delivers an adrenaline hit. Weight limit: 30-90 kg. Takes about 30 seconds from launch to landing.", available: "Year-round, weather permitting" },
+  { name: "Via Ferrata", price: "¥128", desc: "A protected climbing route along the canyon wall using steel cables and iron rungs. No climbing experience needed — you are clipped into a safety line the entire way. The route is about 400 meters long and takes 30-45 minutes. Helmets and harnesses provided.", available: "Mar–Nov only · Closed in winter (ice risk)" },
+  { name: "Glass Slide", price: "¥30", desc: "The 600-meter tube slide from bridge level to canyon floor. Not extreme — more of a fun way to descend. You sit on a mat, control speed with your feet, and spiral down through transparent sections with canyon views.", available: "Year-round" },
+];
+
+const faqs = [
+  { q: "Is the glass really safe?", a: "Yes — and the park wants you to know it. In 2016, they invited a journalist to swing a sledgehammer at a glass panel on live TV. The top layer cracked but the two lower layers held. Each panel is 6cm of laminated glass rated to support 800 kg. The bridge is inspected daily before opening. When a metal thermos was dropped from waist height in 2015, the bridge closed for a full safety inspection before reopening — they take this seriously." },
+  { q: "What happens if it rains?", a: "The bridge stays open in rain. The glass becomes slippery — shoe covers are provided at the entrance (free). Visibility through the glass is reduced when wet, but the canyon views from the sides are unaffected. The bungee jump and zipline close in heavy rain or high winds." },
+  { q: "Can I take photos on the bridge?", a: "Yes — phones and compact cameras are fine. Professional cameras with large lenses may be restricted on busy days (the staff wants to keep pedestrian flow moving). Selfie sticks and tripods are prohibited. Drones are banned. Free lockers at the entrance store anything you cannot bring on the bridge." },
+  { q: "Is it worth visiting if I am afraid of heights?", a: "The glass floor covers the center lane only — both sides of the bridge have solid, opaque walkways. You can cross the entire bridge without stepping on glass. The views from the side railings are still spectacular. We have seen several visitors who started on the opaque walkway and, by the halfway point, felt brave enough to try a few steps on the glass." },
+  { q: "How does it compare to the Grand Canyon Skywalk in the US?", a: "The Zhangjiajie bridge is much longer (430m vs 21m for the Skywalk horseshoe), higher (300m vs 150m), and costs significantly less (¥128 vs ~$80 USD). The Skywalk is cantilevered over the rim — the Zhangjiajie bridge spans the full canyon. Different experiences, but Zhangjiajie wins on scale and value." },
+];
 ---
-<BaseLayout title="Zhangjiajie Glass Bridge | Grand Canyon Guide (2026)" description="Complete guide to Zhangjiajie Glass Bridge: tickets, opening hours, how to get there, what to expect, and how to book the best time slot." author="Zhangjiajie Guide Team" datePublished="July 2026">
+
+<BaseLayout title="Zhangjiajie Glass Bridge | Grand Canyon Complete Guide (2026)" description="Complete guide to Zhangjiajie Glass Bridge: tickets, time slots, bungee jump, zipline, canyon hike, how to get there, and honest verdict. Prices verified April 2026." author="Zhangjiajie Guide Team" datePublished="July 2026" dateModified="August 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+
+  <!-- Header -->
   <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Glass Bridge</div>
-  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Zhangjiajie Glass Bridge</h1>
-  <p class="mt-6 text-lg text-stone-500 leading-relaxed">The first step onto the glass is the hardest. After that it is just a really long bridge with an extraordinary view through the floor. 430 meters long, 300 meters high, and completely transparent underfoot. The trick is timing — go early enough and you can stand still, look down, and actually feel the height before the crowd sweeps you along.</p>
-  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Glass Bridge</span></nav>
+  <h1 class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Zhangjiajie Glass Bridge</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+    430 meters of transparent glass, 300 meters above the canyon floor, and absolutely no way to avoid looking down. The first step is the hardest — after that, it is just a really long bridge with an extraordinary view through the floor.
+  </p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
+    <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+    <span class="text-stone-600">Glass Bridge</span>
+  </nav>
 
-  
-
+  <!-- Banner -->
   <div class="mt-8 rounded-2xl overflow-hidden">
     <picture>
       <source srcset="/banner-glassbridge.webp" type="image/webp" />
-      <img
-        src="/banner-glassbridge.jpg"
-        alt="Zhangjiajie Glass Bridge suspended above Grand Canyon"
-        class="w-full aspect-[21/9] object-cover"
-        width="1200"
-        height="514"
-        loading="eager"
-        decoding="async"
-      />
+      <img src="/banner-glassbridge.jpg" alt="Zhangjiajie Glass Bridge suspended above Grand Canyon" class="w-full aspect-[21/9] object-cover" width="1200" height="514" loading="eager" decoding="async" />
     </picture>
   </div>
-    <div class="mt-12 space-y-12">
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Practical Information</h2>
-      <div class="rounded-xl border border-stone-200 overflow-hidden"><table class="w-full text-sm"><tbody class="divide-y divide-stone-100"><tr><td class="px-5 py-3 text-stone-600 font-medium w-32">Location</td><td class="px-5 py-3 text-stone-600">Zhangjiajie Grand Canyon, about 60 km from Wulingyuan</td></tr><tr><td class="px-5 py-3 text-stone-600 font-medium">Ticket Price</td><td class="px-5 py-3 text-stone-600">CNY 128 (bridge only). Combo with canyon hike + boat: CNY 219</td></tr><tr><td class="px-5 py-3 text-stone-600 font-medium">Hours</td><td class="px-5 py-3 text-stone-600">8:00 AM – 5:00 PM (last entry 4:00 PM)</td></tr><tr><td class="px-5 py-3 text-stone-600 font-medium">Time Slots</td><td class="px-5 py-3 text-stone-600">8:00, 9:00, 10:00, 11:00, 12:30, 13:30, 14:30 — book online at least a day ahead</td></tr><tr><td class="px-5 py-3 text-stone-600 font-medium">Restrictions</td><td class="px-5 py-3 text-stone-600">No selfie sticks, no drones, no large bags (free lockers available), no high heels</td></tr></tbody></table></div>
-    </section>
 
-    <section>
-      <div class="rounded-2xl overflow-hidden">
-        <picture>
-          <source srcset="/feature-3.webp" type="image/webp" />
-          <img
-            src="/feature-3.jpg"
-            alt="Zhangjiajie Glass Bridge spanning the Grand Canyon with sandstone cliffs on both sides"
-            class="w-full aspect-[16/9] object-cover"
-            width="800"
-            height="600"
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
-      </div>
-    </section>
+  <!-- 1. Quick Facts -->
+  <section class="mt-14">
+    <SectionHeader eyebrow="At a Glance" title="Practical Information" />
 
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">What It Feels Like</h2>
-      <p class="text-stone-500 leading-relaxed mb-4">The bridge itself is a flat walkway with glass panels set into the floor. The glass is 6 cm thick — three layers laminated together — and completely transparent. You see the canyon floor 300 meters below through your feet. Walking onto it the first time triggers a genuine adrenaline response, even for people who are not afraid of heights. I have no fear of heights, and my first step onto the glass still made me hesitate.</p>
-      <p class="text-stone-500 leading-relaxed mb-4">We visited in April 2026 with an 8 AM time slot. By 8:30 the bridge was busy but not crowded; by 10 AM it was shoulder-to-shoulder. The experience is dramatically better with fewer people — you can stop mid-span, look down, and actually feel the height rather than being swept along by the crowd. At its peak, the bridge was recognized as the world's longest and highest glass-bottom bridge by Guinness World Records. It holds the record because of the engineering: a glass surface that spans 430 meters without intermediate supports.</p>
-      <div class="rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
-        <strong>Important:</strong> Bring your passport. Like all Zhangjiajie attractions, the ticket is linked to your passport number. No passport = no entry. Camera phones are fine; professional cameras with large lenses may be restricted on busy days.
-      </div>
-    </section>
+    <div class="mt-6 rounded-xl border border-stone-200 overflow-hidden">
+      <table class="w-full text-sm">
+        <tbody class="divide-y divide-stone-100">
+          <tr><td class="px-5 py-3 text-stone-600 font-medium w-32">Location</td><td class="px-5 py-3 text-stone-600">Zhangjiajie Grand Canyon, ~60 km from Wulingyuan</td></tr>
+          <tr><td class="px-5 py-3 text-stone-600 font-medium">Bridge Only</td><td class="px-5 py-3 text-stone-600">¥128 — 15-20 min walk across</td></tr>
+          <tr><td class="px-5 py-3 text-stone-600 font-medium">Combo (Recommended)</td><td class="px-5 py-3 text-stone-600 font-semibold text-forest-700">¥219 — Bridge + canyon hike + exit boat</td></tr>
+          <tr><td class="px-5 py-3 text-stone-600 font-medium">Hours</td><td class="px-5 py-3 text-stone-600">8:00 AM – 5:00 PM · Last entry 4:00 PM</td></tr>
+          <tr><td class="px-5 py-3 text-stone-600 font-medium">Time Slots</td><td class="px-5 py-3 text-stone-600">8:00, 9:00, 10:00, 11:00, 12:30, 13:30, 14:30</td></tr>
+          <tr><td class="px-5 py-3 text-stone-600 font-medium">Booking</td><td class="px-5 py-3 text-stone-600">Must book a specific time slot online at least 1 day ahead. Walk-up tickets rarely available.</td></tr>
+          <tr><td class="px-5 py-3 text-stone-600 font-medium">Restrictions</td><td class="px-5 py-3 text-stone-600">No selfie sticks · No drones · No large bags (free lockers) · No high heels · No tripods during busy periods</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">After the Bridge: Canyon Hike</h2>
-      <p class="text-stone-500 leading-relaxed mb-4">After crossing the bridge, you have two options. Both end at a boat dock that takes you to the exit. Our full <a href="/itinerary" class="text-forest-600 hover:text-forest-700 underline">3-day itinerary</a> includes the Glass Bridge on Day 3 and shows how the timing fits with the rest of your trip.</p>
-      <div class="space-y-3">
-        <div class="rounded-xl border border-stone-200 bg-white p-5">
-          <h3 class="font-semibold text-stone-800 text-lg mb-2">Option A: Canyon Hike (2-2.5 hours)</h3>
-          <p class="text-sm text-stone-500">Descend into the Grand Canyon via a stone staircase embedded in the cliff. The trail follows a stream through narrow gorges, past several waterfalls, and ends at a boat dock deep in the valley. The hike is mostly downhill but involves about 1,000 steps total — your knees will feel it the next day. At the end, a short boat ride (included in the combo ticket at CNY 219) takes you across the lake to the exit. Worth doing if you have the energy and want to see the canyon from the bottom looking up.</p>
+  <!-- 2. Stats & Records -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="By the Numbers" title="Records & Specifications" subtitle="At its opening in August 2016, the bridge held multiple world records." />
+
+    <div class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-3">
+      {records.map((r) => (
+        <div class="rounded-xl border border-stone-200 bg-white p-4 text-center">
+          <p class="text-xl font-bold text-forest-600 font-display">{r.stat}</p>
+          <p class="text-[10px] text-stone-400 mt-1 leading-snug">{r.label}</p>
         </div>
-        <div class="rounded-xl border border-stone-200 bg-white p-5">
-          <h3 class="font-semibold text-stone-800 text-lg mb-2">Option B: Slide + Boat (1 hour)</h3>
-          <p class="text-sm text-stone-500">A 600-meter transparent tube slide (CNY 30) spirals down from the bridge exit to the canyon floor. It is genuinely fun and surprisingly fast — you can control your speed with your feet. From the slide exit, a 10-minute walk leads to the same boat dock. Less scenic than the full hike, but much easier on the knees. We did the slide in April and would choose it again unless you specifically want the canyon walk. The combo of bridge + slide makes for a memorable morning.</p>
-        </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </section>
 
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">How to Get There</h2>
-      <p class="text-stone-500 leading-relaxed mb-4">The Grand Canyon entrance is about 60 km from Wulingyuan. From the Wulingyuan bus station, direct minibuses marked "大峡谷" (Grand Canyon) run every 30 minutes from 7 AM. The ride costs CNY 25 and takes about 40 minutes along a winding road through farmland and low hills.</p>
-      <p class="text-stone-500 leading-relaxed mb-4">From Zhangjiajie city center, take any bus to Wulingyuan first (CNY 12, 40 minutes), then transfer to the Grand Canyon minibus. Total journey about 1.5 hours. A taxi from Wulingyuan costs CNY 80-100 one-way — we took a taxi on our first visit and the bus on our second. The bus is fine; the taxi saves about 15 minutes. For detailed transport options, see our <a href="/how-to-get-there" class="text-forest-600 hover:text-forest-700 underline">how to get there guide</a>.</p>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Is It Worth It?</h2>
-      <p class="text-stone-500 leading-relaxed mb-4">CNY 128 for 15 minutes of walking and potentially 30 minutes of queuing — it is the most expensive single attraction in the park, and you should know what you are paying for. The glass bridge experience itself is spectacular but brief. Literally 10-15 minutes to walk across at a normal pace. The photo opportunities are unique. The adrenaline hit is real. And if you have seen the photos of people lying on the glass or posing for Instagram, you will find those spots easily.</p>
-      <p class="text-stone-500 leading-relaxed">Our honest take: it is worth doing with the 8 AM slot and the combo ticket (CNY 219 including the canyon hike and boat). The bridge alone feels thin for the price. Bridge + canyon descent + boat ride is a solid half-day excursion. Without the canyon portion, we would rank it below Avatar Mountain and Tianzi Mountain on the priority list. With the canyon and slide, it is one of the most fun mornings in the park.</p>
-    </section>
+  <!-- Image break -->
+  <div class="mt-10 rounded-2xl overflow-hidden">
+    <picture>
+      <source srcset="/feature-3.webp" type="image/webp" />
+      <img src="/feature-3.jpg" alt="Zhangjiajie Glass Bridge spanning the Grand Canyon" class="w-full aspect-[16/9] object-cover" width="800" height="600" loading="lazy" decoding="async" />
+    </picture>
   </div>
-  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/attractions" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">All Attractions <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+
+  <!-- 3. What It Feels Like -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="The Experience" title="What It Actually Feels Like to Walk on Glass 300m Up" />
+
+    <div class="mt-6 space-y-4 text-sm text-stone-600 leading-relaxed">
+      <p>The bridge itself is a flat walkway with glass panels set into the center lane. The glass is 6 cm thick — three layers of 2 cm tempered glass laminated together — and completely transparent. Both sides of the bridge have solid, opaque walkways for those who prefer not to look down.</p>
+      <p>Walking onto it the first time triggers a genuine adrenaline response, even if you are not afraid of heights. Your brain knows the glass will hold — 6 cm of laminated tempered glass rated for 800 kg per panel — but your body's survival instincts do not care about engineering specs. I have no fear of heights, and my first step onto the glass still made me hesitate.</p>
+      <p>We visited in April 2026 with an 8 AM time slot. By 8:30 the bridge was busy but not crowded; by 10 AM it was shoulder-to-shoulder. The experience is dramatically better with fewer people — you can stop mid-span, look down, and actually feel the height rather than being swept along by the crowd. The 8 AM slot gives you about 30 minutes of relative calm before the bulk of visitors arrive.</p>
+    </div>
+
+    <div class="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
+      <strong>Important:</strong> Bring your passport. Tickets are linked to your passport number. No passport = no entry. Camera phones are fine; professional cameras with large lenses may be restricted on busy days to keep pedestrian flow moving.
+    </div>
+  </section>
+
+  <!-- 4. Canyon Hike Options -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="After the Bridge" title="Canyon Descent: Hike or Slide?" subtitle="The bridge is just the start. After crossing, you reach the canyon floor by one of two routes." />
+
+    <div class="mt-6 space-y-4">
+      {canyonOptions.map((o) => (
+        <div class="rounded-xl border border-stone-200 bg-white p-5 md:p-6">
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">{o.title}</h3>
+          <p class="text-sm text-stone-500 leading-relaxed mb-3">{o.desc}</p>
+          <p class="text-xs text-stone-400 italic">{o.best}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-3 text-xs text-stone-400">Our full <a href="/itinerary" class="text-forest-600 hover:text-forest-700 underline">3-day itinerary</a> places the Glass Bridge on Day 3 and shows how the timing fits with the rest of your trip.</p>
+  </section>
+
+  <!-- 5. Adrenaline Activities -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="Adrenaline" title="Bungee, Zipline & More" subtitle="The bridge isn't the only thrill. Four additional activities operate at the Grand Canyon site." />
+
+    <div class="mt-6 space-y-3">
+      {adrenaline.map((a) => (
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <h3 class="font-semibold text-stone-800">{a.name}</h3>
+            <span class="shrink-0 rounded-full bg-forest-50 px-2.5 py-0.5 text-xs font-semibold text-forest-700">{a.price}</span>
+          </div>
+          <p class="text-sm text-stone-500 leading-relaxed mb-2">{a.desc}</p>
+          <p class="text-xs text-stone-400"><strong>Available:</strong> {a.available}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 6. How to Get There -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="Transport" title="How to Get to the Glass Bridge" />
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 text-sm mb-2">From Wulingyuan (Recommended)</h3>
+        <ul class="space-y-1 text-xs text-stone-500">
+          <li>• Direct minibus from Wulingyuan bus station</li>
+          <li>• Look for signs marked "大峡谷" (Grand Canyon)</li>
+          <li>• Runs every 30 min from 7:00 AM</li>
+          <li>• ¥25 · 40 minutes</li>
+          <li>• Last return bus: ~5:30 PM</li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 text-sm mb-2">From Zhangjiajie City</h3>
+        <ul class="space-y-1 text-xs text-stone-500">
+          <li>• Bus to Wulingyuan first (¥12, 40 min)</li>
+          <li>• Transfer to Grand Canyon minibus</li>
+          <li>• Total: ~1.5 hours</li>
+          <li>• Taxi from Wulingyuan: ¥80-100 one-way</li>
+          <li>• For detailed transport: see our <a href="/#at-a-glance" class="text-forest-600 hover:text-forest-700 underline">Getting There guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="FAQ" title="Common Questions" />
+
+    <div class="mt-6 divide-y divide-stone-200 border border-stone-200 rounded-xl overflow-hidden">
+      {faqs.map((f) => (
+        <div class="p-5 bg-white">
+          <h3 class="font-semibold text-stone-800 text-sm mb-1">{f.q}</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 8. Verdict -->
+  <section class="mt-12">
+    <SectionHeader eyebrow="The Verdict" title="Is the Glass Bridge Worth It?" />
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="rounded-xl border border-forest-200 bg-forest-50/50 p-5">
+        <h3 class="font-semibold text-forest-800 text-sm mb-2">✓ Yes, if you:</h3>
+        <ul class="space-y-1 text-xs text-stone-600">
+          <li>• Book the 8 AM slot — the experience gap between 8 AM and 10 AM is enormous</li>
+          <li>• Get the CNY 219 combo (bridge + hike + boat) — the bridge alone feels thin for the price</li>
+          <li>• Want a unique adrenaline experience — walking on glass at 300m is not something you do every day</li>
+          <li>• Are traveling with teenagers — this is the attraction they will talk about most</li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-amber-200 bg-amber-50/50 p-5">
+        <h3 class="font-semibold text-amber-800 text-sm mb-2">✗ Skip it, if you:</h3>
+        <ul class="space-y-1 text-xs text-stone-600">
+          <li>• Are on a tight budget — ¥128-219 for a 15-minute bridge crossing is the highest cost-per-minute in the park</li>
+          <li>• Only have 1-2 days — prioritize the Forest Park and Tianmen Mountain</li>
+          <li>• Hate crowds — even with the 8 AM slot, the bridge is never truly empty</li>
+          <li>• Have severe acrophobia — the opaque side walkways exist, but the experience centers on looking down</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-4 text-sm text-stone-500 leading-relaxed">Our honest take: with the 8 AM slot and the combo ticket (CNY 219 including canyon hike and boat), the Glass Bridge is a solid half-day excursion that most visitors will remember. Without the canyon portion and with a midday time slot, it ranks below the Avatar pillar and Tianzi Mountain. Bridge + canyon descent + slide + boat ride is one of the most fun mornings in the park.</p>
+  </section>
+
+  <!-- CTA -->
+  <div class="mt-16 pt-12 border-t border-stone-200 text-center">
+    <p class="text-stone-500 text-sm mb-6">The Glass Bridge is one of four attractions covered in our complete guide.</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="/tianmen-mountain" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98] shadow-lg shadow-forest-900/20">
+        Next: Tianmen Mountain
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+      </a>
+      <a href="/tickets" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]">
+        Check Ticket Prices
+      </a>
+    </div>
+  </div>
+
 </div>
 </BaseLayout>

@@ -60,7 +60,7 @@ const schema = {
       <section>
         <h2 class="text-2xl font-semibold text-stone-900 mb-2">How to Get There</h2>
         <p class="text-stone-500 leading-relaxed mb-4">
-          Zhangjiajie has its own airport (DYG) with direct flights from Beijing, Shanghai, Guangzhou, and Chengdu. The high-speed train station (Zhangjiajie West) connects to Changsha in under 3 hours — we have taken this route three times and consistently arrive in 2 hours 45 minutes. From downtown, the park's Wulingyuan entrance is a 40-minute bus or taxi ride. See our <a href="/how-to-get-there" class="text-forest-600 hover:text-forest-700 underline">detailed transport guide</a> for full route options and prices.
+          Zhangjiajie has its own airport (DYG) with direct flights from Beijing, Shanghai, Guangzhou, and Chengdu. The high-speed train station (Zhangjiajie West) connects to Changsha in under 3 hours — we have taken this route three times and consistently arrive in 2 hours 45 minutes. From downtown, the park's Wulingyuan entrance is a 40-minute bus or taxi ride. See our <a href="/#at-a-glance" class="text-forest-600 hover:text-forest-700 underline">Getting There guide on homepage</a> for full route options and prices.
         </p>
         <p class="text-stone-500 leading-relaxed mb-4">
           On our latest trip in April 2026, a taxi from Zhangjiajie West station to Wulingyuan town cost CNY 95 including the meter. The bus is CNY 12 and leaves every 10 minutes from the central bus station — look for the blue minibuses marked "Wulingyuan" in Chinese characters (武陵源).
@@ -92,10 +92,10 @@ const schema = {
         </p>
         <div class="grid gap-4">
           {[
-            { name: "Zhangjiajie National Forest Park", highlight: "The core. Avatar mountains, Golden Whip Stream, Yuanjiajie. This is what most people picture when they think of Zhangjiajie.", time: "1-2 days", verdict: "Non-negotiable", href: "/attractions" },
+            { name: "Zhangjiajie National Forest Park", highlight: "The core. Avatar mountains, Golden Whip Stream, Yuanjiajie. This is what most people picture when they think of Zhangjiajie.", time: "1-2 days", verdict: "Non-negotiable", href: "/#beyond-park" },
             { name: "Tianmen Mountain", highlight: "Heaven's Gate arch, 999-step staircase, cliff-hanging walkway. The cable car ride alone (7.5 km from downtown) is worth the entry fee.", time: "Half day", verdict: "Do not miss", href: "/tianmen-mountain" },
             { name: "Zhangjiajie Grand Canyon", highlight: "World's longest and highest glass-bottom bridge. The bridge is the draw; the canyon hike below is optional but pleasant.", time: "Half day", verdict: "If you have 3+ days", href: "/glass-bridge" },
-            { name: "Tianzi Mountain Nature Reserve", highlight: "Sea of clouds at sunrise, panoramic pillar views. Connects directly to Yuanjiajie by shuttle bus, so you will pass through anyway.", time: "Half day", verdict: "Part of the core circuit", href: "/attractions" },
+            { name: "Tianzi Mountain Nature Reserve", highlight: "Sea of clouds at sunrise, panoramic pillar views. Connects directly to Yuanjiajie by shuttle bus, so you will pass through anyway.", time: "Half day", verdict: "Part of the core circuit", href: "/#beyond-park" },
           ].map(({ name, highlight, time, verdict, href }) => (
             <a href={href} class="block no-underline rounded-xl border border-stone-200 bg-white p-5 transition-all hover:border-forest-200 hover:shadow-md">
               <div class="flex items-start justify-between gap-4">
@@ -198,8 +198,8 @@ const schema = {
     </div>
     <div class="mt-16 pt-12 border-t border-stone-200 text-center">
       <p class="text-stone-500 mb-6">Ready to pick your dates?</p>
-      <a href="/best-time-to-visit" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">
-        Best Time to Visit
+      <a href="/#when-to-go" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">
+        When to Go Guide
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5" /></svg>
       </a>
     </div>

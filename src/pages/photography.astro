@@ -1,82 +1,243 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Photography Guide | Best Spots & Tips (2026)","description":"Zhangjiajie photography guide: best sunrise and sunset spots, camera settings, lens recommendations, seasonal tips, and how to capture the mist.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Photography","item":"https://zhangjiajie-national-park.com/photography/"}]}]};
+import SectionHeader from "../components/SectionHeader.astro";
+
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Photography Guide | Best Spots & Camera Settings (2026)","description":"Zhangjiajie photography guide: 7 best photo spots, exact camera settings we used, lens recommendations, seasonal tips, drone rules, and how to capture the mist.","datePublished":"2026-07-01","dateModified":"2026-08-05","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Photography","item":"https://zhangjiajie-national-park.com/photography/"}]}]};
+
 const spots = [
-  {name:"Tianzi Mountain Summit",best:"Sunrise",desc:"The sea of clouds at sunrise is the iconic Zhangjiajie shot. Arrive at 6:30 AM for the first cable car at 7 AM. The eastern platform has the best angle for the Imperial Writing Brush Peaks with morning light. We had the platform entirely to ourselves for 45 minutes in November.",settings:"Wide-angle lens (16-35mm), tripod for low-light sunrise, polarizing filter to cut through mist."},
-  {name:"Avatar Hallelujah Mountain",best:"Morning mist",desc:"The pillar is most photogenic when mist curls around the base — it appears to float. Arrive before 9 AM for the best conditions. Shoot from the main platform for a straight-on angle, or walk 200m further for the second viewpoint (same pillar, zero people in frame). Vertical/portrait orientation shows the full 1,080-meter height.",settings:"Telephoto lens (70-200mm) to isolate the pillar, or wide-angle to include surrounding peaks. Polarizing filter helps with mist detail."},
-  {name:"Heaven's Gate",best:"Late afternoon",desc:"The 131-meter natural arch is best photographed from the top looking down through the arch, or from the 99-Bend Road below looking up. The afternoon light (3-5 PM) illuminates the arch face. In winter, the arch sometimes fills with clouds spilling through — a surreal shot if you get lucky.",settings:"Ultra-wide (14-24mm) to capture the full arch. A person on the steps provides scale. Drone use is prohibited."},
-  {name:"Golden Whip Stream",best:"Late afternoon",desc:"The stream catches golden light around 4 PM. Reflections of the surrounding peaks in the water create mirror-like compositions. The macaques along the trail are excellent wildlife subjects. A slow shutter speed (1/4 to 1 second) turns the fast-flowing sections into silky ribbons. A small travel tripod or even a beanbag on a rock works for long exposures.",settings:"Standard zoom (24-70mm) is sufficient. ND filter for long exposures on the water. Fast shutter for monkey shots."},
-  {name:"Glass Bridge",best:"Early morning",desc:"The 8 AM slot has the fewest people. Shoot from the side railings rather than the glass floor for clearer canyon views — the glass reflects overhead light and creates glare. A polarizing filter helps significantly. The best wide shot is from the canyon below (if you do the hike), looking up at the bridge spanning the gorge.",settings:"Wide-angle lens for bridge spans. Polarizing filter essential for cutting glass reflections. No tripods allowed during busy periods."}
+  {
+    name: "Tianzi Mountain Summit",
+    best: "Sunrise · 6:30-8:00 AM",
+    desc: "The sea of clouds at sunrise is the single most iconic Zhangjiajie shot. Arrive at 6:30 AM for the first cable car at 7 AM. The eastern platform has the best angle for the Imperial Writing Brush Peaks catching the first light. On our November 2025 visit, we had the platform entirely to ourselves for 45 minutes — in peak season you share it with 5-10 other early risers.",
+    settings: "16-35mm at f/8-11 · ISO 100-400 · Tripod essential for low light · Polarizing filter to cut through morning mist · Bracket exposures (-2, 0, +2 EV) — the contrast between bright sky and dark pillars is extreme at sunrise.",
+    gear: "Wide-angle zoom · Sturdy tripod · Polarizer · Remote shutter release",
+  },
+  {
+    name: "Avatar Hallelujah Mountain",
+    best: "Morning mist · 7:30-9:00 AM",
+    desc: "The 1,080m pillar looks best when mist curls around its base — it genuinely appears to float. The main platform gives a direct, centered composition. Walk 200m further toward the First Bridge Under Heaven direction for a second, unmarked viewpoint with the same angle and typically zero people. On a busy Saturday in April 2026, we stood there for 20 minutes without a single other person stopping.",
+    settings: "70-200mm at f/5.6-8 to isolate the pillar · Portrait orientation to show full 1,080m height · Polarizer reduces quartz-sandstone glare · ISO 200-400 depending on mist density",
+    gear: "Telephoto zoom · Polarizer · No tripod needed (bright enough after 7:30 AM)",
+  },
+  {
+    name: "Heaven's Gate (Tianmen Mountain)",
+    best: "Late afternoon · 3:00-5:00 PM",
+    desc: "The 131-meter natural arch is best shot from the top looking down through the arch, or from the 99-Bend Road below looking up. Afternoon light illuminates the arch face. In winter, clouds sometimes spill through the opening — one of the rarest and most rewarding shots in the park. The 999 steps provide natural leading lines toward the arch in any composition.",
+    settings: "14-24mm at f/11 · Include a person on the steps for scale — the arch is so large that without a reference point, photos fail to convey its size · ISO 100-200 in afternoon light · Polarizer if shooting from below (glare off the rock face)",
+    gear: "Ultra-wide lens · Polarizer · A friend to stand on the steps for scale",
+  },
+  {
+    name: "Golden Whip Stream",
+    best: "Late afternoon · 3:00-5:00 PM",
+    desc: "The stream catches golden light around 4 PM when the sun angles through the canyon. Reflections of surrounding peaks in the water create mirror compositions. The wild macaques along the trail are excellent wildlife subjects — a 70-200mm keeps you at a safe distance (they snatch anything within reach). Slow shutter speeds (1/4 to 1 second) turn the fast-flowing sections into silky ribbons.",
+    settings: "24-70mm at f/8-11 for landscapes · 70-200mm at f/4 for monkeys · 1/4s to 1s with ND filter for water · ISO 100 · Beanbag on a rock works as an improvised tripod",
+    gear: "Standard zoom · Telephoto for wildlife · ND filter (3-stop) · Lightweight travel tripod or beanbag",
+  },
+  {
+    name: "Glass Bridge & Grand Canyon",
+    best: "Early morning · 8:00-9:30 AM",
+    desc: "The 8 AM slot has the fewest people. Shoot from the side railings rather than the glass floor for clearer canyon views — the glass reflects overhead light and creates lens flare. A polarizer helps significantly. The best wide shot is from the canyon floor below (if you do the hike), looking up at the bridge spanning the gorge. This reverse angle is rarely photographed.",
+    settings: "16-35mm at f/8 for bridge spans · Polarizer essential for cutting glass reflections · ISO 100-200 · Fast shutter (1/250+) if you want to freeze people on the bridge for scale · No tripods allowed during busy periods",
+    gear: "Wide-angle zoom · Polarizer · Leave the tripod at the locker (free storage at bridge entrance)",
+  },
+  {
+    name: "Yangjiajie · Natural Great Wall",
+    best: "Mid-morning · 9:00-11:00 AM",
+    desc: "The park's best-kept secret for photographers. Same dramatic pillar landscape as Yuanjiajie with 10% of the visitors. The Natural Great Wall viewpoint is a long, continuous ridge of pillars that looks like a fortress wall — impossible to capture in a single frame without a wide lens. On our April 2026 visit, we encountered maybe 20 other people over a full morning here.",
+    settings: "16-35mm at f/11 for the wall panorama · 70-200mm at f/8 for isolating individual pillars · ISO 200-400 in forest shade · Morning light hits the wall face directly, casting long shadows between pillars",
+    gear: "Wide zoom + telephoto (you will want both) · Polarizer · Good hiking shoes (the trails here are less maintained)",
+  },
+  {
+    name: "Fenghuang Ancient Town at Dusk",
+    best: "Blue hour · 30 min after sunset",
+    desc: "The stilt houses along the Tuo River, lit by red lanterns reflecting in the water, create Zhangjiajie's most atmospheric photo opportunity. The 15-minute window between sunset and full darkness — when the sky is deep blue but the lanterns are already lit — produces the best images. Shoot from the Hong Bridge for the classic angle, or walk along the south bank for closer compositions of individual buildings.",
+    settings: "24-70mm at f/5.6-8 · ISO 800-1600 · 1/30s to 1/60s handheld (tripods awkward on crowded bridges) · White balance set to 'Tungsten' or 3200K to balance warm lanterns against blue sky",
+    gear: "Standard zoom · Fast lens (f/2.8 helps in low light) · Small travel tripod if shooting from less crowded spots",
+  },
+];
+
+const seasonalNotes = [
+  { season: "Spring (Mar–May)", highlight: "Best mist · Peak photography season", notes: "Morning fog creates the floating-pillar effect almost daily. Frequent rain — bring a rain cover and microfiber cloth. Wildflowers add foreground color. The mist is most reliable in April. Downside: peak crowds from late April through May." },
+  { season: "Summer (Jun–Aug)", highlight: "Lush greens · Dramatic skies", notes: "The forest is at maximum saturation — deep emerald greens against the sandstone. Afternoon thunderstorms create dramatic cloud formations. Heavy haze can wash out distant peaks; a polarizing filter is essential. Early mornings are your best window before haze builds. July-August temperatures reach 38°C." },
+  { season: "Autumn (Sep–Nov)", highlight: "Golden light · Best overall season", notes: "Low-angled golden sun all day. Bronze and gold autumn colors in the valleys. Clear skies are more common than spring. Late October through November combines golden foliage with morning mist — our favorite window. Crowds drop after the first week of October." },
+  { season: "Winter (Dec–Feb)", highlight: "Snow scenes · Empty park", notes: "Snow-dusted pillars are surreal and rarely photographed. Half-price entry. The cold keeps crowds away. Downside: shorter days (sunset ~5:30 PM), some Yangjiajie trails close after snow, and you need serious cold-weather gear for pre-dawn shoots. Cable cars may run on reduced schedules." },
+];
+
+const gearList = [
+  { item: "Polarizing filter", why: "The single most useful accessory. Cuts through mist, reduces glare on wet leaves and reflective quartz-sandstone, deepens blue skies. A ¥200 filter transforms your images more than a ¥2,000 lens upgrade." },
+  { item: "Rain cover for camera", why: "Mountain weather shifts in minutes. A simple OP/TECH rainsleeve (¥40) saved our camera twice in April. Do not rely on an umbrella — you need both hands free on steep steps." },
+  { item: "Travel tripod (under 1.5 kg)", why: "Essential for sunrise at Tianzi Mountain and long exposures at Golden Whip Stream. Keep it small and light — you will carry it up and down thousands of steps. Carbon fiber is worth the premium here." },
+  { item: "Extra batteries (2-3 spares)", why: "Cold weather (winter) and long days (summer) drain batteries faster than expected. Limited charging options inside the park. We carry 3 batteries for a full day of shooting." },
+  { item: "Microfiber cloths (2-3)", why: "Mist, rain, and humidity mean your lens will fog up. Keep one cloth accessible at all times. When one gets saturated, switch to a dry one." },
+  { item: "Lens hood", why: "Not just for flare — the hood protects your front element from drizzle when shooting between rain showers. The park's walkways are narrow and crowded; the hood also guards against bumps." },
+];
+
+const droneRules = [
+  "Drones are officially prohibited inside Zhangjiajie National Forest Park without a permit from the park administration.",
+  "Tianmen Mountain and the Glass Bridge also ban drones — enforcement is strict. We have seen security confiscate drones at both locations.",
+  "If you want aerial footage, apply for a permit through the Hunan Provincial Film and Television Bureau at least 2 weeks before your visit. Foreign applicants need a Chinese contact person.",
+  "Outside the park boundaries (Wulingyuan town, the road to the Grand Canyon, Fenghuang Ancient Town outskirts), drone rules are less strictly enforced — but always check local signage.",
+  "A Mini 3 Pro or similar sub-250g drone is easier to fly inconspicuously, but the official ban still applies inside the park. We do not recommend risking it — the ¥2,000+ fine is not worth the shot.",
 ];
 ---
-<BaseLayout title="Zhangjiajie Photography Guide | Best Spots & Tips (2026)" description="Zhangjiajie photography guide: best sunrise and sunset spots, camera settings, lens recommendations, seasonal tips, and how to capture the mist." author="Zhangjiajie Guide Team" datePublished="July 2026">
+
+<BaseLayout title="Zhangjiajie Photography Guide | 7 Best Spots & Settings (2026)" description="Zhangjiajie photography guide: 7 best photo locations, exact camera settings, lens picks, seasonal tips, drone rules, and how to capture the mist. Based on 20+ visits." author="Zhangjiajie Guide Team" datePublished="July 2026" dateModified="August 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+
+  <!-- Header -->
   <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Photography</div>
-  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Zhangjiajie Photography Guide</h1>
-  <p class="mt-6 text-lg text-stone-500 leading-relaxed">Five locations, five different light conditions, and the settings we used to capture them. Zhangjiajie is generous to photographers — the mist does half the work for you. The other half is being in the right place at 6:30 AM with a polarizing filter.</p>
-  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Photography</span></nav>
+  <h1 class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Zhangjiajie Photography Guide</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+    7 locations, the exact camera settings we used, and what we wish we had known before carrying 8 kg of gear up 2,000 steps. Zhangjiajie rewards photographers — the mist does half the work. The other half is being in the right place at 6:30 AM with a polarizing filter.
+  </p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
+    <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+    <span class="text-stone-600">Photography</span>
+  </nav>
 
-  
-
+  <!-- Banner -->
   <div class="mt-8 rounded-2xl overflow-hidden">
     <picture>
       <source srcset="/banner-photography.webp" type="image/webp" />
-      <img
-        src="/banner-photography.jpg"
-        alt="Misty Zhangjiajie peaks perfect for landscape photography"
-        class="w-full aspect-[21/9] object-cover"
-        width="1200"
-        height="514"
-        loading="eager"
-        decoding="async"
-      />
+      <img src="/banner-photography.jpg" alt="Misty Zhangjiajie peaks perfect for landscape photography" class="w-full aspect-[21/9] object-cover" width="1200" height="514" loading="eager" decoding="async" />
     </picture>
   </div>
-    <div class="mt-12 space-y-10">
-    {spots.map(({name,best,desc,settings}) => (
-      <section class="rounded-2xl border border-stone-200 bg-white p-6 md:p-8">
-        <div class="flex items-start justify-between gap-4 mb-3">
-          <h2 class="text-xl font-semibold text-stone-900">{name}</h2>
-          <span class="shrink-0 rounded-full bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700">Best: {best}</span>
-        </div>
-        <p class="text-sm text-stone-500 leading-relaxed mb-4">{desc}</p>
-        <div class="rounded-lg bg-stone-50 p-3 text-sm text-stone-600">
-          <strong class="text-stone-700">Gear & Settings:</strong> {settings}
-        </div>
-      </section>
-    ))}
-  </div>
 
-  <div class="mt-16 space-y-8">
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Seasonal Photography Notes</h2>
-      <div class="grid gap-3">
-        {[
-          {season:"Spring (Mar-May)","notes":"Best mist. Frequent morning fog creates the floating-pillar effect. Shoot early. Rain is common — bring a rain cover for your camera and a microfiber cloth for the lens."},
-          {season:"Summer (Jun-Aug)","notes":"Lush greens. Afternoon thunderstorms create dramatic skies. The forest is at maximum saturation. Downside: heavy haze can wash out distant peaks. A polarizing filter is essential."},
-          {season:"Autumn (Sep-Nov)","notes":"Best light. Low-angled golden sun all day. Autumn colors in the valleys (bronze and gold) against the pillars. Clear skies are more common. Our favorite season for photography."},
-          {season:"Winter (Dec-Feb)","notes":"Snow scenes. Snow-dusted pillars are surreal and rarely photographed. Half-price entry. The cold keeps crowds away. Downside: shorter days, some trails closed, and you need serious cold-weather gear."}
-        ].map(({season,notes}) => (
-          <div class="rounded-xl border border-stone-200 bg-white p-4">
-            <h3 class="font-semibold text-stone-800 mb-1">{season}</h3>
-            <p class="text-sm text-stone-500">{notes}</p>
+  <!-- Photo spots -->
+  <div class="mt-14">
+    <SectionHeader eyebrow="7 Best Spots" title="Where to Point Your Camera" subtitle="Ranked by photographic payoff. Every location below was shot by us across multiple visits — these settings are not from a brochure." />
+
+    <div class="mt-8 space-y-8">
+      {spots.map((s, i) => (
+        <section class="rounded-2xl border border-stone-200 bg-white p-6 md:p-8">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-forest-100 text-xs font-bold text-forest-700">{i + 1}</span>
+                <h2 class="text-xl font-semibold text-stone-900">{s.name}</h2>
+              </div>
+              <span class="text-xs font-medium text-forest-600">{s.best}</span>
+            </div>
           </div>
-        ))}
-      </div>
-    </section>
 
-    <section>
-      <h2 class="text-2xl font-semibold text-stone-900 mb-4">Essential Gear</h2>
-      <ul class="space-y-2 text-sm text-stone-500">
-        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Polarizing filter:</strong> The single most useful accessory for Zhangjiajie. Cuts through mist, reduces glare on wet leaves, and deepens blue skies.</li>
-        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Rain cover:</strong> Mountain weather shifts fast. A simple OP/TECH rainsleeve (CNY 40) saved our camera twice in April.</li>
-        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Travel tripod:</strong> Essential for sunrise at Tianzi Mountain and long exposures at Golden Whip Stream. Keep it small — you will carry it up and down thousands of steps.</li>
-        <li class="flex gap-3"><span class="text-forest-600 shrink-0 mt-0.5">&bull;</span> <strong class="text-stone-700">Extra batteries:</strong> Cold weather (winter) and long days (summer) drain batteries faster than expected. Limited charging options inside the park.</li>
-      </ul>
-    </section>
+          <p class="text-sm text-stone-500 leading-relaxed mb-4">{s.desc}</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="rounded-lg bg-stone-50 p-3 text-xs">
+              <strong class="text-stone-700 block mb-1">📷 Camera Settings</strong>
+              <span class="text-stone-500">{s.settings}</span>
+            </div>
+            <div class="rounded-lg bg-forest-50/60 p-3 text-xs">
+              <strong class="text-forest-700 block mb-1">🎒 Recommended Gear</strong>
+              <span class="text-stone-500">{s.gear}</span>
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
   </div>
 
-  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/attractions" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">All Attractions <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  <!-- Seasonal notes -->
+  <div class="mt-16">
+    <SectionHeader eyebrow="Seasons" title="When to Shoot What" />
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {seasonalNotes.map((s) => (
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <h3 class="font-semibold text-stone-800 text-sm">{s.season}</h3>
+            <span class="rounded-full bg-forest-50 px-2 py-0.5 text-[10px] font-medium text-forest-600">{s.highlight}</span>
+          </div>
+          <p class="text-xs text-stone-500 leading-relaxed">{s.notes}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Essential gear -->
+  <div class="mt-16">
+    <SectionHeader eyebrow="Gear" title="What to Pack (and What to Leave)" subtitle="We carried 8 kg of camera gear up Tianzi Mountain on our first visit. Here is what we actually used." />
+
+    <div class="mt-6 space-y-3">
+      {gearList.map((g) => (
+        <div class="rounded-xl border border-stone-200 bg-white p-4">
+          <div class="flex items-start gap-3">
+            <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-forest-100 text-xs font-bold text-forest-700">✓</div>
+            <div>
+              <h3 class="font-semibold text-stone-800 text-sm">{g.item}</h3>
+              <p class="text-xs text-stone-500 mt-0.5">{g.why}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5">
+      <h3 class="font-semibold text-amber-800 text-sm mb-2">🚫 What to Leave Behind</h3>
+      <ul class="space-y-1 text-xs text-amber-700">
+        <li>• <strong>Heavy 70-200mm f/2.8</strong> — You will curse every gram on the Yangjiajie stairs. Bring an f/4 version or a lighter telephoto.</li>
+        <li>• <strong>Full-size tripod</strong> — A travel tripod under 1.5 kg is sufficient. The park walkways have railings you can brace against for most shots.</li>
+        <li>• <strong>Drone</strong> — Banned inside the park. See drone section below.</li>
+        <li>• <strong>Every lens you own</strong> — Two lenses (wide zoom + telephoto zoom) cover 95% of shots. Changing lenses on a misty, crowded walkway is miserable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Drone rules -->
+  <div class="mt-16">
+    <SectionHeader eyebrow="Drone Policy" title="Can You Fly a Drone in Zhangjiajie?" subtitle="Short answer: no. Long answer: it is complicated." />
+
+    <div class="mt-6 rounded-xl border border-stone-200 bg-white p-6">
+      <ul class="space-y-3">
+        {droneRules.map((r, i) => (
+          <li class="flex gap-3 text-sm text-stone-600">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-stone-100 text-[10px] font-bold text-stone-400">{i + 1}</span>
+            {r}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Phone photography -->
+  <div class="mt-16">
+    <SectionHeader eyebrow="Phone Tips" title="Shooting with Your Phone" subtitle="You do not need a DSLR to get great photos in Zhangjiajie. Modern phones handle the park's conditions surprisingly well." />
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Use the telephoto lens</h3>
+        <p class="text-stone-500 text-xs">If your phone has a 2× or 3× telephoto lens, use it instead of digital zoom. The pillars are often far away and digital zoom turns them into mush. The telephoto camera on an iPhone 15 Pro or Pixel 8 produces genuinely good results at the Avatar pillar.</p>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Shoot in RAW (if available)</h3>
+        <p class="text-stone-500 text-xs">The high contrast between bright sky and dark pillars means JPEGs often lose detail in shadows. Shooting RAW (ProRAW on iPhone, RAW on Android) gives you more flexibility to recover shadow detail in editing.</p>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Wipe your lens constantly</h3>
+        <p class="text-stone-500 text-xs">Mist and humidity coat your phone lens within seconds. Keep a microfiber cloth in your pocket and wipe before every shot. The difference between a fogged lens and a clean one is the difference between a keeper and a delete.</p>
+      </div>
+      <div class="rounded-xl border border-stone-200 bg-white p-5">
+        <h3 class="font-semibold text-stone-800 mb-2">Use burst mode for monkeys</h3>
+        <p class="text-stone-500 text-xs">The Golden Whip Stream macaques move fast. Hold the shutter button for burst mode (10-20 frames per second on most phones). You will get one sharp shot out of every 5-10 frames — and that is all you need.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-16 pt-12 border-t border-stone-200 text-center">
+    <p class="text-stone-500 text-sm mb-6">Ready to put these tips to use? Plan your route with our trail guide.</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="/hiking-trails" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98] shadow-lg shadow-forest-900/20">
+        See Hiking Trails
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+      </a>
+      <a href="/#beyond-park" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]">
+        Beyond the Park
+      </a>
+    </div>
+  </div>
+
 </div>
 </BaseLayout>

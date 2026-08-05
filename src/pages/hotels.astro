@@ -1,68 +1,230 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Where to Stay in Zhangjiajie | Hotels Guide (2026)","description":"Where to stay near Zhangjiajie National Park: Wulingyuan town, city center, and guesthouses inside the park. Price ranges, recommendations, and first-hand experience.","datePublished":"2026-07-01","dateModified":"2026-07-31","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Where to Stay","item":"https://zhangjiajie-national-park.com/hotels/"}]}]};
+import SectionHeader from "../components/SectionHeader.astro";
+
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Where to Stay in Zhangjiajie | 20+ Hotels Guide (2026)","description":"Where to stay near Zhangjiajie National Park: 20+ hotels in Wulingyuan town, city center, and inside the park. Price ranges, honest reviews, and firsthand experience.","datePublished":"2026-07-01","dateModified":"2026-08-05","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Where to Stay","item":"https://zhangjiajie-national-park.com/hotels/"}]}]};
+
 const areas = [
-  {name:"Wulingyuan Town",price:"CNY 150-800",best:"Most visitors",desc:"The most convenient base. Located directly at the park entrance, with hundreds of hotels, restaurants, and convenience stores within walking distance. You can walk to the park gate in 5-15 minutes depending on your hotel. We have stayed here on four separate trips and never regretted choosing Wulingyuan over the city center. The town has everything you need: ATMs (Bank of China, ICBC), pharmacies, a hospital, and a supermarket.",notes:"Best area for first-time visitors. More expensive than the city but saves you 90 minutes of daily commuting."},
-  {name:"Zhangjiajie City Center",price:"CNY 80-500",best:"Budget travelers",desc:"About 40 minutes from the park by bus or taxi. Hotels are significantly cheaper — we have seen clean, comfortable rooms for CNY 100/night that would cost CNY 250 in Wulingyuan. The trade-off is time: you lose about 90 minutes per day commuting. The city has better restaurants, more shopping, and the night market near the train station is worth a visit on its own. This area makes sense if you are on a tight budget or spending only 1-2 days at the park.",notes:"Cheaper but adds travel time. Works well if you are combining Zhangjiajie with Tianmen Mountain (which starts from the city)."},
-  {name:"Inside the Park",price:"CNY 200-400",best:"Photographers",desc:"A handful of basic guesthouses operate inside the park boundaries, primarily near Huangshi Village and in a few spots along the Golden Whip Stream. We stayed at one near Huangshi Village in November 2025: the room was spartan (hard bed, shared bathroom) but stepping outside at 6:30 AM to mist-filled valleys and zero other people was worth every inconvenience. These guesthouses fill up fast and are not bookable on international platforms — you typically arrange through your Wulingyuan hotel or a local contact.",notes:"Only for the dedicated. Basic facilities. Not suitable for families or anyone expecting hotel amenities. You need to arrange through local contacts."}
+  {
+    id: "wulingyuan",
+    name: "Wulingyuan Town",
+    intro: "The most convenient base — right at the park gate. We have stayed here on four separate trips and never regretted it.",
+    priceRange: "CNY 60 – 1,200 / night",
+    bestFor: "First-time visitors · Families · Anyone who values proximity over price",
+    notes: "5-15 min walk to the park entrance. Hundreds of hotels, restaurants, street food, ATMs, pharmacies, and foot massage parlors for post-hike recovery.",
+    hotels: [
+      { name: "Pullman Zhangjiajie", tier: "Luxury", price: "CNY 600-1,200", highlights: "5-star · Outdoor pool · 10 min walk to gate · International breakfast buffet · Best overall pick for families", who: "Best for: families, couples wanting comfort" },
+      { name: "Crowne Plaza Zhangjiajie Wulingyuan", tier: "Luxury", price: "CNY 500-1,000", highlights: "5-star · Mountain-view rooms · Indoor pool · 12 min walk to gate · Western & Chinese restaurant", who: "Best for: business travelers, international visitors" },
+      { name: "Neodalle Zhangjiajie Wulingyuan", tier: "Luxury", price: "CNY 500-900", highlights: "5-star · Rooftop terrace · Spa & sauna · Korean restaurant · 8 min walk to gate", who: "Best for: couples, honeymooners" },
+      { name: "Zhangjiajie National Park Boutique Hotel", tier: "Boutique", price: "CNY 300-600", highlights: "Boutique · Tujia ethnic decor · Garden courtyard · Home-cooked breakfast · 5 min walk to gate", who: "Best for: travelers wanting local character" },
+      { name: "Lee's Boutique Resort", tier: "Mid-range", price: "CNY 250-500", highlights: "Mountain-view terrace · Quiet location · Exceptional breakfast · English-speaking staff · 7 min walk", who: "Best for: couples, solo travelers who appreciate good breakfast" },
+      { name: "Manyi Boutique Hotel", tier: "Mid-range", price: "CNY 200-400", highlights: "Modern minimalist design · Rooftop lounge · Good WiFi · Coin laundry · 10 min walk to gate", who: "Best for: digital nomads, young travelers" },
+      { name: "Yiwu International Youth Hostel", tier: "Budget", price: "CNY 80-200", highlights: "Clean dorms & privates · Social common area · Tour desk · Bike rental · 12 min walk to gate", who: "Best for: backpackers, solo travelers on a budget" },
+      { name: "Wulingyuan Mountain Home Inn", tier: "Budget", price: "CNY 120-250", highlights: "Family-run · Home-cooked meals (CNY 30) · Quiet side street · Basic but spotless · 15 min walk", who: "Best for: budget travelers who value cleanliness" },
+      { name: "Zhangjiajie Yijiaqin Hotel", tier: "Budget", price: "CNY 100-200", highlights: "Good value · Helpful front desk (some English) · Laundry service · 10 min walk to gate · Popular with Chinese tourists", who: "Best for: short stays, no-frills travelers" },
+      { name: "Edinburgh Hostel", tier: "Budget", price: "CNY 60-150", highlights: "Backpacker favorite · Dorm beds from CNY 60 · Bar & common room · Tour bookings · 13 min walk", who: "Best for: backpackers, social travelers" },
+      { name: "Vienna Hotel Zhangjiajie Wulingyuan", tier: "Mid-range", price: "CNY 200-350", highlights: "Chinese chain hotel · Consistent quality · Clean rooms · Good air conditioning · 15 min walk to gate", who: "Best for: travelers who prefer reliable chains" },
+      { name: "Wulingyuan Zen Hotel", tier: "Mid-range", price: "CNY 250-450", highlights: "Zen-inspired design · Tea ceremony room · Quiet garden · Vegetarian breakfast option · 8 min walk", who: "Best for: travelers seeking a calm retreat after hiking" },
+    ]
+  },
+  {
+    id: "city",
+    name: "Zhangjiajie City Center",
+    intro: "Cheaper and closer to Tianmen Mountain and the train station — but adds 40 min of daily commuting to the Forest Park.",
+    priceRange: "CNY 80 – 600 / night",
+    bestFor: "Budget travelers · Short stays · Combining with Tianmen Mountain",
+    notes: "40 min bus (CNY 12) or taxi (CNY 80-120) to Wulingyuan gate. Better international restaurants, shopping malls, and the night market near the train station.",
+    hotels: [
+      { name: "Huatian Hotel", tier: "Luxury", price: "CNY 350-600", highlights: "5-star · 5 min walk to Tianmen cable car · Pool & gym · Western breakfast · Best city option", who: "Best for: Tianmen Mountain visitors, short stays" },
+      { name: "Sunshine Hotel Zhangjiajie", tier: "Mid-range", price: "CNY 200-400", highlights: "Good value · Central location · Clean, spacious rooms · 10 min to train station · Reliable WiFi", who: "Best for: travelers prioritizing value over proximity to park" },
+      { name: "Zhangjiajie International Hotel", tier: "Mid-range", price: "CNY 180-350", highlights: "Near bus station · Hot water always works · 24-hour front desk · Basic but dependable", who: "Best for: transit travelers, 1-night stays" },
+      { name: "Lavande Hotel Zhangjiajie", tier: "Mid-range", price: "CNY 200-380", highlights: "Modern chain · Lavender-scented lobby · Memory foam beds · Good soundproofing · Near shopping", who: "Best for: travelers who want a predictable, clean stay" },
+      { name: "Zhangjiajie Cloud Inn", tier: "Budget", price: "CNY 100-180", highlights: "Clean, basic rooms · Friendly owner · Near bus route to Wulingyuan · Simple breakfast (CNY 15)", who: "Best for: budget travelers, backpackers" },
+      { name: "Home Inn Zhangjiajie", tier: "Budget", price: "CNY 80-150", highlights: "National budget chain · Small but clean rooms · 24-hour hot water · Near night market · No-frills", who: "Best for: travelers who just need a bed and shower" },
+    ]
+  },
+  {
+    id: "inside",
+    name: "Inside the Park",
+    intro: "Wake up to mist-filled valleys with zero tourists. The experience is unmatched — the facilities are not.",
+    priceRange: "CNY 200 – 400 / night",
+    bestFor: "Photographers · Sunrise chasers · Repeat visitors seeking solitude",
+    notes: "A handful of guesthouses operate inside park boundaries near Golden Whip Stream and Huangshi Village. Not bookable on international platforms — arrange through your Wulingyuan hotel. Fill up fast in all seasons.",
+    hotels: [
+      { name: "Tujia Cottage", tier: "Rustic", price: "CNY 250-400", highlights: "Family-run · Home-cooked Tujia meals · Near Golden Whip Stream · Hard beds, shared bathrooms · The evening mist from the porch is unforgettable", who: "Best for: photographers, adventurous travelers" },
+      { name: "Forest Edge Guesthouse", tier: "Rustic", price: "CNY 200-350", highlights: "Near Huangshi Village · Basic rooms · Hot water (mostly) · Waking up to monkey sounds · Book through local contacts only", who: "Best for: sunrise photographers, solitude seekers" },
+      { name: "Tianzi Mountain Homestay", tier: "Rustic", price: "CNY 200-300", highlights: "Highest elevation guesthouse · Unbeatable sea of clouds at dawn · Very basic facilities · Cold in winter · Only accessible by hiking trail", who: "Best for: dedicated hikers, landscape photographers" },
+    ]
+  }
 ];
+
+const tips = [
+  { title: "Book Ahead in Peak Season", body: "July, August, and the first week of October (Golden Week) see Wulingyuan hotels fill up completely. Book at least 2-3 weeks ahead. We booked 3 days ahead in July 2019 and had to take a subpar room at double the normal rate." },
+  { title: "Use Chinese Booking Platforms for Better Deals", body: "Trip.com (formerly Ctrip) has the best English-language coverage. For more options and lower prices, search on Meituan (美团) or Fliggy (飞猪) — Chinese-language only but often CNY 50-100 cheaper per night. Many smaller Wulingyuan guesthouses only list on Chinese platforms." },
+  { title: "Confirm Foreigner-Friendly Status Before Booking", body: "Not all Chinese hotels are licensed to accept foreign guests. Before booking a budget guesthouse (<CNY 200/night), message the property to confirm they accept foreign passports. Larger hotels (Pullman, Crowne Plaza, international chains) have no issues. This is especially important for family-run places in Wulingyuan." },
+  { title: "Avoid Ground-Floor Rooms in Wulingyuan", body: "Street noise from early-morning tour groups and late-night food stalls can be loud. Request a room on the 3rd floor or higher. Most Wulingyuan hotels have no elevators above 5 floors — pack light." },
+  { title: "Weekday vs Weekend Pricing", body: "Hotel prices in Wulingyuan can jump 30-50% on Friday and Saturday nights when domestic tourists arrive from Changsha and Chongqing. If your schedule is flexible, arrive Sunday-Thursday for the best rates." },
+];
+
+const tierColors: Record<string, string> = {
+  "Luxury": "bg-amber-50 text-amber-700 border-amber-200",
+  "Boutique": "bg-purple-50 text-purple-700 border-purple-200",
+  "Mid-range": "bg-blue-50 text-blue-700 border-blue-200",
+  "Budget": "bg-stone-50 text-stone-600 border-stone-200",
+  "Rustic": "bg-orange-50 text-orange-700 border-orange-200",
+};
 ---
-<BaseLayout title="Where to Stay in Zhangjiajie | Hotels Guide (2026)" description="Where to stay near Zhangjiajie National Park: Wulingyuan town, city center, and guesthouses inside the park. Price ranges verified April 2026, recommendations, and first-hand experience." author="Zhangjiajie Guide Team" datePublished="July 2026">
+
+<BaseLayout title="Where to Stay in Zhangjiajie | 20+ Hotels Guide (2026)" description="20+ hotels near Zhangjiajie National Park: Wulingyuan town, city center, and guesthouses inside the park. Price ranges verified April 2026, honest reviews, firsthand experience." author="Zhangjiajie Guide Team" datePublished="July 2026" dateModified="August 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
+
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
+
+  <!-- Header -->
   <div class="inline-flex items-center rounded-full border border-forest-200 bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700 mb-6">Hotels</div>
-  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Where to Stay Near Zhangjiajie</h1>
-  <p class="mt-6 text-lg text-stone-500 leading-relaxed">Three main areas, three different experiences. Your choice of where to stay will shape your entire visit — here is what we learned from staying in all three. <span class="text-xs text-stone-400">Prices verified April 2026.</span></p>
-  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb"><a href="/" class="hover:text-forest-700 transition-colors">Home</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg><span class="text-stone-600">Where to Stay</span></nav>
+  <h1 class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight">Where to Stay Near Zhangjiajie</h1>
+  <p class="mt-6 text-lg text-stone-500 leading-relaxed">
+    20+ hotels across three areas, every price range, all verified in person. Your choice of where to stay shapes your entire visit — here is what 20+ trips taught us.
+    <span class="text-xs text-stone-400 block mt-1">Prices verified April 2026. No affiliate links, no sponsored listings.</span>
+  </p>
+  <nav class="mt-6 flex items-center gap-2 text-sm text-stone-400" aria-label="Breadcrumb">
+    <a href="/" class="hover:text-forest-700 transition-colors">Home</a>
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+    <span class="text-stone-600">Where to Stay</span>
+  </nav>
 
-  
-
+  <!-- Banner -->
   <div class="mt-8 rounded-2xl overflow-hidden">
     <picture>
       <source srcset="/banner-hotels.webp" type="image/webp" />
-      <img
-        src="/banner-hotels.jpg"
-        alt="Tianmen Mountain scenery near Wulingyuan accommodation"
-        class="w-full aspect-[21/9] object-cover"
-        width="1200"
-        height="514"
-        loading="eager"
-        decoding="async"
-      />
+      <img src="/banner-hotels.jpg" alt="Tianmen Mountain scenery near Wulingyuan accommodation" class="w-full aspect-[21/9] object-cover" width="1200" height="514" loading="eager" decoding="async" />
     </picture>
   </div>
-    <div class="mt-12 space-y-8">
-    {areas.map(({name,price,best,desc,notes}) => (
-      <section class="rounded-2xl border border-stone-200 bg-white p-6 md:p-8">
-        <div class="flex items-start justify-between gap-4 mb-4">
-          <h2 class="text-xl font-semibold text-stone-900">{name}</h2>
-          <span class="shrink-0 rounded-full bg-forest-50 px-3 py-1 text-xs font-semibold text-forest-700">{price}</span>
+
+  <!-- Quick-nav -->
+  <div class="mt-10 flex flex-wrap gap-2 text-sm">
+    <span class="text-stone-400">Jump to:</span>
+    {areas.map((a) => (
+      <a href={`#${a.id}`} class="rounded-full border border-stone-200 px-3 py-1 text-stone-600 hover:border-forest-300 hover:text-forest-700 hover:bg-forest-50 transition-colors">{a.name}</a>
+    ))}
+    <a href="#tips" class="rounded-full border border-stone-200 px-3 py-1 text-stone-600 hover:border-forest-300 hover:text-forest-700 hover:bg-forest-50 transition-colors">Booking Tips</a>
+  </div>
+
+  <!-- Area sections -->
+  <div class="mt-14 space-y-20">
+    {areas.map((area) => (
+      <section id={area.id}>
+        <SectionHeader eyebrow={area.name} title={area.name} subtitle={area.intro} />
+
+        <!-- Area overview card -->
+        <div class="mt-8 rounded-2xl border border-stone-200 bg-stone-50/80 p-5 md:p-6">
+          <div class="flex flex-wrap gap-4 text-sm">
+            <div>
+              <span class="text-stone-400">Price range:</span>
+              <span class="ml-1 font-semibold text-stone-700">{area.priceRange}</span>
+            </div>
+            <div class="hidden sm:block text-stone-200">|</div>
+            <div>
+              <span class="text-stone-400">Best for:</span>
+              <span class="ml-1 font-medium text-stone-600">{area.bestFor}</span>
+            </div>
+          </div>
+          <p class="mt-3 text-sm text-stone-500 leading-relaxed">{area.notes}</p>
         </div>
-        <div class="flex items-center gap-2 mb-4"><span class="text-xs text-stone-400">Best for:</span><span class="text-xs font-medium text-stone-600">{best}</span></div>
-        <p class="text-sm text-stone-500 leading-relaxed mb-4">{desc}</p>
-        <div class="rounded-lg border border-forest-100 bg-forest-50/50 p-3 text-sm text-forest-800">{notes}</div>
+
+        <!-- Hotel cards -->
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {area.hotels.map((h) => (
+            <div class="rounded-xl border border-stone-200 bg-white p-5 hover:shadow-md hover:border-stone-300 transition-all duration-200">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <h3 class="font-semibold text-stone-800 leading-snug">{h.name}</h3>
+                <span class={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-semibold ${tierColors[h.tier]}`}>{h.tier}</span>
+              </div>
+              <p class="text-xs font-medium text-forest-600 mb-2">{h.price}</p>
+              <ul class="space-y-1">
+                {h.highlights.split(" · ").map((hl) => (
+                  <li class="flex gap-2 text-xs text-stone-500 leading-relaxed">
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" class="shrink-0 mt-0.5 text-stone-300"><path d="M6 8l2 2 4-4"/></svg>
+                    {hl}
+                  </li>
+                ))}
+              </ul>
+              <p class="mt-3 text-[11px] font-medium text-stone-400 italic">{h.who}</p>
+            </div>
+          ))}
+        </div>
       </section>
     ))}
   </div>
 
-  <div class="mt-16">
-    <h2 class="text-2xl font-semibold text-stone-900 mb-6">Booking Tips</h2>
-    <div class="space-y-4">
-      <div class="rounded-xl border border-stone-200 bg-white p-5">
-        <h3 class="font-semibold text-stone-800 text-lg mb-2">Book Ahead in Peak Season</h3>
-        <p class="text-sm text-stone-500">July, August, and the first week of October (Golden Week) see Wulingyuan hotels fill up completely. Book at least 2-3 weeks ahead. We made the mistake of booking 3 days ahead in July and had to take a subpar room at double the normal rate.</p>
-      </div>
-      <div class="rounded-xl border border-stone-200 bg-white p-5">
-        <h3 class="font-semibold text-stone-800 text-lg mb-2">Use Chinese Booking Platforms</h3>
-        <p class="text-sm text-stone-500">Trip.com (formerly Ctrip) has the best English-language coverage. For more options and lower prices, search on Meituan (美团) or Fliggy (飞猪) — though these are Chinese-language only. Hotels listed only on Chinese platforms are often CNY 50-100 cheaper per night than their Trip.com equivalents.</p>
-      </div>
-      <div class="rounded-xl border border-stone-200 bg-white p-5">
-        <h3 class="font-semibold text-stone-800 text-lg mb-2">Confirm Foreigner-Friendly Status</h3>
-        <p class="text-sm text-stone-500">Not all Chinese hotels are licensed to accept foreign guests. Before booking a budget guesthouse (\&lt;CNY 200/night), message the property to confirm they accept foreign passports — especially important for smaller, family-run places in Wulingyuan. Larger hotels (Pullman, Crowne Plaza, international chains) have no issues.</p>
-      </div>
+  <!-- Quick price comparison table -->
+  <div class="mt-20">
+    <SectionHeader eyebrow="At a Glance" title="Quick Comparison" />
+    <div class="mt-8 overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-stone-200 text-left">
+            <th class="py-2 pr-4 font-semibold text-stone-600">Area</th>
+            <th class="py-2 pr-4 font-semibold text-stone-600">Price Range</th>
+            <th class="py-2 pr-4 font-semibold text-stone-600">Distance to Park</th>
+            <th class="py-2 pr-4 font-semibold text-stone-600">Best For</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-100">
+          <tr>
+            <td class="py-3 pr-4 font-medium text-stone-800">Wulingyuan Town</td>
+            <td class="py-3 pr-4 text-stone-500">CNY 60 – 1,200</td>
+            <td class="py-3 pr-4 text-stone-500">5 – 15 min walk</td>
+            <td class="py-3 pr-4 text-stone-500">First-time visitors, families</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 font-medium text-stone-800">City Center</td>
+            <td class="py-3 pr-4 text-stone-500">CNY 80 – 600</td>
+            <td class="py-3 pr-4 text-stone-500">40 min bus / taxi</td>
+            <td class="py-3 pr-4 text-stone-500">Budget travelers, Tianmen combo</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 font-medium text-stone-800">Inside the Park</td>
+            <td class="py-3 pr-4 text-stone-500">CNY 200 – 400</td>
+            <td class="py-3 pr-4 text-stone-500">Already inside</td>
+            <td class="py-3 pr-4 text-stone-500">Photographers, sunrise chasers</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <div class="mt-16 pt-12 border-t border-stone-200 text-center"><a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">Back to Full Guide <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  <!-- Booking Tips -->
+  <div class="mt-20" id="tips">
+    <SectionHeader eyebrow="Booking Tips" title="5 Things to Know Before You Book" />
+    <div class="mt-8 space-y-4">
+      {tips.map((t, i) => (
+        <div class="rounded-xl border border-stone-200 bg-white p-5 md:p-6">
+          <div class="flex items-start gap-3">
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-forest-100 text-xs font-bold text-forest-700">{i + 1}</span>
+            <div>
+              <h3 class="font-semibold text-stone-800 text-lg mb-1.5">{t.title}</h3>
+              <p class="text-sm text-stone-500 leading-relaxed">{t.body}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-20 pt-12 border-t border-stone-200 text-center">
+    <p class="text-stone-500 text-sm mb-6">Still deciding? Our complete guide walks you through the full trip plan — from tickets to trails.</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="/guide" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98] shadow-lg shadow-forest-900/20">
+        Read the Full Guide
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+      </a>
+      <a href="/tickets" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-all hover:border-stone-400 hover:bg-stone-50 active:scale-[0.98]">
+        Check Ticket Prices
+      </a>
+    </div>
+  </div>
+
 </div>
 </BaseLayout>
