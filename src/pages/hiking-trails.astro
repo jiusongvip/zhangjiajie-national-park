@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Best Zhangjiajie Hiking Trails | 6 Trail Complete Guide (2026)","description":"Top 6 hiking trails in Zhangjiajie National Park: difficulty levels, distances, estimated times, scenic highlights, safety tips, and first-hand trail reports from 20+ visits.","datePublished":"2026-07-01","dateModified":"2026-08-05","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Hiking Trails","item":"https://zhangjiajie-national-park.com/hiking-trails/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Hiking Trails | 6 Best Routes Guide (2026)","description":"Top 6 hiking trails in Zhangjiajie National Park: difficulty levels, distances, estimated times, scenic highlights, safety tips, and first-hand trail reports from 20+ visits.","datePublished":"2026-07-01","dateModified":"2026-08-05","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Hiking Trails","item":"https://zhangjiajie-national-park.com/hiking-trails/"}]}]};
 
 const diffColors: Record<string, string> = {
   "Easy": "bg-green-50 text-green-700 border-green-200",
@@ -76,7 +76,7 @@ const whatToBring = [
 ];
 ---
 
-<BaseLayout title="Best Zhangjiajie Hiking Trails | 6 Trail Complete Guide (2026)" description="Top 6 hiking trails in Zhangjiajie National Park: difficulty levels, distances, times, safety tips, what to bring, and first-hand trail reports from 20+ visits." author="Zhangjiajie Guide Team" datePublished="July 2026" dateModified="August 2026">
+<BaseLayout title="Zhangjiajie Hiking Trails | 6 Best Routes Guide (2026)" description="Top 6 hiking trails in Zhangjiajie National Park: difficulty levels, distances, times, safety tips, what to bring, and first-hand trail reports from 20+ visits." author="Zhangjiajie Guide Team" datePublished="July 2026" dateModified="August 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
 
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">

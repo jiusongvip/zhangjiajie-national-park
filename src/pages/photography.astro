@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 
-const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Photography Guide | Best Spots & Camera Settings (2026)","description":"Zhangjiajie photography guide: 7 best photo spots, exact camera settings we used, lens recommendations, seasonal tips, drone rules, and how to capture the mist.","datePublished":"2026-07-01","dateModified":"2026-08-05","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Photography","item":"https://zhangjiajie-national-park.com/photography/"}]}]};
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Zhangjiajie Photography Guide | 7 Best Spots (2026)","description":"Zhangjiajie photography guide: 7 best photo spots, exact camera settings we used, lens recommendations, seasonal tips, drone rules, and how to capture the mist.","datePublished":"2026-07-01","dateModified":"2026-08-05","author":{"@type":"Person","name":"Zhangjiajie Guide Team"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zhangjiajie-national-park.com/"},{"@type":"ListItem","position":2,"name":"Photography","item":"https://zhangjiajie-national-park.com/photography/"}]}]};
 
 const spots = [
   {
@@ -81,7 +81,7 @@ const droneRules = [
 ];
 ---
 
-<BaseLayout title="Zhangjiajie Photography Guide | 7 Best Spots & Settings (2026)" description="Zhangjiajie photography guide: 7 best photo locations, exact camera settings, lens picks, seasonal tips, drone rules, and how to capture the mist. Based on 20+ visits." author="Zhangjiajie Guide Team" datePublished="July 2026" dateModified="August 2026">
+<BaseLayout title="Zhangjiajie Photography Guide | 7 Best Spots (2026)" description="Zhangjiajie photography guide: 7 best photo locations, exact camera settings, lens picks, seasonal tips, drone rules, and how to capture the mist. Based on 20+ visits." author="Zhangjiajie Guide Team" datePublished="July 2026" dateModified="August 2026">
 <slot name="head"><script type="application/ld+json" set:html={JSON.stringify(schema)}></script></slot>
 
 <div class="mx-auto max-w-3xl px-4 md:px-6 pb-20 md:pb-28">
