@@ -23,7 +23,7 @@ const {
   dateModified = datePublished,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, "");
 const robotsContent = noindex ? "noindex, follow" : "index, follow";
 
 const orgSchema = {
@@ -55,14 +55,14 @@ const personSchema = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robotsContent} />
-    <link rel="canonical" href={canonicalURL.href} />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
-    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Zhangjiajie Guide" />
