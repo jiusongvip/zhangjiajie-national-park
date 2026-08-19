@@ -13,8 +13,8 @@ const schema = {
       "author":{"@type":"Person","name":"Zhangjiajie Guide Team"}
     },
     { "@type": "BreadcrumbList", "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zhangjiajie-national-park.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Complete Guide", "item": "https://zhangjiajie-national-park.com/guide/" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zhangjiajie-national-park.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Complete Guide", "item": "https://www.zhangjiajie-national-park.com/guide/" }
     ]}
   ]
 };
@@ -93,8 +93,8 @@ const schema = {
         <div class="grid gap-4">
           {[
             { name: "Zhangjiajie National Forest Park", highlight: "The core. Avatar mountains, Golden Whip Stream, Yuanjiajie. This is what most people picture when they think of Zhangjiajie.", time: "1-2 days", verdict: "Non-negotiable", href: "/#beyond-park" },
-            { name: "Tianmen Mountain", highlight: "Heaven's Gate arch, 999-step staircase, cliff-hanging walkway. The cable car ride alone (7.5 km from downtown) is worth the entry fee.", time: "Half day", verdict: "Do not miss", href: "/tianmen-mountain" },
-            { name: "Zhangjiajie Grand Canyon", highlight: "World's longest and highest glass-bottom bridge. The bridge is the draw; the canyon hike below is optional but pleasant.", time: "Half day", verdict: "If you have 3+ days", href: "/glass-bridge" },
+            { name: "Tianmen Mountain", highlight: "Heaven's Gate arch, 999-step staircase, cliff-hanging walkway. The cable car ride alone (7.5 km from downtown) is worth the entry fee.", time: "Half day", verdict: "Do not miss", href: "/tianmen-mountain/" },
+            { name: "Zhangjiajie Grand Canyon", highlight: "World's longest and highest glass-bottom bridge. The bridge is the draw; the canyon hike below is optional but pleasant.", time: "Half day", verdict: "If you have 3+ days", href: "/glass-bridge/" },
             { name: "Tianzi Mountain Nature Reserve", highlight: "Sea of clouds at sunrise, panoramic pillar views. Connects directly to Yuanjiajie by shuttle bus, so you will pass through anyway.", time: "Half day", verdict: "Part of the core circuit", href: "/#beyond-park" },
           ].map(({ name, highlight, time, verdict, href }) => (
             <a href={href} class="block no-underline rounded-xl border border-stone-200 bg-white p-5 transition-all hover:border-forest-200 hover:shadow-md">
@@ -152,7 +152,7 @@ const schema = {
       <section>
         <h2 class="text-2xl font-semibold text-stone-900 mb-2">Tickets & Costs</h2>
         <p class="text-stone-500 leading-relaxed mb-4">
-          The main park ticket is valid for 4 consecutive days and covers entry plus internal shuttle buses. Cable cars, the Bailong Elevator, and in-park transport cost extra. Budget around CNY 500—800 per person for a full visit including transport inside the park. All prices verified at the Wulingyuan gate, April 2026. For a full breakdown of ticket types and combo options, see our <a href="/tickets" class="text-forest-600 hover:text-forest-700 underline">tickets and prices page</a>.
+          The main park ticket is valid for 4 consecutive days and covers entry plus internal shuttle buses. Cable cars, the Bailong Elevator, and in-park transport cost extra. Budget around CNY 500—800 per person for a full visit including transport inside the park. All prices verified at the Wulingyuan gate, April 2026. For a full breakdown of ticket types and combo options, see our <a href="/tickets/" class="text-forest-600 hover:text-forest-700 underline">tickets and prices page</a>.
         </p>
         <div class="rounded-xl border border-stone-200 bg-white p-5 mb-4">
           <div class="flex items-center justify-between mb-3">
@@ -165,7 +165,7 @@ const schema = {
           </div>
           <p class="mt-3 text-sm text-stone-400">Student & senior discounts available. Children under 1.2m and seniors 70+ enter free.</p>
         </div>
-        <a href="/tickets" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">
+        <a href="/tickets/" class="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-forest-600 active:scale-[0.98]">
           Full Ticket Breakdown & Buying Guide
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
         </a>
@@ -175,7 +175,7 @@ const schema = {
       <section>
         <h2 class="text-2xl font-semibold text-stone-900 mb-2">Where to Stay</h2>
         <p class="text-stone-500 leading-relaxed mb-4">
-          Wulingyuan town (near the park entrance) is the most convenient base — we have stayed here on four separate trips and never regretted it. The town has everything: restaurants, convenience stores, ATMs, and hotels ranging from CNY 150 guesthouses to the CNY 800 Pullman. Our <a href="/hotels" class="text-forest-600 hover:text-forest-700 underline">hotel guide</a> breaks down each area with price ranges and recommendations.
+          Wulingyuan town (near the park entrance) is the most convenient base — we have stayed here on four separate trips and never regretted it. The town has everything: restaurants, convenience stores, ATMs, and hotels ranging from CNY 150 guesthouses to the CNY 800 Pullman. Our <a href="/hotels/" class="text-forest-600 hover:text-forest-700 underline">hotel guide</a> breaks down each area with price ranges and recommendations.
         </p>
         <p class="text-stone-500 leading-relaxed mb-4">
           Zhangjiajie city center is about CNY 100/night cheaper on average, but you add 40 minutes of travel each way. That is nearly 90 minutes of commuting per day — time better spent inside the park. A handful of guesthouses operate inside the park itself (near Huangshi Village) for photographers who want sunrise access. We stayed at one in November 2025. Basic but magical.

@@ -23,16 +23,18 @@ const {
   dateModified = datePublished,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, "");
+const canonicalURL = Astro.url.pathname === "/"
+  ? new URL("/", Astro.site).href.replace(/\/$/, "")
+  : new URL(Astro.url.pathname, Astro.site).href;
 const robotsContent = noindex ? "noindex, follow" : "index, follow";
 
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Zhangjiajie Guide",
-  "url": "https://zhangjiajie-national-park.com",
+  "url": "https://www.zhangjiajie-national-park.com",
   "description": "Independent travel guide to Zhangjiajie National Park. Honest advice, no booking fees.",
-  "logo": "https://zhangjiajie-national-park.com/favicon.svg",
+  "logo": "https://www.zhangjiajie-national-park.com/favicon.svg",
   "email": "hello@zhangjiajie-national-park.com",
   "foundingDate": "2026"
 };
@@ -41,7 +43,7 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Zhangjiajie Guide Team",
-  "url": "https://zhangjiajie-national-park.com/about/",
+  "url": "https://www.zhangjiajie-national-park.com/about/",
   "jobTitle": "Travel Writers & Researchers",
   "worksFor": { "@type": "Organization", "name": "Zhangjiajie Guide" }
 };
@@ -101,11 +103,11 @@ const personSchema = {
           Zhangjiajie Guide
         </a>
         <div class="hidden md:flex items-center gap-1">
-          <a href="/guide" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Plan</a>
+          <a href="/guide/" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Plan</a>
           <a href="/#beyond-park" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Explore</a>
-          <a href="/itinerary" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Itineraries</a>
-          <a href="/hotels" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Stay</a>
-          <a href="/tickets" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Tickets</a>
+          <a href="/itinerary/" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Itineraries</a>
+          <a href="/hotels/" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Stay</a>
+          <a href="/tickets/" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Tickets</a>
           <a href="/#faq" class="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:text-forest-700 hover:bg-forest-50">Tips</a>
         </div>
       </nav>
@@ -149,46 +151,46 @@ const personSchema = {
           <div>
             <p class="text-sm font-semibold text-stone-700 mb-4">Plan</p>
             <div class="flex flex-col gap-2">
-              <a href="/guide" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Complete Guide</a>
+              <a href="/guide/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Complete Guide</a>
               <a href="/#when-to-go" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Best Time to Visit</a>
               <a href="/#at-a-glance" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">How to Get There</a>
-              <a href="/weather" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Weather</a>
+              <a href="/weather/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Weather</a>
             </div>
           </div>
           <div>
             <p class="text-sm font-semibold text-stone-700 mb-4">Explore</p>
             <div class="flex flex-col gap-2">
               <a href="/#beyond-park" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Top Attractions</a>
-              <a href="/tianmen-mountain" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Tianmen Mountain</a>
-              <a href="/avatar-mountains" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Avatar Mountains</a>
-              <a href="/glass-bridge" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Glass Bridge</a>
-              <a href="/hiking-trails" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Hiking Trails</a>
-              <a href="/photography" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Photography</a>
+              <a href="/tianmen-mountain/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Tianmen Mountain</a>
+              <a href="/avatar-mountains/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Avatar Mountains</a>
+              <a href="/glass-bridge/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Glass Bridge</a>
+              <a href="/hiking-trails/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Hiking Trails</a>
+              <a href="/photography/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Photography</a>
             </div>
           </div>
           <div>
             <p class="text-sm font-semibold text-stone-700 mb-4">Practical</p>
             <div class="flex flex-col gap-2">
-              <a href="/tickets" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Tickets & Prices</a>
-              <a href="/itinerary" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Itineraries</a>
-              <a href="/hotels" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Where to Stay</a>
+              <a href="/tickets/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Tickets & Prices</a>
+              <a href="/itinerary/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Itineraries</a>
+              <a href="/hotels/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Where to Stay</a>
               <a href="/#faq" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">FAQ</a>
             </div>
           </div>
           <div>
             <p class="text-sm font-semibold text-stone-700 mb-4">More</p>
             <div class="flex flex-col gap-2">
-              <a href="/fenghuang-ancient-town" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Fenghuang Town</a>
-              <a href="/food" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Food Guide</a>
-              <a href="/compare" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Compare</a>
+              <a href="/fenghuang-ancient-town/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Fenghuang Town</a>
+              <a href="/food/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Food Guide</a>
+              <a href="/compare/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Compare</a>
             </div>
           </div>
           <div>
             <p class="text-sm font-semibold text-stone-700 mb-4">About</p>
             <div class="flex flex-col gap-2">
-              <a href="/about" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Our Story</a>
-              <a href="/contact" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Contact Us</a>
-              <a href="/privacy" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Privacy Policy</a>
+              <a href="/about/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Our Story</a>
+              <a href="/contact/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Contact Us</a>
+              <a href="/privacy/" class="text-sm text-stone-500 hover:text-forest-700 transition-colors">Privacy Policy</a>
             </div>
           </div>
         </div>

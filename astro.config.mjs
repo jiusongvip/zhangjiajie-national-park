@@ -3,8 +3,8 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://zhangjiajie-national-park.com",
-  trailingSlash: "never",
+  site: "https://www.zhangjiajie-national-park.com",
+  trailingSlash: "always",
   integrations: [sitemap({ lastmod: new Date('2026-08-05') })],
   vite: {
     plugins: [tailwindcss()],

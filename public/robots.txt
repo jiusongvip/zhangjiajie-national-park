@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zhangjiajie-national-park.com/sitemap-index.xml
+Sitemap: https://www.zhangjiajie-national-park.com/sitemap-index.xml
 
 User-agent: GPTBot
 Allow: /
